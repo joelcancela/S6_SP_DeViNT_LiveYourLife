@@ -1,3 +1,4 @@
 ## Authors
 
-Elliot Kauffmnn
+Elliot Kauffmann
+Jeremy Junac
