@@ -1,9 +1,25 @@
-## Contributeurs
+# Titre :
 
-* Elliot Kauffmann
-* Jeremy Junac
+[nom du jeu]
+
+## Description :
+
+[description du jeu]
+[adaptation avec la déficience]
+
+## Membres de l'équipe [nom de l'équipe] :
+
+* Joël Cancela-Vaz
 * Antoine Dezarnaud
-* Joël Cancela Vaz
+* Jeremy Junac
+* Elliot Kauffmann
+
+## Public visé :
+
+* Persona :
+	* [nom]
+	* [hanidcap]
+	* [lien avec le jeu ?]
 
 ## Contact
 
