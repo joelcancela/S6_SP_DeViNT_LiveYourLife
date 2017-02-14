@@ -4,10 +4,11 @@
 
 ## Description :
 
-[description du jeu]
-[adaptation avec la déficience]
+Proposer des scénarios de la vie de tous les jours à accomplir avec succès, tels que se laver, préparer un repas ou encore effectuer un trajet piéton. Des actions sont proposées au joueur, ainsi que des indications pour accomplir sa tâche. L'objectif est d'apprendre ces routines ainsi que de sensibiliser aux risques qui peuvent être présents.
 
-## Membres de l'équipe [nom de l'équipe] :
+Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario en particulier.
+
+## Membres de l'équipe [TBD] :
 
 * Joël Cancela-Vaz
 * Antoine Dezarnaud
