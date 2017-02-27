@@ -1,6 +1,4 @@
-# Titre :
-
-[nom du jeu]
+# Titre : Live your life
 
 ## Description :
 
@@ -8,19 +6,19 @@ Proposer des scénarios de la vie de tous les jours à accomplir avec succès, t
 
 Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario en particulier.
 
-## Membres de l'équipe [TBD] :
+## Membres de l'équipe *WOW* :
 
-* Joël Cancela-Vaz
 * Antoine Dezarnaud
 * Jeremy Junac
 * Elliot Kauffmann
+* Joël Cancela Vaz
 
 ## Public visé :
 
 * Persona :
-	* [nom]
-	* [hanidcap]
-	* [lien avec le jeu ?]
+	* Jacques
+	* MV
+	* Veut devenir un peu plus indépendant
 
 ## Contact
 
