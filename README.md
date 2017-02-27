@@ -6,7 +6,7 @@ Proposer des scénarios de la vie de tous les jours à accomplir avec succès, t
 
 Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario en particulier.
 
-## Membres de l'équipe *WOW* :
+## Membres de l'équipe Coconut :
 
 * Antoine Dezarnaud
 * Jeremy Junac
