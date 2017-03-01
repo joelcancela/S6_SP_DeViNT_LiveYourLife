@@ -28,7 +28,7 @@ public class JeuChrono extends JeuAnimationDevint {
 		// création de la scene à partir du FXML
 		SceneDevint sc = null;
 		FXMLLoader loader = new FXMLLoader();
-	    String FXMLfileName = ConstantesDevint.packageFileName("dvt/exemple/chronometre/chronoGUI.fxml");
+	    String FXMLfileName = ConstantesDevint.packageFileName("main/java/dvt/exemple/chronometre/chronoGUI.fxml");
 	    try {
 			loader.setLocation(new URL(FXMLfileName));
 		} catch (MalformedURLException e1) {
