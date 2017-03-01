@@ -1,7 +1,7 @@
 package fr.unice.polytech.devint.g2projet3.devint.menu;
 
-import dvt.devint.ConstantesDevint;
-import dvt.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,8 +13,8 @@ import javafx.scene.layout.GridPane;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
-import static dvt.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
-import static dvt.devint.ConstantesDevint.SYNTHESE_MINIMALE;
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.SYNTHESE_MINIMALE;
 
 public class MenuDevintControl  {
 	
