@@ -1,9 +1,7 @@
-package dvt.devint.menu;
+package fr.unice.polytech.devint.g2projet3.devint.menu;
 
 
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /** calsse à étendre pour définir un menu de lancement 

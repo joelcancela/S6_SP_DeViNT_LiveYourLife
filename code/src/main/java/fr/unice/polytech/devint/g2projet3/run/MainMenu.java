@@ -1,9 +1,9 @@
-package dvt.run;
+package fr.unice.polytech.devint.g2projet3.run;
 
-import dvt.devint.menu.MenuDevint;
-import dvt.exemple.chronometre.JeuChrono;
-import dvt.exemple.multijoueur.JeuMulti;
-import dvt.exemple.quizz.JeuQuizz;
+import fr.unice.polytech.devint.g2projet3.devint.menu.MenuDevint;
+import fr.unice.polytech.devint.g2projet3.exemple.chronometre.JeuChrono;
+import fr.unice.polytech.devint.g2projet3.exemple.multijoueur.JeuMulti;
+import fr.unice.polytech.devint.g2projet3.exemple.quizz.JeuQuizz;
 import javafx.application.Application;
 
 /** cette classe lance les différents exemples de jeux DeViNT.

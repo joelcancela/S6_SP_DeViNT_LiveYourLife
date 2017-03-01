@@ -1,17 +1,16 @@
-package dvt.exemple.chronometre;
+package fr.unice.polytech.devint.g2projet3.exemple.chronometre;
 
 
-import java.io.File;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ControleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.JeuAnimationDevint;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.BorderPane;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import dvt.devint.ConstantesDevint;
-import dvt.devint.SceneDevint;
-import dvt.jeu.animation.ControleAnimationDevint;
-import dvt.jeu.animation.JeuAnimationDevint;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
 
 /**
  * Permet de gerer le jeu et la fenetre qui contient le jeu

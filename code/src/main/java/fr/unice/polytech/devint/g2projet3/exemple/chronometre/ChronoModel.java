@@ -1,6 +1,6 @@
-package dvt.exemple.chronometre;
+package fr.unice.polytech.devint.g2projet3.exemple.chronometre;
 
-import dvt.jeu.animation.ModeleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ModeleAnimationDevint;
 
 /** le modèle du jeu de chrono
  * l'utilisateur doit appuyer un maximum de fois sur 

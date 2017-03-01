@@ -1,6 +1,6 @@
-package dvt.jeu.simple;
+package fr.unice.polytech.devint.g2projet3.jeu.simple;
 
-import dvt.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
 
 /**
  * classe abstraite à étendre pour créer le contrôleur du jeu

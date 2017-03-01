@@ -1,10 +1,10 @@
-package dvt.exemple.multijoueur;
+package fr.unice.polytech.devint.g2projet3.exemple.multijoueur;
 
-import dvt.devint.ConstantesDevint;
-import dvt.devint.SceneDevint;
-import dvt.jeu.animation.ControleAnimationDevint;
-import dvt.jeu.animation.JeuAnimationDevint;
-import dvt.jeu.animation.ModeleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ControleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.JeuAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ModeleAnimationDevint;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 
@@ -17,7 +17,7 @@ import javafx.scene.canvas.Canvas;
  * @author helen
  *
  */
-public class JeuMulti extends JeuAnimationDevint{
+public class JeuMulti extends JeuAnimationDevint {
 	
 	@Override
 	public String titre() {

@@ -1,4 +1,4 @@
-package dvt.exemple.chronometre;
+package fr.unice.polytech.devint.g2projet3.exemple.chronometre;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

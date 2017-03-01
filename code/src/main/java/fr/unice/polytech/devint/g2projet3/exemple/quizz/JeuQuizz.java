@@ -1,17 +1,16 @@
-package dvt.exemple.quizz;
+package fr.unice.polytech.devint.g2projet3.exemple.quizz;
 
-import java.io.File;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.simple.ControleDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.simple.JeuDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.simple.ModeleDevint;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import dvt.devint.ConstantesDevint;
-import dvt.devint.SceneDevint;
-import dvt.jeu.simple.ControleDevint;
-import dvt.jeu.simple.JeuDevint;
-import dvt.jeu.simple.ModeleDevint;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * un exemple de jeu simple : un quizz de calcul
@@ -44,7 +43,7 @@ public class JeuQuizz extends JeuDevint {
 		}
 		try {
 			AnchorPane root = (AnchorPane)loader.load();
-			sc= new SceneDevint(root,ConstantesDevint.MAX_SCREEN_WIDTH,ConstantesDevint.MAX_SCREEN_HEIGHT);
+			sc = new SceneDevint(root,ConstantesDevint.MAX_SCREEN_WIDTH,ConstantesDevint.MAX_SCREEN_HEIGHT);
 	        control = loader.getController();
 	        control.setScene(sc);
 	        	        

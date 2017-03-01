@@ -1,4 +1,4 @@
-package dvt.devint.menu;
+package fr.unice.polytech.devint.g2projet3.devint.menu;
 
 import dvt.devint.ConstantesDevint;
 

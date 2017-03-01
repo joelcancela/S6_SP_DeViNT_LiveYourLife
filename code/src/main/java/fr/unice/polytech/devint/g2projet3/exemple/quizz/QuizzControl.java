@@ -1,7 +1,6 @@
-package dvt.exemple.quizz;
+package fr.unice.polytech.devint.g2projet3.exemple.quizz;
 
-import static dvt.devint.ConstantesDevint.SYNTHESE_MOYENNE;
-import dvt.jeu.simple.ControleDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.simple.ControleDevint;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

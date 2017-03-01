@@ -1,4 +1,4 @@
-package dvt.devint;
+package fr.unice.polytech.devint.g2projet3.devint;
 
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
@@ -7,11 +7,11 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Paint;
-
 import t2s.SIVOXDevint;
-import static dvt.devint.ConstantesDevint.*;
 
 import java.util.function.Consumer;
+
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.ACCUEIL_SON;
 
 /**
  * Scene à utiliser obligatoirement pour un projet DeViNT

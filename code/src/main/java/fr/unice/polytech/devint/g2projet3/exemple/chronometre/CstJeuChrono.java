@@ -1,4 +1,4 @@
-package dvt.exemple.chronometre;
+package fr.unice.polytech.devint.g2projet3.exemple.chronometre;
 
 /**
  * Permet de rassembler l'ensemble des constanstes du jeu dans une classe

@@ -1,4 +1,4 @@
-package dvt.exemple.multijoueur;
+package fr.unice.polytech.devint.g2projet3.exemple.multijoueur;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

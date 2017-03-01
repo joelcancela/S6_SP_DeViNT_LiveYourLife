@@ -1,6 +1,6 @@
-package dvt.exemple.quizz;
+package fr.unice.polytech.devint.g2projet3.exemple.quizz;
 
-import dvt.jeu.simple.ModeleDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.simple.ModeleDevint;
 
 /** jeu de quizz : version simple du jeu
 * TODO : on pourrait mettre les questions et réponses dans un fichier dom

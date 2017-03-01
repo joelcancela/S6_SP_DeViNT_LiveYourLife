@@ -1,16 +1,14 @@
-package dvt.exemple.chronometre;
+package fr.unice.polytech.devint.g2projet3.exemple.chronometre;
 
-import static dvt.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
-import static dvt.exemple.chronometre.CstJeuChrono.CONSIGNE_JEU;
-
-import java.util.function.Consumer;
-
-import dvt.exemple.chronometre.CstJeuChrono.TAILLE;
-import dvt.jeu.animation.ControleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.exemple.chronometre.CstJeuChrono.TAILLE;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ControleAnimationDevint;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
+import static fr.unice.polytech.devint.g2projet3.exemple.chronometre.CstJeuChrono.CONSIGNE_JEU;
 
 /** le contrôleur du jeu chrono
  * 

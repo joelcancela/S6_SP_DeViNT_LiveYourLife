@@ -1,7 +1,7 @@
-package dvt.exemple.multijoueur;
+package fr.unice.polytech.devint.g2projet3.exemple.multijoueur;
 
-import dvt.exemple.multijoueur.CstJeuMulti.SENS;
-import dvt.jeu.animation.ModeleAnimationDevint;
+import fr.unice.polytech.devint.g2projet3.exemple.multijoueur.CstJeuMulti.SENS;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ModeleAnimationDevint;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 

@@ -1,6 +1,6 @@
-package dvt.exemple.multijoueur;
+package fr.unice.polytech.devint.g2projet3.exemple.multijoueur;
 
-import dvt.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
 
 /**
  * Permet de gérer les positions et les déplacements des joueurs dans un boîte

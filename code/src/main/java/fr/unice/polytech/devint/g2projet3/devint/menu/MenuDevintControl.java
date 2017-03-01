@@ -1,10 +1,4 @@
-package dvt.devint.menu;
-
-import static dvt.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
-import static dvt.devint.ConstantesDevint.SYNTHESE_MINIMALE;
-
-import java.util.HashMap;
-import java.util.function.Consumer;
+package fr.unice.polytech.devint.g2projet3.devint.menu;
 
 import dvt.devint.ConstantesDevint;
 import dvt.devint.SceneDevint;
@@ -15,6 +9,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+
+import java.util.HashMap;
+import java.util.function.Consumer;
+
+import static dvt.devint.ConstantesDevint.SYNTHESE_MAXIMALE;
+import static dvt.devint.ConstantesDevint.SYNTHESE_MINIMALE;
 
 public class MenuDevintControl  {
 	

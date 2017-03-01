@@ -1,4 +1,4 @@
-package dvt.jeu.simple;
+package fr.unice.polytech.devint.g2projet3.jeu.simple;
 
 
 import javafx.stage.Stage;

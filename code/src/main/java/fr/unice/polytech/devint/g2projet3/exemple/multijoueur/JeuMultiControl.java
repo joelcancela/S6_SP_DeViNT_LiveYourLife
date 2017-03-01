@@ -1,23 +1,18 @@
-package dvt.exemple.multijoueur;
+package fr.unice.polytech.devint.g2projet3.exemple.multijoueur;
 
-import static dvt.exemple.multijoueur.CstJeuMulti.CONSIGNE_JEU;
-import static dvt.exemple.multijoueur.CstJeuMulti.RECOMMENCE;
-import static dvt.exemple.multijoueur.CstJeuMulti.WIN;
-import static dvt.exemple.multijoueur.CstJeuMulti.SENS.bas;
-import static dvt.exemple.multijoueur.CstJeuMulti.SENS.droite;
-import static dvt.exemple.multijoueur.CstJeuMulti.SENS.gauche;
-import static dvt.exemple.multijoueur.CstJeuMulti.SENS.haut;
-
-import dvt.devint.ConstantesDevint;
-import dvt.devint.SceneDevint;
-import dvt.jeu.animation.ControleAnimationDevint;
-import javafx.fxml.FXML;
+import fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint;
+import fr.unice.polytech.devint.g2projet3.devint.SceneDevint;
+import fr.unice.polytech.devint.g2projet3.jeu.animation.ControleAnimationDevint;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
+
+import static fr.unice.polytech.devint.g2projet3.exemple.multijoueur.CstJeuMulti.RECOMMENCE;
+import static fr.unice.polytech.devint.g2projet3.exemple.multijoueur.CstJeuMulti.SENS.*;
+import static fr.unice.polytech.devint.g2projet3.exemple.multijoueur.CstJeuMulti.WIN;
 
 /** le controleur du jeu multi-joueur
  * 

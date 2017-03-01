@@ -1,12 +1,10 @@
-package dvt.devint;
-
-import java.io.File;
-
-import com.sun.javafx.webkit.CursorManagerImpl;
+package fr.unice.polytech.devint.g2projet3.devint;
 
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
+
+import java.io.File;
 
 /** classe pour gérer les préférences
  * 

@@ -1,8 +1,8 @@
-package dvt.devint;
-
-import java.io.File;
+package fr.unice.polytech.devint.g2projet3.devint;
 
 import javafx.stage.Screen;
+
+import java.io.File;
 
 /**
  * Les constantes communes pour le projet devint

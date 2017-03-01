@@ -1,4 +1,4 @@
-package dvt.exemple.quizz;
+package fr.unice.polytech.devint.g2projet3.exemple.quizz;
 
 
 import javafx.application.Application;

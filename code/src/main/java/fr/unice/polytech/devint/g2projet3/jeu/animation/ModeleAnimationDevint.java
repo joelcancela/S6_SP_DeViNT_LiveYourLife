@@ -1,4 +1,4 @@
-package dvt.jeu.animation;
+package fr.unice.polytech.devint.g2projet3.jeu.animation;
 
 /** 
  * classe abstraite pour les modeles de jeux devint d'animation

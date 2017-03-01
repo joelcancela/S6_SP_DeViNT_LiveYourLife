@@ -1,13 +1,14 @@
-package dvt.devint;
+package fr.unice.polytech.devint.g2projet3.devint;
 
-import static dvt.devint.ConstantesDevint.*;
+import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
-import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.F1_SON;
+import static fr.unice.polytech.devint.g2projet3.devint.ConstantesDevint.F2_SON;
 
 /** classe pour lier des actions aux touches du clavier
  * par défaut 
