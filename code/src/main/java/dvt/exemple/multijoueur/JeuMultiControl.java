@@ -11,6 +11,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 
 import static dvt.exemple.multijoueur.CstJeuMulti.RECOMMENCE;
+import static dvt.exemple.multijoueur.CstJeuMulti.SENS.*;
 import static dvt.exemple.multijoueur.CstJeuMulti.WIN;
 
 /** le controleur du jeu multi-joueur
