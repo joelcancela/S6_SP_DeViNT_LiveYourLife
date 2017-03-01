@@ -16,7 +16,7 @@ Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario
 ## Public visé :
 
 * Persona :
-	* Jacques
+	* Jacques (ESAT)
 	* MV
 	* Veut devenir un peu plus indépendant
 
