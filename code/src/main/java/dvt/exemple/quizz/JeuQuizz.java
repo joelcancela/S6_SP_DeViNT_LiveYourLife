@@ -34,7 +34,7 @@ public class JeuQuizz extends JeuDevint {
 		// création de la scene et du controleur
 		SceneDevint sc = null;
 		FXMLLoader loader = new FXMLLoader();
-	    String FXMLfileName = ConstantesDevint.packageFileName("dvt/exemple/quizz/quizzGUI.fxml");
+	    String FXMLfileName = ConstantesDevint.packageFileName("main/java/dvt/exemple/quizz/quizzGUI.fxml");
 		try {
 			loader.setLocation(new URL(FXMLfileName));
 		} catch (MalformedURLException e1) {
