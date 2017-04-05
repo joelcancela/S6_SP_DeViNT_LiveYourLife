@@ -9,35 +9,6 @@ import dvt.jeu.simple.ModeleDevint;
  *
  * @author Joël CANCELA VAZ
  */
-public abstract class ActivityController extends JeuDevint {
-    /**
-     * le titre du jeu
-     *
-     * @return le titre
-     */
-    @Override
-    public String titre() {
-        return null;
-    }
+public abstract class ActivityController extends ControleDevint {
 
-    /**
-     * initialisation du modèle
-     * méthode appelée dans le constructeur
-     */
-    @Override
-    protected ModeleDevint initModel() {
-        return null;
-    }
-
-    /**
-     * initialisation du contrôle devint et de la scene devint
-     * méthode appelée dans le constructeur
-     * la scene peut être construite à partir du FXML via un FXMLLoader()
-     * <p>
-     * on peut aussi tout créer à la main si on ne veut pas passer par FXML
-     */
-    @Override
-    protected ControleDevint initControlAndScene() {
-        return null;
-    }
 }
