@@ -46,6 +46,7 @@ public class ChronoActivity extends JeuDevint {
             control.setScene(sc);
 
 
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
