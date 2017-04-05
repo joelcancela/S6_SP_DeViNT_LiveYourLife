@@ -9,7 +9,7 @@
 <BorderPane prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.102"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="">
+            fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController">
     <top>
         <Text fx:id="activityName" BorderPane.alignment="CENTER" />
     </top>
