@@ -7,7 +7,7 @@ import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoActivity;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -39,26 +39,16 @@ public class JeuChrono extends JeuDevint {
 
     @Override
     protected ControleDevint initControlAndScene() {
-        // création de la scene et du controleur
-        SceneDevint sc = null;
-        FXMLLoader loader = new FXMLLoader();
-        String FXMLfileName = ConstantesDevint.packageFileName("/main/resource/fxml/chronoActivity.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent rootNode = null;
         try {
-            loader.setLocation(new URL(FXMLfileName));
-        } catch (MalformedURLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        try {
-            BorderPane root = (BorderPane)loader.load();
-            sc = new SceneDevint(root,ConstantesDevint.MAX_SCREEN_WIDTH,ConstantesDevint.MAX_SCREEN_HEIGHT);
-            control = loader.getController();
-            control.setScene(sc);
-
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoActivity.fxml"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        SceneDevint sceneDevint = new SceneDevint(rootNode,ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
+        control = fxmlLoader.getController();
+        control.setScene(sceneDevint);
         return control;
     }
 }
