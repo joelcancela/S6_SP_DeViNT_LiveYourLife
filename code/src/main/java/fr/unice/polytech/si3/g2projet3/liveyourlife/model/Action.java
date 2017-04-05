@@ -1,5 +1,6 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model;
 
+
 import javafx.scene.image.Image;
 
 /**

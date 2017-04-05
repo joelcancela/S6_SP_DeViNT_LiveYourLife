@@ -29,4 +29,8 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         possibleChoices.remove(act);
         answer.add(act);
     }
+
+    public List<A> getPossibleChoices(){
+        return possibleChoices;
+    }
 }
