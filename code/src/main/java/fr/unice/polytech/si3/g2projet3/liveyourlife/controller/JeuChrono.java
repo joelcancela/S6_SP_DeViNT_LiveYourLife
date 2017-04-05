@@ -47,6 +47,7 @@ public class JeuChrono extends JeuDevint {
             e.printStackTrace();
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode,ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
+        sceneDevint.getSIVox().stop();
         control = fxmlLoader.getController();
         control.setScene(sceneDevint);
         return control;
