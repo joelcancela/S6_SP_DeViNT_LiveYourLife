@@ -17,6 +17,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     protected List<A> answer;
 
     public Activity(String title, List<A> possibleChoices) {
+        super();
         this.title = title;
         this.possibleChoices = possibleChoices;
         answer = new LinkedList<>();
