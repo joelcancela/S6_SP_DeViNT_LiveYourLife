@@ -1,5 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model;
 
+import dvt.jeu.simple.ModeleDevint;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,22 +10,22 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public abstract class Activity<A extends Action> {
+public abstract class Activity<A extends Action> extends ModeleDevint{
 
     protected final String title;
-    protected List<A> choices;
+    protected List<A> possibleChoices;
     protected List<A> answer;
 
-    public Activity(String title, List<A> choices) {
+    public Activity(String title, List<A> possibleChoices) {
         this.title = title;
-        this.choices = choices;
+        this.possibleChoices = possibleChoices;
         answer = new LinkedList<>();
     }
 
     public void answer(A act) {
-        if (!choices.contains(act))
+        if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
-        choices.remove(act);
+        possibleChoices.remove(act);
         answer.add(act);
     }
 }
