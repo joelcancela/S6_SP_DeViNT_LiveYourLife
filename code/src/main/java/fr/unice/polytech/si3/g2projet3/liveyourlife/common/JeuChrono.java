@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.common;
 
 import dvt.devint.ConstantesDevint;
 import dvt.devint.SceneDevint;

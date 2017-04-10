@@ -1,11 +1,8 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife;
 
 import dvt.devint.menu.MenuDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ActivityController;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.JeuChrono;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.JeuChrono;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleActivityController;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoActivity;
 import javafx.application.Application;
 
 /**
