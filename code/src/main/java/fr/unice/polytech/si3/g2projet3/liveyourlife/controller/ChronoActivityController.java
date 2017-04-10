@@ -1,28 +1,20 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoActivity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TabPane;
-import javafx.scene.image.Image;
-import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
-import javax.swing.text.Element;
-import javax.swing.text.html.ImageView;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
+import java.util.Optional;
 
 /**
  * Controller of the Chrono Activity
@@ -34,14 +26,51 @@ public class ChronoActivityController extends ActivityController {
     @FXML
     public Text activityName;
     @FXML
-    public ListView availableActions;
+    public ListView<ChronoAction> availableActions;
     @FXML
-    public ListView pickedActions;
+    public ListView<ChronoAction> pickedActions;
 
 
     @Override
     protected void init() {
         List<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
+        initPossibleActions(possibleActions);
+        initAnswers(possibleActions);
+    }
+
+    private void initAnswers(List<ChronoAction> possibleActions) {
+        ObservableList<ChronoAction> list = FXCollections.observableArrayList(possibleActions);
+        pickedActions.setPrefHeight(325);
+        pickedActions.setEditable(false);
+        pickedActions.setCellFactory(
+                new Callback<ListView<ChronoAction>, ListCell<ChronoAction>>() {
+                    public ListCell<ChronoAction> call(ListView<ChronoAction> listView) {
+                        return new ListCell<ChronoAction>() {
+                            protected void updateItem(ChronoAction choice, boolean empty) {
+                                if (choice != null) {
+                                    try {
+                                        String fxmlFile = "/fxml/Activity_Element.fxml";
+                                        FXMLLoader loader = new FXMLLoader();
+                                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+                                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
+                                        this.setGraphic(listElement);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        };
+                    }
+                }
+        );
+        pickedActions.setItems(list);
+    }
+
+    /**
+     * Initialize the list view containing the possible actions
+     * @param possibleActions the different choices the player have.
+     */
+    private void initPossibleActions(List<ChronoAction> possibleActions) {
         ObservableList<ChronoAction> list = FXCollections.observableArrayList(possibleActions);
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
