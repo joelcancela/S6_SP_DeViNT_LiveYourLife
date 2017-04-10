@@ -6,10 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.102"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController">
     <top>
         <Text fx:id="activityName" BorderPane.alignment="CENTER" />
     </top>
@@ -18,8 +15,8 @@
             <BorderPane.margin>
                 <Insets left="10.0" right="10.0" />
             </BorderPane.margin>
-            <ListView fx:id="availableActions" prefHeight="200.0" prefWidth="200.0"/>
-            <ListView fx:id="pickedActions" prefHeight="200.0" prefWidth="200.0"/>
+            <ListView fx:id="pickedActions" orientation="HORIZONTAL" prefHeight="200.0" />
+            <ListView fx:id="availableActions" layoutX="10.0" layoutY="10.0" orientation="HORIZONTAL" prefHeight="200.0" />
         </VBox>
     </center>
 </BorderPane>

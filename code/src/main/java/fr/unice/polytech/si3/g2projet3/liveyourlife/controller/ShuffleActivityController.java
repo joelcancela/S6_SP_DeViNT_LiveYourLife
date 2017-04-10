@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
  *
  * @author Joël CANCELA VAZ
  */
-public class ShuffleActivityController extends JeuDevint {
+public class ShuffleActivityController extends ActivityController {
     @FXML
     public Text activityName;
     @FXML
@@ -22,34 +22,18 @@ public class ShuffleActivityController extends JeuDevint {
     @FXML
     public Text actionType;
 
-    /**
-     * le titre du jeu
-     *
-     * @return le titre
-     */
     @Override
-    public String titre() {
-        return null;
+    protected void init() {
+
     }
 
-    /**
-     * initialisation du modèle
-     * méthode appelée dans le constructeur
-     */
     @Override
-    protected ModeleDevint initModel() {
-        return null;
+    protected void reset() {
+
     }
 
-    /**
-     * initialisation du contrôle devint et de la scene devint
-     * méthode appelée dans le constructeur
-     * la scene peut être construite à partir du FXML via un FXMLLoader()
-     * <p>
-     * on peut aussi tout créer à la main si on ne veut pas passer par FXML
-     */
     @Override
-    protected ControleDevint initControlAndScene() {
-        return null;
+    public void mapTouchToActions() {
+
     }
 }

@@ -23,10 +23,18 @@ public abstract class ControleDevint {
 
     /**
      * 
+     * @return : le modele devint
+     */
+    public ModeleDevint getModel() {
+    	return model;
+    }
+
+    /**
+     *
      * @return : la scene devint
      */
     public SceneDevint getScene() {
-    	return scene;
+        return scene;
     }
     
     /**

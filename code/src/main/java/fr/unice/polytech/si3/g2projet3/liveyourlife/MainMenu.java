@@ -1,9 +1,9 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife;
 
 import dvt.devint.menu.MenuDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ActivityController;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.JeuChrono;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleActivityController;
+import javafx.application.Application;
 
 /**
  * Class x
@@ -11,6 +11,10 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleActivityCo
  * @author Joël CANCELA VAZ
  */
 public class MainMenu extends MenuDevint {
+
+    public static void main(String[] args) {
+        Application.launch(MainMenu.class,args);
+    }
     /**
      * le titre du menu
      *
@@ -29,7 +33,7 @@ public class MainMenu extends MenuDevint {
     @Override
     public void initMenu() {
         control.addMenuItem("Jouer une journée complète", x-> new ShuffleActivityController());
-        control.addMenuItem("Se brosser les dents", x-> new ChronoActivityController());
+        control.addMenuItem("Se brosser les dents", x-> new JeuChrono());
         control.addMenuItem("S'habiller", x-> new ShuffleActivityController());
     }
 }
