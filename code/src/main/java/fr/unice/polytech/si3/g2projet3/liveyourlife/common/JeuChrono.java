@@ -5,15 +5,12 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 

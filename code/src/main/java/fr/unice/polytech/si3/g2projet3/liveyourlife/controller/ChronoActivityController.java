@@ -1,7 +1,8 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.ChronoAnswer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +15,6 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Controller of the Chrono Activity
@@ -28,25 +28,27 @@ public class ChronoActivityController extends ActivityController {
     @FXML
     public ListView<ChronoAction> availableActions;
     @FXML
-    public ListView<ChronoAction> pickedActions;
+    public ListView<ChronoAnswer> pickedActions;
 
 
     @Override
     protected void init() {
         List<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
+        List<ChronoAnswer> answers =  ((ChronoActivity) model).getAnswers();
+        System.out.println(answers.size());
         initPossibleActions(possibleActions);
-        initAnswers(possibleActions);
+        initAnswers(answers);
     }
 
-    private void initAnswers(List<ChronoAction> possibleActions) {
-        ObservableList<ChronoAction> list = FXCollections.observableArrayList(possibleActions);
+    private void initAnswers(List<ChronoAnswer> answers) {
+        ObservableList<ChronoAnswer> list = FXCollections.observableArrayList(answers);
         pickedActions.setPrefHeight(325);
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(
-                new Callback<ListView<ChronoAction>, ListCell<ChronoAction>>() {
-                    public ListCell<ChronoAction> call(ListView<ChronoAction> listView) {
-                        return new ListCell<ChronoAction>() {
-                            protected void updateItem(ChronoAction choice, boolean empty) {
+                new Callback<ListView<ChronoAnswer>, ListCell<ChronoAnswer>>() {
+                    public ListCell<ChronoAnswer> call(ListView<ChronoAnswer> listView) {
+                        return new ListCell<ChronoAnswer>() {
+                            protected void updateItem(ChronoAnswer choice, boolean empty) {
                                 if (choice != null) {
                                     try {
                                         String fxmlFile = "/fxml/Activity_Element.fxml";
