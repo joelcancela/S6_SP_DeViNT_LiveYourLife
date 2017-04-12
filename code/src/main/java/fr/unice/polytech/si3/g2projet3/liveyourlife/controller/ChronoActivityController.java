@@ -4,6 +4,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.ChronoAnswer;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,15 +34,13 @@ public class ChronoActivityController extends ActivityController {
 
     @Override
     protected void init() {
-        List<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
-        List<ChronoAnswer> answers =  ((ChronoActivity) model).getAnswers();
-        System.out.println(answers.size());
+        ObservableList<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
+        ObservableList<ChronoAnswer> answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions(possibleActions);
         initAnswers(answers);
     }
 
-    private void initAnswers(List<ChronoAnswer> answers) {
-        ObservableList<ChronoAnswer> list = FXCollections.observableArrayList(answers);
+    private void initAnswers(ObservableList<ChronoAnswer> answers) {
         pickedActions.setPrefHeight(325);
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(
@@ -65,15 +64,14 @@ public class ChronoActivityController extends ActivityController {
                     }
                 }
         );
-        pickedActions.setItems(list);
+        pickedActions.setItems(answers);
     }
 
     /**
      * Initialize the list view containing the possible actions
      * @param possibleActions the different choices the player have.
      */
-    private void initPossibleActions(List<ChronoAction> possibleActions) {
-        ObservableList<ChronoAction> list = FXCollections.observableArrayList(possibleActions);
+    private void initPossibleActions(ObservableList<ChronoAction> possibleActions) {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
         availableActions.setCellFactory(
@@ -97,7 +95,7 @@ public class ChronoActivityController extends ActivityController {
                     }
                 }
         );
-        availableActions.setItems(list);
+        availableActions.setItems(possibleActions);
     }
 
     @Override

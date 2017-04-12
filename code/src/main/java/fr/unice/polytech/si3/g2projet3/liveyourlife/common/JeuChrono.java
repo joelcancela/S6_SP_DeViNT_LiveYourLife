@@ -9,6 +9,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ import java.util.List;
  */
 public class JeuChrono extends JeuDevint {
 
+
+    private ChronoActivity chronoActivity;
 
     public JeuChrono() {
     }
@@ -37,7 +40,8 @@ public class JeuChrono extends JeuDevint {
         answers.add(new ChronoAction("remplir un verre d'eau","/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
         answers.add(new ChronoAction("se rincer les dents","/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
         answers.add(new ChronoAction("se brosser les dents","/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
-        return new ChronoActivity(titre(),answers);
+        chronoActivity = new ChronoActivity(titre(),answers);
+        return chronoActivity;
     }
 
     @Override
@@ -57,6 +61,25 @@ public class JeuChrono extends JeuDevint {
         control.setModel(initModel());
 
         control.setScene(sceneDevint);
+
+        sceneDevint.mapKeyPressedToConsumer(KeyCode.LEFT, (x) -> left());
+        sceneDevint.mapKeyPressedToConsumer(KeyCode.RIGHT, (x) -> right());
+        sceneDevint.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
         return control;
+    }
+
+    private void choose() {
+        System.out.println("choose");
+        chronoActivity.answerSelectedAction();
+    }
+
+    private void right() {
+        System.out.println("right!!!!!");
+        chronoActivity.chooseRight();
+    }
+
+    private void left() {
+        System.out.println("left!!!!!");
+        chronoActivity.chooseLeft();
     }
 }

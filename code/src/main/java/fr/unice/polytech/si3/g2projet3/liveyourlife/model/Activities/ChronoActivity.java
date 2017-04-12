@@ -3,6 +3,7 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.ChronoAnswer;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ import java.util.List;
  */
 public class ChronoActivity extends Activity<ChronoAction,ChronoAnswer> {
 
+    private int currentChoice = 0;
+
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
         for(int i = 0; i < possibleChoices.size();i++){
@@ -19,4 +22,26 @@ public class ChronoActivity extends Activity<ChronoAction,ChronoAnswer> {
         }
     }
 
+    public void chooseRight() {
+        try{
+            ChronoAction action = possibleChoices.get(currentChoice+1);
+            currentChoice++;
+        }catch (IndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void chooseLeft() {
+        try{
+            ChronoAction action = possibleChoices.get(currentChoice-1);
+            currentChoice--;
+        }catch (IndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void answerSelectedAction() {
+        answer(possibleChoices.get(currentChoice));
+        currentChoice = 0;
+    }
 }

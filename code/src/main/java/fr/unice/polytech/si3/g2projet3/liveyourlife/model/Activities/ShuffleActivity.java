@@ -27,6 +27,6 @@ public class ShuffleActivity extends Activity<ShuffleAction,Answer> {
         if (nextChoices.isEmpty()) {
             //TODO: Go to the next activity
         }
-        possibleChoices = nextChoices.remove();
+//        possibleChoices = nextChoices.remove();
     }
 }

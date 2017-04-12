@@ -3,6 +3,9 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities;
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.Answer;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,15 +18,15 @@ import java.util.List;
 public abstract class Activity<A extends Action, B extends Answer> extends ModeleDevint{
 
     protected final String title;
-    protected List<A> possibleChoices;
-    protected List<B> answers;
+    protected ObservableList<A> possibleChoices;
+    protected ObservableList<B> answers;
     protected int status = 0;
 
     public Activity(String title, List<A> possibleChoices) {
         super();
         this.title = title;
-        this.possibleChoices = possibleChoices;
-        answers = new LinkedList<>();
+        this.possibleChoices = FXCollections.observableArrayList(possibleChoices);
+        this.answers = FXCollections.observableArrayList();
     }
 
     public void answer(A act) {
@@ -33,11 +36,11 @@ public abstract class Activity<A extends Action, B extends Answer> extends Model
         answers.get(status++).setAction(act);
     }
 
-    public List<A> getPossibleChoices(){
+    public ObservableList<A> getPossibleChoices(){
         return possibleChoices;
     }
 
-    public List<B> getAnswers(){
+    public ObservableList<B> getAnswers(){
         return answers;
     }
 }
