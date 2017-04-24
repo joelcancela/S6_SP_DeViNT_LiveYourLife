@@ -40,8 +40,9 @@ public class ChronoActivity extends Activity<ChronoAction> {
         return currentChoice;
     }
 
-    public void answerSelectedAction() {
+    public int answerSelectedAction() {
         answer(possibleChoices.get(currentChoice));
         currentChoice = 0;
+        return currentChoice;
     }
 }
