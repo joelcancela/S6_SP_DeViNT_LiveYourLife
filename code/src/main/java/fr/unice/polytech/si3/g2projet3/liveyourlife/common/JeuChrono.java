@@ -62,24 +62,7 @@ public class JeuChrono extends JeuDevint {
 
         control.setScene(sceneDevint);
 
-        sceneDevint.mapKeyPressedToConsumer(KeyCode.LEFT, (x) -> left());
-        sceneDevint.mapKeyPressedToConsumer(KeyCode.RIGHT, (x) -> right());
-        sceneDevint.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
+
         return control;
-    }
-
-    private void choose() {
-        System.out.println("choose");
-        chronoActivity.answerSelectedAction();
-    }
-
-    private void right() {
-        System.out.println("right!!!!!");
-        chronoActivity.chooseRight();
-    }
-
-    private void left() {
-        System.out.println("left!!!!!");
-        chronoActivity.chooseLeft();
     }
 }

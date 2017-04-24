@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
@@ -102,6 +103,26 @@ public class ChronoActivityController extends ActivityController {
 
     @Override
     public void mapTouchToActions() {
-
+        scene.mapKeyPressedToConsumer(KeyCode.LEFT, (x) -> left());
+        scene.mapKeyPressedToConsumer(KeyCode.RIGHT, (x) -> right());
+        scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
     }
+
+
+    private void choose() {
+        System.out.println("choose");
+        ((ChronoActivity) model).answerSelectedAction();
+    }
+
+    private void right() {
+        System.out.println("right!!!!!");
+        ((ChronoActivity) model).chooseRight();
+    }
+
+    private void left() {
+        System.out.println("left!!!!!");
+        ((ChronoActivity) model).chooseLeft();
+    }
+
+
 }
