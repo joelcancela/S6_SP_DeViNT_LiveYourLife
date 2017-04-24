@@ -77,15 +77,21 @@ public class ChronoActivityController extends ActivityController {
                     public ListCell<ChronoAction> call(ListView<ChronoAction> listView) {
                         return new ListCell<ChronoAction>() {
                             protected void updateItem(ChronoAction choice, boolean empty) {
-                                if (choice != null) {
-                                    try {
-                                        String fxmlFile = "/fxml/Activity_Element.fxml";
-                                        FXMLLoader loader = new FXMLLoader();
-                                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
-                                        this.setGraphic(listElement);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
+                                super.updateItem(choice,empty);
+                                if(empty){
+                                    this.setGraphic(null);
+                                }
+                                else {
+                                    if (choice != null) {
+                                        try {
+                                            String fxmlFile = "/fxml/Activity_Element.fxml";
+                                            FXMLLoader loader = new FXMLLoader();
+                                            Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+                                            ((ChronoActivityChoiceController) loader.getController()).init(choice);
+                                            this.setGraphic(listElement);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
                                 }
                             }
@@ -117,11 +123,13 @@ public class ChronoActivityController extends ActivityController {
     private void right() {
         System.out.println("right!!!!!");
         ((ChronoActivity) model).chooseRight();
+//        System.out.println(availableActions.getItems());
     }
 
     private void left() {
         System.out.println("left!!!!!");
         ((ChronoActivity) model).chooseLeft();
+//        System.out.println(availableActions.getItems());
     }
 
 
