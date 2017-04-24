@@ -21,11 +21,12 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
     }
 
     @Override
-    public void answer(ShuffleAction act) {
+    public boolean answer(ShuffleAction act) {
         super.answer(act);
         if (nextChoices.isEmpty()) {
             //TODO: Go to the next activity
         }
 //        possibleChoices = nextChoices.remove();
+        return false;
     }
 }

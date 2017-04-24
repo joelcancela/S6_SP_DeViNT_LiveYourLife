@@ -33,17 +33,17 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         this.answers = FXCollections.observableArrayList();
     }
 
-    public void answer(A act) {
+    public boolean answer(A act) {
         if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
         if(correctAnswer.get(status).equals(act)){
             System.out.println("correct");
             //MAJ des possibilitées
             possibleChoices.remove(act);
-
             //MAJ des answers
             answers.set(status++,act);
-        }
+            return true;
+        }else return false;
 
     }
 

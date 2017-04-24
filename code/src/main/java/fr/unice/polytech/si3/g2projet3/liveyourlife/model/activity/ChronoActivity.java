@@ -42,8 +42,8 @@ public class ChronoActivity extends Activity<ChronoAction> {
 
     public int answerSelectedAction() {
         if(possibleChoices.size()>0){
-            answer(possibleChoices.get(currentChoice));
-            currentChoice = 0;
+            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
+            if(wasCorrect) currentChoice = Math.max(currentChoice-1,0);
         }
         return currentChoice;
     }
