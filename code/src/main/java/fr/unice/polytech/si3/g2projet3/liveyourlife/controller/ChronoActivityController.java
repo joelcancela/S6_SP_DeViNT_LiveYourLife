@@ -2,14 +2,20 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Cell;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
@@ -103,7 +109,16 @@ public class ChronoActivityController extends ActivityController {
                     }
                 }
         );
+        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ChronoAction>() {
+
+            @Override
+            public void changed(ObservableValue<? extends ChronoAction> observable, ChronoAction oldValue, ChronoAction newValue) {
+                int newIndexByMouse = availableActions.getSelectionModel().getSelectedIndex();
+                ((ChronoActivity) model).updateSelectedIndex(newIndexByMouse);
+            }
+        });
         availableActions.setItems(possibleActions);
+        availableActions.getSelectionModel().selectFirst();
     }
 
     @Override

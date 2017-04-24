@@ -47,4 +47,8 @@ public class ChronoActivity extends Activity<ChronoAction> {
         }
         return currentChoice;
     }
+
+    public void updateSelectedIndex(int newIndexByMouse) {
+        currentChoice = newIndexByMouse;
+    }
 }
