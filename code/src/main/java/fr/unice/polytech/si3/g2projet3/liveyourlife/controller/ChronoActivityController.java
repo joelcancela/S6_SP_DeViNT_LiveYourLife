@@ -124,14 +124,17 @@ public class ChronoActivityController extends ActivityController {
 
     private void right() {
         System.out.println("right!!!!!");
-        ((ChronoActivity) model).chooseRight();
+        int newIndex = ((ChronoActivity) model).chooseRight();
+        availableActions.getSelectionModel().select(newIndex);
 //        System.out.println(availableActions.getItems());
     }
 
     private void left() {
         System.out.println("left!!!!!");
-        ((ChronoActivity) model).chooseLeft();
+        int newIndex = ((ChronoActivity) model).chooseLeft();
 //        System.out.println(availableActions.getItems());
+        availableActions.getSelectionModel().select(newIndex);
+
     }
 
 

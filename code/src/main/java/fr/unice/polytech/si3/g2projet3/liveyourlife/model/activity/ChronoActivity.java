@@ -15,27 +15,29 @@ public class ChronoActivity extends Activity<ChronoAction> {
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
-        for(int i = 0; i < possibleChoices.size();i++){
+        for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new ChronoAction());
         }
     }
 
-    public void chooseRight() {
-        try{
-            ChronoAction action = possibleChoices.get(currentChoice+1);
+    public int chooseRight() {
+        try {
+            ChronoAction action = possibleChoices.get(currentChoice + 1);
             currentChoice++;
-        }catch (IndexOutOfBoundsException e){
-            e.printStackTrace();
+        } catch (IndexOutOfBoundsException e) {
+            currentChoice = 0;
         }
+        return currentChoice;
     }
 
-    public void chooseLeft() {
-        try{
-            ChronoAction action = possibleChoices.get(currentChoice-1);
+    public int chooseLeft() {
+        try {
+            ChronoAction action = possibleChoices.get(currentChoice - 1);
             currentChoice--;
-        }catch (IndexOutOfBoundsException e){
-            e.printStackTrace();
+        } catch (IndexOutOfBoundsException e) {
+            currentChoice = 0;
         }
+        return currentChoice;
     }
 
     public void answerSelectedAction() {
