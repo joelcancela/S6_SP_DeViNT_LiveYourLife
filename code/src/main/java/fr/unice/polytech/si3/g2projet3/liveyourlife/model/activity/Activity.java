@@ -5,6 +5,8 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public abstract class Activity<A extends Action> extends ModeleDevint{
 
     protected final String title;
+    protected List<A> correctAnswer;
     protected ObservableList<A> possibleChoices;
     protected ObservableList<A> answers;
     protected int status = 0;
@@ -23,19 +26,25 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     public Activity(String title, List<A> possibleChoices) {
         super();
         this.title = title;
-        this.possibleChoices = FXCollections.observableArrayList(possibleChoices);
+        this.correctAnswer = possibleChoices;
+        List<A> shuffle = new ArrayList<A>(possibleChoices);
+        Collections.shuffle(shuffle);
+        this.possibleChoices = FXCollections.observableArrayList(shuffle);
         this.answers = FXCollections.observableArrayList();
     }
 
     public void answer(A act) {
         if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
+        if(correctAnswer.get(status).equals(act)){
+            System.out.println("correct");
+            //MAJ des possibilitées
+            possibleChoices.remove(act);
 
-        //MAJ des possibilitées
-        possibleChoices.remove(act);
+            //MAJ des answers
+            answers.set(status++,act);
+        }
 
-        //MAJ des answers
-        answers.set(status++,act);
     }
 
     public ObservableList<A> getPossibleChoices(){
