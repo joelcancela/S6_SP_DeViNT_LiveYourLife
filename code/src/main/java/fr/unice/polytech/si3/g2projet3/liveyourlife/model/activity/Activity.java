@@ -5,6 +5,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +30,14 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     public void answer(A act) {
         if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
+
+        //MAJ des possibilitées
         possibleChoices.remove(act);
+        ObservableList<A> temp = FXCollections.observableArrayList(possibleChoices);
+        possibleChoices.clear();
+        possibleChoices.addAll(temp);
+
+        //MAJ des answers
         answers.set(status++,act);
     }
 
