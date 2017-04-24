@@ -1,10 +1,8 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities.ChronoActivity;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.ChronoAnswer;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.ChronoAnswer;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +13,6 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Controller of the Chrono Activity

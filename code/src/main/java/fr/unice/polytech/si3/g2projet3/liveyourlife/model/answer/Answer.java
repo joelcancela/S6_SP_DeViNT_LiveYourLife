@@ -1,6 +1,6 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import javafx.scene.image.Image;
 
 import java.util.Optional;

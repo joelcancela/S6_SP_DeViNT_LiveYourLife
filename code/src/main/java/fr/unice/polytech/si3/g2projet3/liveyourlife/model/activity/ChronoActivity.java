@@ -1,9 +1,8 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.ChronoAnswer;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.ChronoAnswer;
 
-import java.io.IOException;
 import java.util.List;
 
 /**

@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.model.action;
 
 
 import javafx.scene.image.Image;

@@ -1,7 +1,7 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.Answer;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.ShuffleAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.Answer;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
 
 import java.util.LinkedList;
 import java.util.List;

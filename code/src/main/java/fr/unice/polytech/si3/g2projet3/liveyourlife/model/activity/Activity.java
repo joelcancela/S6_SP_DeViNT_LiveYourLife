@@ -1,13 +1,11 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.model.Activities;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Actions.Action;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.Answers.Answer;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.Answer;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
