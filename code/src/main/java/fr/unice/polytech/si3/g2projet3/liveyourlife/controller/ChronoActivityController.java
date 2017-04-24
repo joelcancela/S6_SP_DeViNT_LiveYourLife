@@ -1,5 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
+import dvt.devint.ConstantesDevint;
+import dvt.devint.SceneDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.animation.KeyFrame;
@@ -146,14 +148,15 @@ public class ChronoActivityController extends ActivityController {
             Timeline timeline = new Timeline(new KeyFrame(
                     Duration.millis(1000),
                     ae -> scene.getSIVox().playText("bravo tu as réussi")));
-            timeline.play();
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent rootNode = null;
             try {
                 rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
+                getScene().setRoot(rootNode);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            timeline.play();
         }
     }
 
