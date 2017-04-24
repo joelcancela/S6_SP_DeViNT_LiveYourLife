@@ -33,9 +33,6 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
 
         //MAJ des possibilitées
         possibleChoices.remove(act);
-        ObservableList<A> temp = FXCollections.observableArrayList(possibleChoices);
-        possibleChoices.clear();
-        possibleChoices.addAll(temp);
 
         //MAJ des answers
         answers.set(status++,act);
