@@ -35,14 +35,16 @@ public class ChronoActivity extends Activity<ChronoAction> {
             ChronoAction action = possibleChoices.get(currentChoice - 1);
             currentChoice--;
         } catch (IndexOutOfBoundsException e) {
-            currentChoice = 0;
+            currentChoice = possibleChoices.size()-1;
         }
         return currentChoice;
     }
 
     public int answerSelectedAction() {
-        answer(possibleChoices.get(currentChoice));
-        currentChoice = 0;
+        if(possibleChoices.size()>0){
+            answer(possibleChoices.get(currentChoice));
+            currentChoice = 0;
+        }
         return currentChoice;
     }
 }
