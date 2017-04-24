@@ -2,6 +2,8 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -18,6 +20,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -139,6 +142,19 @@ public class ChronoActivityController extends ActivityController {
         System.out.println("choose");
         int newIndex = ((ChronoActivity) model).answerSelectedAction();
         availableActions.getSelectionModel().select(newIndex);
+        if(availableActions.getItems().isEmpty()){
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(1000),
+                    ae -> scene.getSIVox().playText("bravo tu as réussi")));
+            timeline.play();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent rootNode = null;
+            try {
+                rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void right() {
