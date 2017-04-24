@@ -1,7 +1,6 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.ChronoAnswer;
 
 import java.util.List;
 
@@ -10,14 +9,14 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public class ChronoActivity extends Activity<ChronoAction,ChronoAnswer> {
+public class ChronoActivity extends Activity<ChronoAction> {
 
     private int currentChoice = 0;
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
         for(int i = 0; i < possibleChoices.size();i++){
-            answers.add(new ChronoAnswer());
+            answers.add(new ChronoAction());
         }
     }
 

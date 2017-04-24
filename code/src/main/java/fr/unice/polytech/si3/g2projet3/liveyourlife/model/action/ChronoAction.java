@@ -9,4 +9,8 @@ public class ChronoAction extends Action {
     public ChronoAction(String description, String imgPath) {
         super(description, imgPath);
     }
+
+    public ChronoAction() {
+        super();
+    }
 }
