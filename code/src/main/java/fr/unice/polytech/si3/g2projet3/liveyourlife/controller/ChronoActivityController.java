@@ -39,6 +39,7 @@ public class ChronoActivityController extends ActivityController {
     @Override
     protected void init() {
         activityName.setText(((ChronoActivity) model).getTitle());
+        ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
         ObservableList<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
         ObservableList<ChronoAction> answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions(possibleActions);

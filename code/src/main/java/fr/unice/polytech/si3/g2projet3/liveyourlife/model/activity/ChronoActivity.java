@@ -1,6 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import t2s.SIVOXDevint;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  */
 public class ChronoActivity extends Activity<ChronoAction> {
 
+    private SIVOXDevint sivoxDevint;
     private int currentChoice = 0;
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
@@ -43,12 +45,22 @@ public class ChronoActivity extends Activity<ChronoAction> {
     public int answerSelectedAction() {
         if(possibleChoices.size()>0){
             boolean wasCorrect = answer(possibleChoices.get(currentChoice));
-            if(wasCorrect) currentChoice = Math.max(currentChoice-1,0);
+            if(wasCorrect){
+                currentChoice = Math.max(currentChoice-1,0);
+                sivoxDevint.playText("Bonne réponse !");
+            }
+            else{
+                sivoxDevint.playText("Mauvaise réponse !");
+            }
         }
         return currentChoice;
     }
 
     public void updateSelectedIndex(int newIndexByMouse) {
         currentChoice = newIndexByMouse;
+    }
+
+    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
+        this.sivoxDevint = sivoxDevint;
     }
 }
