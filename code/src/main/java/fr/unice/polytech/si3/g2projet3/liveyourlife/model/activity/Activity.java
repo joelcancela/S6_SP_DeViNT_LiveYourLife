@@ -48,4 +48,8 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     public ObservableList<A> getAnswers(){
         return answers;
     }
+
+    public String getTitle() {
+        return title;
+    }
 }
