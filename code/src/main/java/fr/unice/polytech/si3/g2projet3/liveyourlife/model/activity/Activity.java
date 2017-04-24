@@ -30,8 +30,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
         possibleChoices.remove(act);
-        answers.remove(status++);
-        answers.add(act);
+        answers.set(status++,act);
     }
 
     public ObservableList<A> getPossibleChoices(){
