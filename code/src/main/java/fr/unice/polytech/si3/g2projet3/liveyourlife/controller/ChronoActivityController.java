@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
@@ -22,7 +23,7 @@ import java.io.IOException;
 public class ChronoActivityController extends ActivityController {
 
     @FXML
-    public Text activityName;
+    public Label activityName;
     @FXML
     public ListView<ChronoAction> availableActions;
     @FXML
@@ -31,6 +32,7 @@ public class ChronoActivityController extends ActivityController {
 
     @Override
     protected void init() {
+        activityName.setText(((ChronoActivity) model).getTitle());
         ObservableList<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
         ObservableList<ChronoAction> answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions(possibleActions);

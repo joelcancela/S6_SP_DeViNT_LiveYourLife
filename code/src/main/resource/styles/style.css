@@ -1,0 +1,13 @@
+.list-cell{
+    -fx-background-color: white;
+}
+
+.list-cell:selected{
+    -fx-background-color: black;
+}
+
+.label{
+    -fx-font-size: 80px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+}
