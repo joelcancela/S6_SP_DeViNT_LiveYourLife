@@ -43,6 +43,8 @@ public class ChronoActivityController extends ActivityController {
         ObservableList<ChronoAction> answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions(possibleActions);
         initAnswers(answers);
+        availableActions.getSelectionModel().select(0);
+
     }
 
     private void initAnswers(ObservableList<ChronoAction> answers) {
@@ -134,7 +136,9 @@ public class ChronoActivityController extends ActivityController {
 
     private void choose() {
         System.out.println("choose");
-        ((ChronoActivity) model).answerSelectedAction();
+        int newIndex = ((ChronoActivity) model).answerSelectedAction();
+        availableActions.getSelectionModel().select(newIndex);
+
     }
 
     private void right() {
