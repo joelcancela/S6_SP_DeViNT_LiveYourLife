@@ -123,7 +123,6 @@ public class ChronoActivityController extends ActivityController {
         System.out.println("choose");
         int newIndex = ((ChronoActivity) model).answerSelectedAction();
         availableActions.getSelectionModel().select(newIndex);
-
     }
 
     private void right() {
