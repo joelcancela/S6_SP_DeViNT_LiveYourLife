@@ -18,6 +18,11 @@ public abstract class Action {
         image = new Image(getClass().getResourceAsStream(imgPath));
     }
 
+    public Action() {
+        this.description = "";
+        image = new Image(getClass().getResourceAsStream("/images/activity/default.jpg"));
+    }
+
     public String getDescription() {
         return description;
     }

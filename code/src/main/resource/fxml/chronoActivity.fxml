@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Label?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityController">
     <top>
-        <Text fx:id="activityName" BorderPane.alignment="CENTER" />
+        <Label fx:id="activityName" BorderPane.alignment="CENTER" />
     </top>
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">

@@ -1,7 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.ChronoAnswer;
+import t2s.SIVOXDevint;
 
 import java.util.List;
 
@@ -10,37 +10,57 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public class ChronoActivity extends Activity<ChronoAction,ChronoAnswer> {
+public class ChronoActivity extends Activity<ChronoAction> {
 
+    private SIVOXDevint sivoxDevint;
     private int currentChoice = 0;
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
-        for(int i = 0; i < possibleChoices.size();i++){
-            answers.add(new ChronoAnswer());
+        for (int i = 0; i < possibleChoices.size(); i++) {
+            answers.add(new ChronoAction());
         }
     }
 
-    public void chooseRight() {
-        try{
-            ChronoAction action = possibleChoices.get(currentChoice+1);
+    public int chooseRight() {
+        try {
+            ChronoAction action = possibleChoices.get(currentChoice + 1);
             currentChoice++;
-        }catch (IndexOutOfBoundsException e){
-            e.printStackTrace();
+        } catch (IndexOutOfBoundsException e) {
+            currentChoice = 0;
         }
+        return currentChoice;
     }
 
-    public void chooseLeft() {
-        try{
-            ChronoAction action = possibleChoices.get(currentChoice-1);
+    public int chooseLeft() {
+        try {
+            ChronoAction action = possibleChoices.get(currentChoice - 1);
             currentChoice--;
-        }catch (IndexOutOfBoundsException e){
-            e.printStackTrace();
+        } catch (IndexOutOfBoundsException e) {
+            currentChoice = possibleChoices.size()-1;
         }
+        return currentChoice;
     }
 
-    public void answerSelectedAction() {
-        answer(possibleChoices.get(currentChoice));
-        currentChoice = 0;
+    public int answerSelectedAction() {
+        if(possibleChoices.size()>0){
+            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
+            if(wasCorrect){
+                currentChoice = Math.max(currentChoice-1,0);
+                sivoxDevint.playText("Bonne réponse !");
+            }
+            else{
+                sivoxDevint.playText("Mauvaise réponse !");
+            }
+        }
+        return currentChoice;
+    }
+
+    public void updateSelectedIndex(int newIndexByMouse) {
+        currentChoice = newIndexByMouse;
+    }
+
+    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
+        this.sivoxDevint = sivoxDevint;
     }
 }

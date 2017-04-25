@@ -1,6 +1,5 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.answer.Answer;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
 
 import java.util.LinkedList;
@@ -12,7 +11,7 @@ import java.util.Queue;
  *
  * @author Joël CANCELA VAZ
  */
-public class ShuffleActivity extends Activity<ShuffleAction,Answer> {
+public class ShuffleActivity extends Activity<ShuffleAction> {
 
     private Queue<List<ShuffleAction>> nextChoices;
 
@@ -22,11 +21,12 @@ public class ShuffleActivity extends Activity<ShuffleAction,Answer> {
     }
 
     @Override
-    public void answer(ShuffleAction act) {
+    public boolean answer(ShuffleAction act) {
         super.answer(act);
         if (nextChoices.isEmpty()) {
             //TODO: Go to the next activity
         }
 //        possibleChoices = nextChoices.remove();
+        return false;
     }
 }
