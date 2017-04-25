@@ -15,9 +15,7 @@ import java.util.Queue;
  */
 public class ShuffleActivity extends Activity<ShuffleAction> {
 
-    private SIVOXDevint sivoxDevint;
     private Queue<List<ShuffleAction>> nextChoices;
-    private int currentChoice = 0;
 
     public ShuffleActivity(String title, List<ShuffleAction> choices) {
         super(title, choices);
@@ -26,43 +24,22 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
 
     @Override
     public boolean answer(ShuffleAction act) {
-        super.answer(act);
+        if (!possibleChoices.contains(act))
+            throw new IllegalArgumentException("This action isn't a possibility");
+        if (!correctAnswer.contains(act))
+            return false;
         if (nextChoices.isEmpty()) {
             //TODO: Go to the next activity
+            return true;
         } else {
             possibleChoices.clear();
             possibleChoices.addAll(nextChoices.poll());
+            return true;
         }
-        return false;
     }
 
-    public int answerSelectedAction() {
-        if(possibleChoices.size()>0){
-            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
-            if(wasCorrect){
-                currentChoice = Math.max(currentChoice-1,0);
-                sivoxDevint.playText("Bonne réponse !");
-            }
-            else{
-                sivoxDevint.playText("Mauvaise réponse !");
-            }
-        }
-        return currentChoice;
+    public void updateSelectedIndex(int newIndexByMouse) {
+        currentChoice = newIndexByMouse;
     }
 
-    public int chooseRight() {
-        if (currentChoice < possibleChoices.size() - 1)
-            currentChoice++;
-        return currentChoice;
-    }
-
-    public int chooseLeft() {
-        if (currentChoice > 0)
-            currentChoice--;
-        return currentChoice;
-    }
-
-    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
-        this.sivoxDevint = sivoxDevint;
-    }
 }

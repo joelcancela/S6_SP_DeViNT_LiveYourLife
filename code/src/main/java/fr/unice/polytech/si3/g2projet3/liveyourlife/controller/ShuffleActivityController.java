@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -31,7 +32,7 @@ public class ShuffleActivityController extends ActivityController {
     @FXML
     public ImageView currentStateImage;
     @FXML
-    public ListView<ChronoAction> availableActions;
+    public ListView<ShuffleAction> availableActions;
     @FXML
     public Text actionType;
 
@@ -39,7 +40,18 @@ public class ShuffleActivityController extends ActivityController {
     protected void init() {
         activityName.setText(((ShuffleActivity) model).getTitle());
         ((ShuffleActivity) model).setSIVOXInstance(scene.getSIVox());
-        ObservableList<ShuffleAction> possibleActions =  ((ShuffleActivity) model).getPossibleChoices();
+    }
+
+    private void initPossibleActions() {
+        availableActions.setPrefHeight(325);
+        availableActions.setEditable(false);
+        availableActions.setCellFactory(listView -> new ShuffleCell());
+        availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            int newIndexByMouse = availableActions.getSelectionModel().getSelectedIndex();
+            ((ShuffleActivity) model).updateSelectedIndex(newIndexByMouse);
+        });
+        availableActions.setItems(((ShuffleActivity) model).getPossibleChoices());
+        availableActions.getSelectionModel().selectFirst();
     }
 
     @Override
@@ -83,4 +95,25 @@ public class ShuffleActivityController extends ActivityController {
 
     }
 
+    private class ShuffleCell extends ListCell<ShuffleAction> {
+        protected void updateItem(ShuffleAction choice, boolean empty) {
+            super.updateItem(choice,empty);
+            if(empty){
+                this.setGraphic(null);
+            }
+            else {
+                if (choice != null) {
+                    try {
+                        String fxmlFile = "/fxml/Activity_Element.fxml";
+                        FXMLLoader loader = new FXMLLoader();
+                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+                        ((ShuffleActivityChoiceController) loader.getController()).init(choice);
+                        this.setGraphic(listElement);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 }

@@ -30,20 +30,20 @@ public class ChronoActivityController extends ActivityController {
     @FXML
     public ListView<ChronoAction> pickedActions;
 
+    protected ObservableList<ChronoAction> answers;
 
     @Override
     protected void init() {
         activityName.setText(((ChronoActivity) model).getTitle());
         ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
-        ObservableList<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
-        ObservableList<ChronoAction> answers =  ((ChronoActivity) model).getAnswers();
-        initPossibleActions(possibleActions);
-        initAnswers(answers);
+        answers =  ((ChronoActivity) model).getAnswers();
+        initPossibleActions();
+        initAnswers();
         availableActions.getSelectionModel().select(0);
 
     }
 
-    private void initAnswers(ObservableList<ChronoAction> answers) {
+    private void initAnswers() {
         pickedActions.setPrefHeight(325);
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new ChronoCell());
@@ -51,33 +51,10 @@ public class ChronoActivityController extends ActivityController {
 
     }
 
-    private class ChronoCell extends ListCell<ChronoAction> {
-        protected void updateItem(ChronoAction choice, boolean empty) {
-            super.updateItem(choice,empty);
-            if(empty){
-                this.setGraphic(null);
-            }
-            else {
-                if (choice != null) {
-                    try {
-                        String fxmlFile = "/fxml/Activity_Element.fxml";
-                        FXMLLoader loader = new FXMLLoader();
-                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
-                        this.setGraphic(listElement);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
     /**
      * Initialize the list view containing the possible actions
-     * @param possibleActions the different choices the player have.
      */
-    private void initPossibleActions(ObservableList<ChronoAction> possibleActions) {
+    private void initPossibleActions() {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ChronoCell());
@@ -85,7 +62,7 @@ public class ChronoActivityController extends ActivityController {
             int newIndexByMouse = availableActions.getSelectionModel().getSelectedIndex();
             ((ChronoActivity) model).updateSelectedIndex(newIndexByMouse);
         });
-        availableActions.setItems(possibleActions);
+        availableActions.setItems(((ChronoActivity) model).getPossibleChoices());
         availableActions.getSelectionModel().selectFirst();
     }
 
@@ -126,16 +103,35 @@ public class ChronoActivityController extends ActivityController {
         System.out.println("right!!!!!");
         int newIndex = ((ChronoActivity) model).chooseRight();
         availableActions.getSelectionModel().select(newIndex);
-//        System.out.println(availableActions.getItems());
     }
 
     private void left() {
         System.out.println("left!!!!!");
         int newIndex = ((ChronoActivity) model).chooseLeft();
-//        System.out.println(availableActions.getItems());
         availableActions.getSelectionModel().select(newIndex);
 
     }
 
+    private class ChronoCell extends ListCell<ChronoAction> {
+        protected void updateItem(ChronoAction choice, boolean empty) {
+            super.updateItem(choice,empty);
+            if(empty){
+                this.setGraphic(null);
+            }
+            else {
+                if (choice != null) {
+                    try {
+                        String fxmlFile = "/fxml/Activity_Element.fxml";
+                        FXMLLoader loader = new FXMLLoader();
+                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
+                        this.setGraphic(listElement);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 
 }

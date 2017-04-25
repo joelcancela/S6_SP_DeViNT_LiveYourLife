@@ -16,47 +16,36 @@ import java.util.List;
  */
 public class ChronoActivity extends Activity<ChronoAction> {
 
-    private SIVOXDevint sivoxDevint;
-    private int currentChoice = 0;
+    private ObservableList<ChronoAction> answers;
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
+        answers = FXCollections.observableArrayList(new ArrayList<>());
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new ChronoAction());
         }
     }
 
-    public int chooseRight() {
-        if (currentChoice < possibleChoices.size() - 1)
-            currentChoice++;
-        return currentChoice;
+    public ObservableList<ChronoAction> getAnswers(){
+        return answers;
     }
 
-    public int chooseLeft() {
-        if (currentChoice > 0)
-            currentChoice--;
-        return currentChoice;
-    }
-
-    public int answerSelectedAction() {
-        if(possibleChoices.size()>0){
-            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
-            if(wasCorrect){
-                currentChoice = Math.max(currentChoice-1,0);
-                sivoxDevint.playText("Bonne réponse !");
-            }
-            else{
-                sivoxDevint.playText("Mauvaise réponse !");
-            }
-        }
-        return currentChoice;
+    @Override
+    public boolean answer(ChronoAction act) {
+        if (!possibleChoices.contains(act))
+            throw new IllegalArgumentException("This action isn't a possibility");
+        if(correctAnswer.get(status).equals(act)){
+            System.out.println("correct");
+            //MAJ des possibilitées
+            possibleChoices.remove(act);
+            //MAJ des answers
+            answers.set(status++,act);
+            return true;
+        }else return false;
     }
 
     public void updateSelectedIndex(int newIndexByMouse) {
         currentChoice = newIndexByMouse;
     }
 
-    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
-        this.sivoxDevint = sivoxDevint;
-    }
 }
