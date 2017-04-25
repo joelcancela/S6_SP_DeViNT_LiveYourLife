@@ -1,8 +1,5 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
-import dvt.jeu.simple.ControleDevint;
-import dvt.jeu.simple.JeuDevint;
-import dvt.jeu.simple.ModeleDevint;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
