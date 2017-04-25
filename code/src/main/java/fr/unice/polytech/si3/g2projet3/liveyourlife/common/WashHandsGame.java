@@ -19,26 +19,29 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public class JeuChrono extends JeuDevint {
+public class WashHandsGame extends JeuDevint {
 
 
     private ChronoActivity chronoActivity;
 
-    public JeuChrono() {
+    public WashHandsGame() {
     }
 
     @Override
     public String titre() {
-        return "Se brosser les dents";
+        return "Se laver les mains";
     }
 
     @Override
     protected ModeleDevint initModel() {
         List<ChronoAction> answers = new ArrayList<>();
-        answers.add(new ChronoAction("mettre le dentifrice sur la brosse à dent","/images/activity/se_brosser_les_dents/dentifrice.jpg"));
-        answers.add(new ChronoAction("se brosser les dents","/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
-        answers.add(new ChronoAction("remplir un verre d'eau","/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
-        answers.add(new ChronoAction("se rincer les dents","/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
+        answers.add(new ChronoAction("ouvrir le robinet","/images/activity/washHands/openTap.jpg"));
+        answers.add(new ChronoAction("se mouiller les mains","/images/activity/washHands/wetHands.jpg"));
+        answers.add(new ChronoAction("prendre du savon","/images/activity/washHands/takeSoap.jpg"));
+        answers.add(new ChronoAction("se frotter les mains","/images/activity/washHands/frotterMains.jpg"));
+        answers.add(new ChronoAction("se rincer les mains","/images/activity/washHands/rincerMains.jpg"));
+        answers.add(new ChronoAction("fermer le robinet","/images/activity/washHands/closeTap.jpg"));
+        answers.add(new ChronoAction("se sécher les mains","/images/activity/washHands/secherMains.jpg"));
         chronoActivity = new ChronoActivity(titre(),answers);
         return chronoActivity;
     }
