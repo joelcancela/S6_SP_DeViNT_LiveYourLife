@@ -1,8 +1,12 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import t2s.SIVOXDevint;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
