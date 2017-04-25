@@ -57,4 +57,8 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     public String getTitle() {
         return title;
     }
+
+    public int getStatus() {
+        return status;
+    }
 }

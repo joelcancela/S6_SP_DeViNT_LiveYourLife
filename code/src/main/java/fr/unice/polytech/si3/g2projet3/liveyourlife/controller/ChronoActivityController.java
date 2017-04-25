@@ -106,6 +106,8 @@ public class ChronoActivityController extends ActivityController {
         System.out.println("choose");
         int newIndex = ((ChronoActivity) model).answerSelectedAction();
         availableActions.getSelectionModel().select(newIndex);
+        int status = ((ChronoActivity) model).getStatus();
+        if(status%5==0)pickedActions.scrollTo(status);
         if(availableActions.getItems().isEmpty()){
             Timeline timeline = new Timeline(new KeyFrame(
                     Duration.millis(1000),
@@ -124,16 +126,18 @@ public class ChronoActivityController extends ActivityController {
 
     private void right() {
         System.out.println("right!!!!!");
+//        availableActions.getSelectionModel().selectNext();
         int newIndex = ((ChronoActivity) model).chooseRight();
         availableActions.getSelectionModel().select(newIndex);
-//        System.out.println(availableActions.getItems());
+        if(newIndex%5==0)availableActions.scrollTo(newIndex); // todo : c'est sale, à modifier pour mieux fonctionner
     }
 
     private void left() {
         System.out.println("left!!!!!");
+//        availableActions.getSelectionModel().selectPrevious();
         int newIndex = ((ChronoActivity) model).chooseLeft();
-//        System.out.println(availableActions.getItems());
         availableActions.getSelectionModel().select(newIndex);
+        if(newIndex%5==0)availableActions.scrollTo(newIndex); // todo : c'est sale, à modifier pour mieux fonctionner
 
     }
 
