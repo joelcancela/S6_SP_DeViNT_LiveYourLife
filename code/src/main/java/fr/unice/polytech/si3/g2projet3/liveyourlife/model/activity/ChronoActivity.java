@@ -23,22 +23,14 @@ public class ChronoActivity extends Activity<ChronoAction> {
     }
 
     public int chooseRight() {
-        try {
-            ChronoAction action = possibleChoices.get(currentChoice + 1);
+        if (currentChoice < possibleChoices.size() - 1)
             currentChoice++;
-        } catch (IndexOutOfBoundsException e) {
-            currentChoice = 0;
-        }
         return currentChoice;
     }
 
     public int chooseLeft() {
-        try {
-            ChronoAction action = possibleChoices.get(currentChoice - 1);
+        if (currentChoice > 0)
             currentChoice--;
-        } catch (IndexOutOfBoundsException e) {
-            currentChoice = possibleChoices.size()-1;
-        }
         return currentChoice;
     }
 
