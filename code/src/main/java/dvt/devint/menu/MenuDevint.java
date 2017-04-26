@@ -41,7 +41,7 @@ public abstract class MenuDevint extends Application{
 		initMenu();
     	control.render();
 		// on ajoute ensuite le bouton quit pour qu'il soit en bas
-    	control.addMenuItem("Quit",(x) -> ((Stage)control.scene.getWindow()).close());
+    	control.addMenuItem("Quitter",(x) -> ((Stage)control.scene.getWindow()).close());
 		primaryStage.setScene(control.scene);
 		primaryStage.setTitle(" ");
 		primaryStage.show();
