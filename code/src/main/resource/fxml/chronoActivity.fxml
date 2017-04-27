@@ -20,4 +20,7 @@
             <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="200.0" />
         </VBox>
     </center>
+    <bottom>
+        <Label fx:id="activityDescription" BorderPane.alignment="CENTER" />
+    </bottom>
 </BorderPane>

@@ -1,8 +1,12 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import t2s.SIVOXDevint;
 
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -13,7 +17,6 @@ import java.util.List;
 public class ChronoActivity extends Activity<ChronoAction> {
 
     private SIVOXDevint sivoxDevint;
-    private int currentChoice = 0;
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
@@ -22,37 +25,18 @@ public class ChronoActivity extends Activity<ChronoAction> {
         }
     }
 
-    public int chooseRight() {
-        if (currentChoice < possibleChoices.size() - 1)
-            currentChoice++;
-        return currentChoice;
-    }
-
-    public int chooseLeft() {
-        if (currentChoice > 0)
-            currentChoice--;
-        return currentChoice;
-    }
-
-    public int answerSelectedAction() {
-        if(possibleChoices.size()>0){
-            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
-            if(wasCorrect){
-                currentChoice = Math.max(currentChoice-1,0);
-                sivoxDevint.playText("Bonne réponse !");
-            }
-            else{
-                sivoxDevint.playText("Mauvaise réponse !");
-            }
-        }
-        return currentChoice;
-    }
-
-    public void updateSelectedIndex(int newIndexByMouse) {
-        currentChoice = newIndexByMouse;
-    }
-
     public void setSIVOXInstance(SIVOXDevint sivoxDevint){
         this.sivoxDevint = sivoxDevint;
+    }
+
+    public void answerAction(ChronoAction action) {
+        boolean wasCorrect = answer(action);
+        if(wasCorrect){
+            sivoxDevint.playText("Bonne réponse !");
+//            sivoxDevint.playText(action.getDescription());
+        }
+        else{
+            sivoxDevint.playText("Mauvaise réponse !");
+        }
     }
 }
