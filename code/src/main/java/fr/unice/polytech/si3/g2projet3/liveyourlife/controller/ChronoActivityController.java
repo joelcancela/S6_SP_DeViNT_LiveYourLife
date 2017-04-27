@@ -116,6 +116,7 @@ public class ChronoActivityController extends ActivityController {
         scene.mapKeyPressedToConsumer(KeyCode.LEFT, (x) -> left());
         scene.mapKeyPressedToConsumer(KeyCode.RIGHT, (x) -> right());
         scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
+        scene.mapKeyPressedToConsumer(KeyCode.ENTER, (x) -> choose());
     }
 
 

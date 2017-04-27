@@ -82,6 +82,7 @@ public class MenuDevintControl  {
 		scene.mapKeyPressedToConsumer(KeyCode.DOWN, (x) -> {down();});
 		scene.mapKeyPressedToConsumer(KeyCode.UP, (x) -> {up();});
 		scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> {action();});
+		scene.mapKeyPressedToConsumer(KeyCode.ENTER, (x) -> {action();});
 	}
 	
 	/**

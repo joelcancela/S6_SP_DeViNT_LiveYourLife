@@ -35,11 +35,11 @@ public class BrushTeethGame extends JeuDevint {
     @Override
     protected ModeleDevint initModel() {
         List<ChronoAction> answers = new ArrayList<>();
-        answers.add(new ChronoAction("mettre le dentifrice sur la brosse à dent","/images/activity/se_brosser_les_dents/dentifrice.jpg"));
-        answers.add(new ChronoAction("se brosser les dents","/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
-        answers.add(new ChronoAction("remplir un verre d'eau","/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
-        answers.add(new ChronoAction("se rincer les dents","/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
-        chronoActivity = new ChronoActivity(titre(),answers);
+        answers.add(new ChronoAction("mettre le dentifrice sur la brosse à dent", "/images/activity/se_brosser_les_dents/dentifrice.jpg"));
+        answers.add(new ChronoAction("se brosser les dents", "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
+        answers.add(new ChronoAction("remplir un verre d'eau", "/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
+        answers.add(new ChronoAction("se rincer les dents", "/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
+        chronoActivity = new ChronoActivity(titre(), answers);
         return chronoActivity;
     }
 
@@ -52,9 +52,8 @@ public class BrushTeethGame extends JeuDevint {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        SceneDevint sceneDevint = new SceneDevint(rootNode,ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
+        SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
         sceneDevint.getStylesheets().add("/styles/style.css");
-        sceneDevint.getSIVox().stop();
         control = fxmlLoader.getController();
 
         control.setModel(initModel());
