@@ -48,7 +48,6 @@ public class ChronoActivityController extends ActivityController {
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new ChronoCell());
         pickedActions.setItems(answers);
-
     }
 
     /**

@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
@@ -40,10 +41,14 @@ public class ShuffleActivityController extends ActivityController {
     protected void init() {
         activityName.setText(((ShuffleActivity) model).getTitle());
         ((ShuffleActivity) model).setSIVOXInstance(scene.getSIVox());
+        initPossibleActions();
+        contextImage.setImage(((ShuffleActivity) model).getContextImagePath());
+        currentStateImage.setImage(new Image(getClass().getResourceAsStream("/images/activity/default.jpg")));
+
     }
 
     private void initPossibleActions() {
-        availableActions.setPrefHeight(325);
+        availableActions.setMinHeight(500);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ShuffleCell());
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
