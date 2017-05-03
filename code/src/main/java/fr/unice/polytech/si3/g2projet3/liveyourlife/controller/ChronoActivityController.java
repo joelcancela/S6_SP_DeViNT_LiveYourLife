@@ -1,13 +1,17 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.IndexedCell;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -29,6 +33,11 @@ public class ChronoActivityController extends ActivityController {
     public ListView<ChronoAction> availableActions;
     @FXML
     public ListView<ChronoAction> pickedActions;
+    @FXML
+    public Label activityDescription;
+
+    //used to know how many items are visible on list
+    private VirtualFlow flow;
 
     protected ObservableList<ChronoAction> answers;
 
@@ -57,9 +66,16 @@ public class ChronoActivityController extends ActivityController {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ChronoCell());
-        availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            int newIndexByMouse = availableActions.getSelectionModel().getSelectedIndex();
-            ((ChronoActivity) model).updateSelectedIndex(newIndexByMouse);
+        //Selection Change listener
+        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ChronoAction>() {
+            @Override
+            public void changed(ObservableValue<? extends ChronoAction> observable, ChronoAction oldValue, ChronoAction newValue) {
+                if(newValue!=null){
+                    activityDescription.setText(newValue.getDescription());
+                    flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
+                    scene.getSIVox().playText(newValue.getDescription());
+                }
+            }
         });
         availableActions.setItems(((ChronoActivity) model).getPossibleChoices());
         availableActions.getSelectionModel().selectFirst();
@@ -75,40 +91,52 @@ public class ChronoActivityController extends ActivityController {
         scene.mapKeyPressedToConsumer(KeyCode.LEFT, (x) -> left());
         scene.mapKeyPressedToConsumer(KeyCode.RIGHT, (x) -> right());
         scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
+        scene.mapKeyPressedToConsumer(KeyCode.ENTER, (x) -> choose());
     }
 
 
     private void choose() {
-        System.out.println("choose");
-        int newIndex = ((ChronoActivity) model).answerSelectedAction();
-        availableActions.getSelectionModel().select(newIndex);
+        ChronoAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
+        ((ChronoActivity) model).answerAction(selectedItem);
+
         if(availableActions.getItems().isEmpty()){
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(1000),
-                    ae -> scene.getSIVox().playText("bravo tu as réussi")));
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent rootNode = null;
-            try {
-                rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
-                getScene().setRoot(rootNode);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            timeline.play();
+            win();
         }
     }
 
+    private void win() {
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(1000),
+                ae -> displayWin()));
+        timeline.play();
+    }
+    private void displayWin() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent rootNode = null;
+        try {
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
+            getScene().setRoot(rootNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scene.getSIVox().playText("bravo tu as réussi");
+
+    }
+
     private void right() {
-        System.out.println("right!!!!!");
-        int newIndex = ((ChronoActivity) model).chooseRight();
-        availableActions.getSelectionModel().select(newIndex);
+        availableActions.getSelectionModel().selectNext();
+        IndexedCell last = flow.getLastVisibleCellWithinViewPort();
+        if(last.getIndex()<availableActions.getSelectionModel().getSelectedIndex()){
+            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+        }
     }
 
     private void left() {
-        System.out.println("left!!!!!");
-        int newIndex = ((ChronoActivity) model).chooseLeft();
-        availableActions.getSelectionModel().select(newIndex);
-
+        availableActions.getSelectionModel().selectPrevious();
+        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
+        if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()){
+            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+        }
     }
 
     private class ChronoCell extends ListCell<ChronoAction> {

@@ -43,7 +43,7 @@ public class ShuffleActivityController extends ActivityController {
         ((ShuffleActivity) model).setSIVOXInstance(scene.getSIVox());
         initPossibleActions();
         contextImage.setImage(((ShuffleActivity) model).getContextImagePath());
-        currentStateImage.setImage(new Image(getClass().getResourceAsStream("/images/activity/default.jpg")));
+        currentStateImage.setImage(((ShuffleActivity) model).getCurrentStateImagePath());
 
     }
 

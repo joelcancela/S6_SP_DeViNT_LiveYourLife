@@ -85,7 +85,7 @@ public class SceneDevint extends Scene {
 			);
 		// la voix
 		this.sivox = new SIVOXDevint(2);
-        this.sivox.playWav(ConstantesDevint.ACCUEIL_SON);
+//        this.sivox.playWav(ConstantesDevint.ACCUEIL_SON);
 	}
 	
 	/** la voix devint

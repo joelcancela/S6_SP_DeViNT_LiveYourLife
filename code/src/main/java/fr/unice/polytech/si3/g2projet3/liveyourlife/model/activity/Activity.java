@@ -44,33 +44,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         return title;
     }
 
-    public int answerSelectedAction() {
-        if(possibleChoices.size()>0){
-            boolean wasCorrect = answer(possibleChoices.get(currentChoice));
-            if(wasCorrect){
-                currentChoice = Math.max(currentChoice-1,0);
-                sivoxDevint.playText("Bonne réponse !");
-            }
-            else{
-                sivoxDevint.playText("Mauvaise réponse !");
-            }
-        }
-        return currentChoice;
-    }
-
-    public int chooseRight() {
-        if (currentChoice < possibleChoices.size() - 1)
-            currentChoice++;
-        return currentChoice;
-    }
-
-    public int chooseLeft() {
-        if (currentChoice > 0)
-            currentChoice--;
-        return currentChoice;
-    }
-
-    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
-        this.sivoxDevint = sivoxDevint;
+    public int getStatus() {
+        return status;
     }
 }
