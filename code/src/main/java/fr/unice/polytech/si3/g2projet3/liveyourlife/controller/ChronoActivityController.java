@@ -3,10 +3,6 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -67,14 +62,11 @@ public class ChronoActivityController extends ActivityController {
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ChronoCell());
         //Selection Change listener
-        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ChronoAction>() {
-            @Override
-            public void changed(ObservableValue<? extends ChronoAction> observable, ChronoAction oldValue, ChronoAction newValue) {
-                if(newValue!=null){
-                    activityDescription.setText(newValue.getDescription());
-                    flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
-                    scene.getSIVox().playText(newValue.getDescription());
-                }
+        availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=null){
+                activityDescription.setText(newValue.getDescription());
+                flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
+                scene.getSIVox().playText(newValue.getDescription());
             }
         });
         availableActions.setItems(((ChronoActivity) model).getPossibleChoices());
@@ -104,38 +96,20 @@ public class ChronoActivityController extends ActivityController {
         }
     }
 
-    private void win() {
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(1000),
-                ae -> displayWin()));
-        timeline.play();
-    }
-    private void displayWin() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent rootNode = null;
-        try {
-            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
-            getScene().setRoot(rootNode);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scene.getSIVox().playText("bravo tu as réussi");
-
-    }
-
     private void right() {
         availableActions.getSelectionModel().selectNext();
         IndexedCell last = flow.getLastVisibleCellWithinViewPort();
+        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
         if(last.getIndex()<availableActions.getSelectionModel().getSelectedIndex()){
-            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+            availableActions.scrollTo(first.getIndex()+1);
         }
     }
 
     private void left() {
         availableActions.getSelectionModel().selectPrevious();
         IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
-        if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()){
-            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+        if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()-1){
+            availableActions.scrollTo(first.getIndex()-1);
         }
     }
 
@@ -151,7 +125,7 @@ public class ChronoActivityController extends ActivityController {
                         String fxmlFile = "/fxml/Activity_Element.fxml";
                         FXMLLoader loader = new FXMLLoader();
                         Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
+                        ((ActivityChoiceController) loader.getController()).init(choice);
                         this.setGraphic(listElement);
                     } catch (IOException e) {
                         e.printStackTrace();

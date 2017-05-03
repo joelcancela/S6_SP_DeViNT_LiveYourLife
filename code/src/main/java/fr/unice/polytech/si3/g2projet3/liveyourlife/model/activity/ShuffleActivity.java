@@ -2,6 +2,7 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
 import javafx.scene.image.Image;
+import t2s.SIVOXDevint;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,11 +18,12 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
     private Image contextImagePath;
     private Queue<Image> currentStateImagePath;
     private Queue<List<ShuffleAction>> allChoices;
+    private SIVOXDevint sivoxDevint;
 
-    public ShuffleActivity(String title, List<List<ShuffleAction>> choices,
+    public ShuffleActivity(String title, Queue<List<ShuffleAction>> choices,
                            List<ShuffleAction> correctChoices,
                            List<String> currentStateImagePath, String contextImagePath) {
-        super(title, choices.get(0));
+        super(title, choices.poll());
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();
         for (String s : currentStateImagePath)
@@ -49,19 +51,26 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
             throw new IllegalArgumentException("This action isn't a possibility");
         if (!correctAnswer.contains(act))
             return false;
-        if (allChoices.isEmpty()) {
-            //TODO: end activity go menu
-            System.out.println("EMPTY LIST CAN'T GO FURTHER");
-            return true;
-        } else {
+        else {
             possibleChoices.clear();
-            possibleChoices.addAll(allChoices.poll());
-
+            if (allChoices.peek() != null)
+                possibleChoices.addAll(allChoices.poll());
             return true;
         }
     }
 
-    public void updateSelectedIndex(int newIndexByMouse) {
-        currentChoice = newIndexByMouse;
+    public boolean answerAction(ShuffleAction action) {
+        boolean wasCorrect = answer(action);
+        if(wasCorrect){
+            sivoxDevint.playText("Bonne réponse !");
+        }
+        else{
+            sivoxDevint.playText("Mauvaise réponse !");
+        }
+        return possibleChoices.isEmpty();
+    }
+
+    public void setSIVOXInstance(SIVOXDevint SIVOXInstance) {
+        this.sivoxDevint = SIVOXInstance;
     }
 }

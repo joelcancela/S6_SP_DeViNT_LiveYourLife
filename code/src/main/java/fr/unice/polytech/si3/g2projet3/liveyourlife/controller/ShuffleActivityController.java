@@ -1,22 +1,16 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -37,6 +31,9 @@ public class ShuffleActivityController extends ActivityController {
     @FXML
     public Text actionType;
 
+    //used to know how many items are visible on list
+    private VirtualFlow flow;
+
     @Override
     protected void init() {
         activityName.setText(((ShuffleActivity) model).getTitle());
@@ -48,12 +45,15 @@ public class ShuffleActivityController extends ActivityController {
     }
 
     private void initPossibleActions() {
-        availableActions.setMinHeight(500);
+        availableActions.setMinHeight(300);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ShuffleCell());
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            int newIndexByMouse = availableActions.getSelectionModel().getSelectedIndex();
-            ((ShuffleActivity) model).updateSelectedIndex(newIndexByMouse);
+            if(newValue!=null){
+                //activityDescription.setText(newValue.getDescription());
+                flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
+                scene.getSIVox().playText(newValue.getDescription());
+            }
         });
         availableActions.setItems(((ShuffleActivity) model).getPossibleChoices());
         availableActions.getSelectionModel().selectFirst();
@@ -71,32 +71,17 @@ public class ShuffleActivityController extends ActivityController {
         scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
     }
     private void choose() {
-        int newIndex = ((ShuffleActivity) model).answerSelectedAction();
-        availableActions.getSelectionModel().select(newIndex);
-        if(availableActions.getItems().isEmpty()){
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(1000),
-                    ae -> scene.getSIVox().playText("bravo tu as réussi")));
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent rootNode = null;
-            try {
-                rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
-                getScene().setRoot(rootNode);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            timeline.play();
-        }
+        ShuffleAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
+        if(((ShuffleActivity) model).answerAction(selectedItem))
+            win();
     }
 
     private void right() {
-        int newIndex = ((ShuffleActivity) model).chooseRight();
-        availableActions.getSelectionModel().select(newIndex);
+        availableActions.getSelectionModel().selectNext();
     }
 
     private void left() {
-        int newIndex = ((ShuffleActivity) model).chooseLeft();
-        availableActions.getSelectionModel().select(newIndex);
+        availableActions.getSelectionModel().selectPrevious();
 
     }
 
@@ -112,7 +97,7 @@ public class ShuffleActivityController extends ActivityController {
                         String fxmlFile = "/fxml/Activity_Element.fxml";
                         FXMLLoader loader = new FXMLLoader();
                         Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                        ((ShuffleActivityChoiceController) loader.getController()).init(choice);
+                        ((ActivityChoiceController) loader.getController()).init(choice);
                         this.setGraphic(listElement);
                     } catch (IOException e) {
                         e.printStackTrace();

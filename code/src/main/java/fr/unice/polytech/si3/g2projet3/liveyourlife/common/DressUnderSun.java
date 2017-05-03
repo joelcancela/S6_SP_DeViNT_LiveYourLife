@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Created by user on 10/04/2017.
@@ -59,7 +60,7 @@ public class DressUnderSun extends JeuDevint {
         correctChoices.add(correct3);
 
         List<String> currentStateImages = new LinkedList<>();
-        shuffleActivity = new ShuffleActivity(titre(), answers, correctChoices,
+        shuffleActivity = new ShuffleActivity(titre(), (Queue) answers, correctChoices,
                 currentStateImages, "/images/activity/shabiller_soleil/contexte.png");
         return shuffleActivity;
     }

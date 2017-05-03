@@ -16,20 +16,17 @@
         </Text>
     </top>
     <center>
-        <HBox spacing="20" maxWidth="1020">
+        <HBox spacing="100" maxWidth="0">
             <ImageView fx:id="contextImage"
-                       fitHeight="400" fitWidth="800" pickOnBounds="true" preserveRatio="true"/>
+                       fitHeight="300" fitWidth="600" pickOnBounds="true" preserveRatio="true"/>
             <ImageView fx:id="currentStateImage"
-                       fitHeight="400" fitWidth="200" pickOnBounds="true" preserveRatio="true"/>
+                       fitHeight="300" fitWidth="300" pickOnBounds="true" preserveRatio="true"/>
         </HBox>
     </center>
     <bottom>
         <VBox spacing="10" BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-            </BorderPane.margin>
             <Text fx:id="actionType"/>
-            <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="335.0" />
+            <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="330" />
         </VBox>
     </bottom>
 </BorderPane>
