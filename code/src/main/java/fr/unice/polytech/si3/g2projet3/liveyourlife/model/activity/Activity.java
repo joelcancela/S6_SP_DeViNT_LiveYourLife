@@ -26,7 +26,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         super();
         this.title = title;
         this.correctAnswer = possibleChoices;
-        List<A> shuffle = new ArrayList<A>(possibleChoices);
+        List<A> shuffle = new ArrayList<>(possibleChoices);
         Collections.shuffle(shuffle);
         this.possibleChoices = FXCollections.observableArrayList(shuffle);
         this.answers = FXCollections.observableArrayList();
