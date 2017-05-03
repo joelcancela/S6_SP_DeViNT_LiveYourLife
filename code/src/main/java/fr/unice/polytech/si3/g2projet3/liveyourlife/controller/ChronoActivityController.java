@@ -151,16 +151,17 @@ public class ChronoActivityController extends ActivityController {
     private void right() {
         availableActions.getSelectionModel().selectNext();
         IndexedCell last = flow.getLastVisibleCellWithinViewPort();
+        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
         if(last.getIndex()<availableActions.getSelectionModel().getSelectedIndex()){
-            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+            availableActions.scrollTo(first.getIndex()+1);
         }
     }
 
     private void left() {
         availableActions.getSelectionModel().selectPrevious();
         IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
-        if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()){
-            availableActions.scrollTo(availableActions.getSelectionModel().getSelectedIndex());
+        if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()-1){
+            availableActions.scrollTo(first.getIndex()-1);
         }
     }
 
