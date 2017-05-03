@@ -27,7 +27,10 @@ public class ChronoActivity extends Activity<ChronoAction> {
     }
 
     public ChronoActivity(String titre, MultiChoiceList allWays) {
-        super(titre,null);//TODO pb multiChoices
+        super(titre,allWays.getIdealChoices());//TODO pb multiChoices
+        for (int i = 0; i < possibleChoices.size(); i++) {
+            answers.add(new ChronoAction());
+        }
     }
 
     public void setSIVOXInstance(SIVOXDevint sivoxDevint){

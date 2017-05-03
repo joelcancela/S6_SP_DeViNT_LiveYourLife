@@ -33,4 +33,8 @@ public class MultiChoiceList {
         return true;//Le choix est donc bon
     }
 
+    public List<ChronoAction> getIdealChoices() {
+        return choices.get(0);
+    }
+
 }
