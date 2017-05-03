@@ -11,6 +11,6 @@ public class ChronoActivityChoiceController {
 
     public void init(ChronoAction choice) {
         image.setImage(choice.getImage());
-        image.setFitWidth(275);
+        image.setFitWidth(200);
     }
 }
