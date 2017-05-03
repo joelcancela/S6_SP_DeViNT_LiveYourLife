@@ -20,24 +20,39 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
     protected final String title;
     protected List<A> correctAnswer;
     protected ObservableList<A> possibleChoices;
+    protected ObservableList<A> answers;
     protected int status = 0;
-    protected SIVOXDevint sivoxDevint;
-    protected int currentChoice = 0;
 
     public Activity(String title, List<A> possibleChoices) {
         super();
         this.title = title;
         this.correctAnswer = possibleChoices;
-        List<A> shuffle = new ArrayList<>(possibleChoices);
+        List<A> shuffle = new ArrayList<A>(possibleChoices);
         Collections.shuffle(shuffle);
         this.possibleChoices = FXCollections.observableArrayList(shuffle);
+        this.answers = FXCollections.observableArrayList();
+    }
+
+    public boolean answer(A act) {
+        if (!possibleChoices.contains(act))
+            throw new IllegalArgumentException("This action isn't a possibility");
+        if(correctAnswer.get(status).equals(act)){
+            System.out.println("correct");
+            //MAJ des possibilitées
+            possibleChoices.remove(act);
+            //MAJ des answers
+            answers.set(status++,act);
+            return true;
+        }else return false;
 
     }
 
-    public abstract boolean answer(A act);
-
     public ObservableList<A> getPossibleChoices(){
         return possibleChoices;
+    }
+
+    public ObservableList<A> getAnswers(){
+        return answers;
     }
 
     public String getTitle() {
