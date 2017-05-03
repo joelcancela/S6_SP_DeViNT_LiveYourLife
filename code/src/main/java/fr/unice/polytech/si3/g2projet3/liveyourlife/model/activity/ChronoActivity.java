@@ -1,6 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import t2s.SIVOXDevint;
@@ -20,6 +21,13 @@ public class ChronoActivity extends Activity<ChronoAction> {
 
     public ChronoActivity(String title, List<ChronoAction> choices) {
         super(title, choices);
+        for (int i = 0; i < possibleChoices.size(); i++) {
+            answers.add(new ChronoAction());
+        }
+    }
+
+    public ChronoActivity(String titre, MultiChoiceList allWays) {
+        super(titre,allWays.getIdealChoices());//TODO pb multiChoices
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new ChronoAction());
         }

@@ -6,6 +6,7 @@ import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,15 +35,35 @@ public class WashHandsGame extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        List<ChronoAction> answers = new ArrayList<>();
-        answers.add(new ChronoAction("ouvrir le robinet","/images/activity/washHands/openTap.jpg"));
-        answers.add(new ChronoAction("se mouiller les mains","/images/activity/washHands/wetHands.jpg"));
-        answers.add(new ChronoAction("prendre du savon","/images/activity/washHands/takeSoap.jpg"));
-        answers.add(new ChronoAction("se frotter les mains","/images/activity/washHands/frotterMains.jpg"));
-        answers.add(new ChronoAction("se rincer les mains","/images/activity/washHands/rincerMains.jpg"));
-        answers.add(new ChronoAction("fermer le robinet","/images/activity/washHands/closeTap.jpg"));
-        answers.add(new ChronoAction("se sécher les mains","/images/activity/washHands/secherMains.jpg"));
-        chronoActivity = new ChronoActivity(titre(),answers);
+
+        ChronoAction ouvrir_robinet = new ChronoAction("ouvrir le robinet","/images/activity/washHands/openTap.jpg");
+        ChronoAction mouiller_mains = new ChronoAction("se mouiller les mains","/images/activity/washHands/wetHands.jpg");
+        ChronoAction prendre_savon = new ChronoAction("prendre du savon","/images/activity/washHands/takeSoap.jpg");
+        ChronoAction frotter_mains = new ChronoAction("se frotter les mains","/images/activity/washHands/frotterMains.jpg");
+        ChronoAction rincer_mains = new ChronoAction("se rincer les mains","/images/activity/washHands/rincerMains.jpg");
+        ChronoAction fermer_robinet = new ChronoAction("fermer le robinet","/images/activity/washHands/closeTap.jpg");
+        ChronoAction secher_mains = new ChronoAction("se sécher les mains","/images/activity/washHands/secherMains.jpg");
+        List<ChronoAction> optimalWay = new ArrayList<>();
+        optimalWay.add(ouvrir_robinet);
+        optimalWay.add(mouiller_mains);
+        optimalWay.add(prendre_savon);
+        optimalWay.add(frotter_mains);
+        optimalWay.add(rincer_mains);
+        optimalWay.add(fermer_robinet);
+        optimalWay.add(secher_mains);
+        List<ChronoAction> secondWay = new ArrayList<>();
+        secondWay.add(ouvrir_robinet);
+        secondWay.add(mouiller_mains);
+        secondWay.add(prendre_savon);
+        secondWay.add(frotter_mains);
+        secondWay.add(rincer_mains);
+        secondWay.add(secher_mains);
+        secondWay.add(fermer_robinet);
+        List<List<ChronoAction>> allWays = new ArrayList<>();
+        allWays.add(optimalWay);
+        allWays.add(secondWay);
+        MultiChoiceList multiChoiceList = new MultiChoiceList(allWays);
+        chronoActivity = new ChronoActivity(titre(),multiChoiceList);
         return chronoActivity;
     }
 
