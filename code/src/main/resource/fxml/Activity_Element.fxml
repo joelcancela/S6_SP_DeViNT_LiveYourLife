@@ -4,11 +4,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityChoiceController">
+<BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoActivityChoiceController">
     <center>
-        <ImageView fx:id="image" preserveRatio="true">
-         <BorderPane.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </BorderPane.margin></ImageView>
+        <ImageView fx:id="image" preserveRatio="true"/>
     </center>
 </BorderPane>

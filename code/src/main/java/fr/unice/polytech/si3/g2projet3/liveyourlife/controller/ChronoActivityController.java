@@ -54,7 +54,8 @@ public class ChronoActivityController extends ActivityController {
     }
 
     private void initAnswers(ObservableList<ChronoAction> answers) {
-        pickedActions.setPrefHeight(325);
+        ChronoCell cell = new ChronoCell();
+        pickedActions.setPrefHeight(cell.getSizeOfElement()+(cell.getMarginOfElement()*2.5));
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new ChronoCell());
         pickedActions.setItems(answers);
@@ -62,6 +63,26 @@ public class ChronoActivityController extends ActivityController {
     }
 
     private class ChronoCell extends ListCell<ChronoAction> {
+        private Parent listElement = null;
+        private ChronoActivityChoiceController controller;
+
+        public ChronoCell() {
+            String fxmlFile = "/fxml/Activity_Element.fxml";
+            FXMLLoader loader = new FXMLLoader();
+            try {
+                this.listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            this.controller = ((ChronoActivityChoiceController) loader.getController());
+        }
+
+        public ChronoCell(int size, int margin) {
+            this();
+            controller.setSizeOfElement(size);
+            controller.setMarginOfElement(margin);
+        }
+
         protected void updateItem(ChronoAction choice, boolean empty) {
             super.updateItem(choice,empty);
             if(empty){
@@ -69,17 +90,20 @@ public class ChronoActivityController extends ActivityController {
             }
             else {
                 if (choice != null) {
-                    try {
-                        String fxmlFile = "/fxml/Activity_Element.fxml";
-                        FXMLLoader loader = new FXMLLoader();
-                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                        ((ChronoActivityChoiceController) loader.getController()).init(choice);
-                        this.setGraphic(listElement);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    controller.init(choice);
+                    System.out.println(controller.getMarginOfElement());
+                    System.out.println(controller.getSizeOfElement());
+                    this.setGraphic(listElement);
                 }
             }
+        }
+
+        public double getSizeOfElement() {
+            return controller.getSizeOfElement();
+        }
+
+        public int getMarginOfElement() {
+            return controller.getMarginOfElement();
         }
     }
 
@@ -88,9 +112,12 @@ public class ChronoActivityController extends ActivityController {
      * @param possibleActions the different choices the player have.
      */
     private void initPossibleActions(ObservableList<ChronoAction> possibleActions) {
-        availableActions.setPrefHeight(325);
+        ChronoCell cell = new ChronoCell(100,10);
+        System.out.println("CELL: "+cell.getMarginOfElement());
+        System.out.println("CELL: "+cell.getSizeOfElement());
+        availableActions.setPrefHeight(cell.getSizeOfElement()+(cell.getMarginOfElement()*2.5));
         availableActions.setEditable(false);
-        availableActions.setCellFactory(listView -> new ChronoCell());
+        availableActions.setCellFactory(listView -> new ChronoCell(100,10));
         //Selection Change listener
         availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ChronoAction>() {
             @Override
