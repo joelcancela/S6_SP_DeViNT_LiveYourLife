@@ -6,6 +6,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivi
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
@@ -21,7 +22,7 @@ import java.io.IOException;
  */
 public class ShuffleActivityController extends ActivityController {
     @FXML
-    public Text activityName;
+    public Label activityName;
     @FXML
     public ImageView contextImage;
     @FXML
