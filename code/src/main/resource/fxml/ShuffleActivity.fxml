@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.102"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleActivityController">
     <top>
         <Label fx:id="activityName" BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-            </BorderPane.margin>
         </Label>
     </top>
     <center>
-        <HBox spacing="100" maxWidth="0">
-            <ImageView fx:id="contextImage"
-                       fitHeight="300" fitWidth="600" pickOnBounds="true" preserveRatio="true"/>
-            <ImageView fx:id="currentStateImage"
-                       fitHeight="300" fitWidth="300" pickOnBounds="true" preserveRatio="true"/>
-        </HBox>
+        <BorderPane BorderPane.alignment="CENTER" maxHeight="350">
+            <center>
+                <HBox spacing="150" maxWidth="0">
+                    <ImageView fx:id="contextImage"
+                               fitHeight="250" fitWidth="500" pickOnBounds="true" preserveRatio="true"/>
+                    <ImageView fx:id="currentStateImage"
+                               fitHeight="250" fitWidth="250" pickOnBounds="true" preserveRatio="true"/>
+                </HBox>
+            </center>
+            <bottom>
+                <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="200" maxHeight="200" />
+            </bottom>
+        </BorderPane>
     </center>
     <bottom>
-        <VBox spacing="10" BorderPane.alignment="CENTER">
-            <Text fx:id="actionType"/>
-            <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="330" />
-        </VBox>
+        <Label fx:id="activityDescription" BorderPane.alignment="CENTER"/>
     </bottom>
 </BorderPane>

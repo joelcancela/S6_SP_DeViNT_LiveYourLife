@@ -11,7 +11,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -24,13 +23,13 @@ public class ShuffleActivityController extends ActivityController {
     @FXML
     public Label activityName;
     @FXML
+    public Label activityDescription;
+    @FXML
     public ImageView contextImage;
     @FXML
     public ImageView currentStateImage;
     @FXML
     public ListView<ShuffleAction> availableActions;
-    @FXML
-    public Text actionType;
 
     //used to know how many items are visible on list
     private VirtualFlow flow;
@@ -46,12 +45,11 @@ public class ShuffleActivityController extends ActivityController {
     }
 
     private void initPossibleActions() {
-        availableActions.setMinHeight(300);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ShuffleCell());
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
-                //activityDescription.setText(newValue.getDescription());
+                activityDescription.setText(newValue.getDescription());
                 flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
                 scene.getSIVox().playText(newValue.getDescription());
             }
@@ -62,7 +60,6 @@ public class ShuffleActivityController extends ActivityController {
 
     @Override
     protected void reset() {
-
     }
 
     @Override

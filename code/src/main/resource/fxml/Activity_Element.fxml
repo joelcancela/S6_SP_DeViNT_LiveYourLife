@@ -3,13 +3,21 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ActivityChoiceController"
-            minWidth="330" minHeight="330" maxWidth="330" maxHeight="330">
+<BorderPane
+        xmlns="http://javafx.com/javafx/8.0.112"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ActivityChoiceController"
+        minWidth="200" minHeight="200" maxWidth="200" maxHeight="200">
     <center>
-        <ImageView fx:id="image" preserveRatio="true" fitHeight="240" fitWidth="240">
-         <BorderPane.margin>
-            <Insets bottom="30" left="30" right="30" top="30" />
-         </BorderPane.margin></ImageView>
+            <ImageView
+                    fx:id="image"
+                    preserveRatio="true"
+                    fitHeight="160"
+                    fitWidth="160"
+                    style="-fx-border: 5px solid black">
+                <BorderPane.margin>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </BorderPane.margin>
+            </ImageView>
     </center>
 </BorderPane>
