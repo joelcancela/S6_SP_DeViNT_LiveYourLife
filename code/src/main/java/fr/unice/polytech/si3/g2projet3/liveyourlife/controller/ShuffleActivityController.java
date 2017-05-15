@@ -20,6 +20,7 @@ import java.io.IOException;
  * @author Joël CANCELA VAZ
  */
 public class ShuffleActivityController extends ActivityController {
+
     @FXML
     public Label activityName;
     @FXML
@@ -41,7 +42,6 @@ public class ShuffleActivityController extends ActivityController {
         initPossibleActions();
         contextImage.setImage(((ShuffleActivity) model).getContextImagePath());
         currentStateImage.setImage(((ShuffleActivity) model).getCurrentStateImagePath());
-
     }
 
     private void initPossibleActions() {
@@ -72,6 +72,8 @@ public class ShuffleActivityController extends ActivityController {
         ShuffleAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
         if(((ShuffleActivity) model).answerAction(selectedItem))
             win();
+        else
+            currentStateImage.setImage(((ShuffleActivity) model).getCurrentStateImagePath());
     }
 
     private void right() {
@@ -80,7 +82,6 @@ public class ShuffleActivityController extends ActivityController {
 
     private void left() {
         availableActions.getSelectionModel().selectPrevious();
-
     }
 
     private class ShuffleCell extends ListCell<ShuffleAction> {

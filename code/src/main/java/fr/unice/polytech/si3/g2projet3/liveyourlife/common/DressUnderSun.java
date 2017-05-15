@@ -60,6 +60,10 @@ public class DressUnderSun extends JeuDevint {
         correctChoices.add(correct3);
 
         List<String> currentStateImages = new LinkedList<>();
+        currentStateImages.add("/images/activity/default.jpg");
+        currentStateImages.add("/images/activity/shabiller_soleil/1_short.jpg");
+        currentStateImages.add("/images/activity/shabiller_soleil/2_tee.jpg");
+
         shuffleActivity = new ShuffleActivity(titre(), (Queue) answers, correctChoices,
                 currentStateImages, "/images/activity/shabiller_soleil/contexte.png");
         return shuffleActivity;

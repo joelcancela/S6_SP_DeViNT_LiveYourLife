@@ -38,11 +38,7 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
     }
 
     public Image getCurrentStateImagePath() {
-        Image image = currentStateImagePath.poll();
-        if (image == null)
-            return new Image(getClass().getResourceAsStream("/images/activity/default.jpg"));
-        else
-            return image;
+        return currentStateImagePath.peek();
     }
 
     @Override
@@ -53,8 +49,10 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
             return false;
         else {
             possibleChoices.clear();
-            if (allChoices.peek() != null)
+            if (allChoices.peek() != null) {
                 possibleChoices.addAll(allChoices.poll());
+                currentStateImagePath.poll();
+            }
             return true;
         }
     }
