@@ -6,12 +6,14 @@ import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,7 +41,7 @@ public class BrushTeethGame extends JeuDevint {
         answers.add(new ChronoAction("se brosser les dents", "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
         answers.add(new ChronoAction("remplir un verre d'eau", "/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
         answers.add(new ChronoAction("se rincer les dents", "/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
-        chronoActivity = new ChronoActivity(titre(), answers);
+        chronoActivity = new ChronoActivity(titre(), new MultiChoiceList<>(Arrays.asList(answers)));
         return chronoActivity;
     }
 

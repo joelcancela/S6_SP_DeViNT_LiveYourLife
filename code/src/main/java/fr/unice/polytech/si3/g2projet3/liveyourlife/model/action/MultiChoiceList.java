@@ -8,19 +8,19 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public class MultiChoiceList {
-    private List<List<ChronoAction>> choices;//Liste des listes des choix possibles à l'instant t
+public class MultiChoiceList<A> {
+    private List<List<A>> choices;//Liste des listes des choix possibles à l'instant t
     private int currentIndex;//Index courant
 
 
-    public MultiChoiceList(List<List<ChronoAction>> choices) {
+    public MultiChoiceList(List<List<A>> choices) {
         this.choices = choices;
         this.currentIndex = 0;
     }
 
-    public boolean isCorrect(ChronoAction choiceMade) {
-        List<List<ChronoAction>> removalList = new ArrayList<>();//On crée une liste temporaire des chemins impossibles
-        for (List<ChronoAction> innerList : choices) {//Pour chaque liste restante
+    public boolean isCorrect(A choiceMade) {
+        List<List<A>> removalList = new ArrayList<>();//On crée une liste temporaire des chemins impossibles
+        for (List<A> innerList : choices) {//Pour chaque liste restante
             if (!innerList.get(currentIndex).equals(choiceMade)) { //On regarde si le choix n'est pas possible à l'index n
                 removalList.add(innerList);//Et on ajoute la liste à la liste de celles à supprimer
             }
@@ -33,7 +33,7 @@ public class MultiChoiceList {
         return true;//Le choix est donc bon
     }
 
-    public List<ChronoAction> getIdealChoices() {
+    public List<A> getIdealChoices() {
         return choices.get(0);
     }
 

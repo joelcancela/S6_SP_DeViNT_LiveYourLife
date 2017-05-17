@@ -2,6 +2,8 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,22 +19,28 @@ import java.util.List;
 public abstract class Activity<A extends Action> extends ModeleDevint {
 
     protected final String title;
-    protected List<A> correctAnswer;
+    protected MultiChoiceList<A> correctAnswer;
     protected ObservableList<A> possibleChoices;
     protected ObservableList<A> answers;
     protected int status = 0;
 
-    public Activity(String title, List<A> possibleChoices) {
+    public Activity(String title, MultiChoiceList<A> possibleChoices) {
         super();
         this.title = title;
         this.correctAnswer = possibleChoices;
-        List<A> shuffle = new ArrayList<>(possibleChoices);
+        List<A> shuffle = new ArrayList<>(possibleChoices.getIdealChoices());
         Collections.shuffle(shuffle);
         this.possibleChoices = FXCollections.observableArrayList(shuffle);
-        this.answers = FXCollections.observableArrayList();
+        answers = FXCollections.observableArrayList();
     }
 
-    public abstract boolean answer(A act);
+    public boolean answer(A act) {
+        if (correctAnswer.isCorrect(act)) {
+            answerCorrect(act);
+            return true;
+        }
+        return false;
+    }
 
     public void answerCorrect(A act){
         System.out.println("correct");
