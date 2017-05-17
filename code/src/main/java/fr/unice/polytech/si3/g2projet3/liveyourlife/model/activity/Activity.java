@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Joël CANCELA VAZ
  */
-public abstract class Activity<A extends Action> extends ModeleDevint{
+public abstract class Activity<A extends Action> extends ModeleDevint {
 
     protected final String title;
     protected List<A> correctAnswer;
@@ -32,25 +32,21 @@ public abstract class Activity<A extends Action> extends ModeleDevint{
         this.answers = FXCollections.observableArrayList();
     }
 
-    public boolean answer(A act) {
-        if (!possibleChoices.contains(act))
-            throw new IllegalArgumentException("This action isn't a possibility");
-        if(correctAnswer.get(status).equals(act)){
-            System.out.println("correct");
-            //MAJ des possibilitées
-            possibleChoices.remove(act);
-            //MAJ des answers
-            answers.set(status++,act);
-            return true;
-        }else return false;
+    public abstract boolean answer(A act);
 
+    public void answerCorrect(A act){
+        System.out.println("correct");
+        //MAJ des possibilitées
+        possibleChoices.remove(act);
+        //MAJ des answers
+        answers.set(status++, act);
     }
 
-    public ObservableList<A> getPossibleChoices(){
+    public ObservableList<A> getPossibleChoices() {
         return possibleChoices;
     }
 
-    public ObservableList<A> getAnswers(){
+    public ObservableList<A> getAnswers() {
         return answers;
     }
 
