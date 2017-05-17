@@ -14,19 +14,19 @@ import java.util.List;
 /**
  * Created by user on 03/05/2017.
  */
-public class ActivityDeserializer<E extends Activity> implements JsonDeserializer<E> {
+public class ActivityDeserializer<E extends Activity> implements JsonDeserializer<Activity> {
     @Override
-    public E deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+    public Activity deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         final JsonObject jsonObject = jsonElement.getAsJsonObject();
         Gson gson = new GsonBuilder().registerTypeAdapter(Action.class, new ActionDeserializer()).create();
 
         Type listType = new TypeToken<List<List<Action>>>(){}.getType();
-        List<List<Action>> tmpList = gson.fromJson(jsonObject.get("actions"), listType);
-        MultiChoiceList<Action> list = new MultiChoiceList<>(tmpList);
+        List<List<ChronoAction>> tmpList = gson.fromJson(jsonObject.get("actions"), listType);
+        MultiChoiceList<ChronoAction> list = new MultiChoiceList<>(tmpList);
         String title = jsonObject.get("title").getAsString();
         ActivityType typ = ActivityType.getActivotyType(jsonObject.get("type").getAsString());
         try {
-            typ.getClazz().getConstructor(String.class, MultiChoiceList.class).newInstance(title, list);
+            return typ.getClazz().getConstructor(String.class, MultiChoiceList.class).newInstance(title, list);
         } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
         }
