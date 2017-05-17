@@ -42,16 +42,64 @@ public class ChronoActivityController extends ActivityController {
         ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
         answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions();
-        initAnswers();
+        initAnswers(answers);
         availableActions.getSelectionModel().select(0);
 
     }
 
-    private void initAnswers() {
-        pickedActions.setPrefHeight(325);
+
+    private void initAnswers(ObservableList<ChronoAction> answers) {
+        ChronoCell cell = new ChronoCell();
+        pickedActions.setPrefHeight(cell.getSizeOfElement()+(cell.getMarginOfElement()*2.5));
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new ChronoCell());
         pickedActions.setItems(answers);
+
+    }
+
+    private class ChronoCell extends ListCell<ChronoAction> {
+        private Parent listElement = null;
+        private ActivityChoiceController controller;
+
+        public ChronoCell() {
+            String fxmlFile = "/fxml/Activity_Element.fxml";
+            FXMLLoader loader = new FXMLLoader();
+            try {
+                this.listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            this.controller = loader.getController();
+        }
+
+        public ChronoCell(int size, int margin) {
+            this();
+            controller.setSizeOfElement(size);
+            controller.setMarginOfElement(margin);
+        }
+
+        protected void updateItem(ChronoAction choice, boolean empty) {
+            super.updateItem(choice,empty);
+            if(empty){
+                this.setGraphic(null);
+            }
+            else {
+                if (choice != null) {
+                    controller.init(choice);
+                    System.out.println(controller.getMarginOfElement());
+                    System.out.println(controller.getSizeOfElement());
+                    this.setGraphic(listElement);
+                }
+            }
+        }
+
+        public double getSizeOfElement() {
+            return controller.getSizeOfElement();
+        }
+
+        public int getMarginOfElement() {
+            return controller.getMarginOfElement();
+        }
     }
 
     /**
@@ -60,7 +108,7 @@ public class ChronoActivityController extends ActivityController {
     private void initPossibleActions() {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
-        availableActions.setCellFactory(listView -> new ChronoCell());
+        availableActions.setCellFactory(listView -> new ChronoCell(100,10));
         //Selection Change listener
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
@@ -112,27 +160,4 @@ public class ChronoActivityController extends ActivityController {
             availableActions.scrollTo(first.getIndex()-1);
         }
     }
-
-    private class ChronoCell extends ListCell<ChronoAction> {
-        protected void updateItem(ChronoAction choice, boolean empty) {
-            super.updateItem(choice,empty);
-            if(empty){
-                this.setGraphic(null);
-            }
-            else {
-                if (choice != null) {
-                    try {
-                        String fxmlFile = "/fxml/Activity_Element.fxml";
-                        FXMLLoader loader = new FXMLLoader();
-                        Parent listElement = loader.load(getClass().getResourceAsStream(fxmlFile));
-                        ((ActivityChoiceController) loader.getController()).init(choice);
-                        this.setGraphic(listElement);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
 }
