@@ -19,7 +19,6 @@ public class ShuffleActivity extends Activity<Action> {
     private Image contextImagePath;
     private Queue<Image> currentStateImagePath;
     private Queue<List<Action>> allChoices;
-    private SIVOXDevint sivoxDevint;
 
     public ShuffleActivity(String title, Queue<List<Action>> choices,
                            MultiChoiceList<Action> correctChoices,
@@ -66,9 +65,5 @@ public class ShuffleActivity extends Activity<Action> {
             sivoxDevint.playText("Mauvaise réponse !");
         }
         return possibleChoices.isEmpty();
-    }
-
-    public void setSIVOXInstance(SIVOXDevint SIVOXInstance) {
-        this.sivoxDevint = SIVOXInstance;
     }
 }
