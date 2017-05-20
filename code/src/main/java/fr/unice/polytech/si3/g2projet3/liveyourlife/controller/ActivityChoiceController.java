@@ -6,8 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class ActivityChoiceController {
-    private int SIZE_OF_ELEMENT = 325;
-    private int MARGIN_OF_ELEMENT = 30;
+    private double SIZE_OF_ELEMENT = 325;
+    private double MARGIN_OF_ELEMENT = 30;
     public ImageView image;
 
 
@@ -18,19 +18,19 @@ public class ActivityChoiceController {
         BorderPane.setMargin(image,new Insets(MARGIN_OF_ELEMENT));
     }
 
-    public int getSizeOfElement() {
+    public double getSizeOfElement() {
         return SIZE_OF_ELEMENT;
     }
 
-    public void setMarginOfElement(int value){
+    public void setMarginOfElement(double value){
         MARGIN_OF_ELEMENT = value;
     }
 
-    public int getMarginOfElement(){
+    public double getMarginOfElement(){
         return MARGIN_OF_ELEMENT;
     }
 
-    public void setSizeOfElement(int sizeOfElement) {
+    public void setSizeOfElement(double sizeOfElement) {
         this.SIZE_OF_ELEMENT = sizeOfElement;
     }
 }

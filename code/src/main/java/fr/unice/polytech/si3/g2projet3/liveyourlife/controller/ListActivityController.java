@@ -40,11 +40,12 @@ public abstract class ListActivityController extends ActivityController{
 
     private void initPossibleActions(ObservableList<Action> possibleActions) {
         int nb_elements = Math.min(5,possibleActions.size());
-        int margin = 50;
-        int size_per_block =(int) ((this.getScene().getWidth()/nb_elements));
-        availableActions.setPrefHeight(size_per_block+(2*margin));
+        float margin_percentage = 1f/10f;
+        double size_slot = Math.min(((this.getScene().getWidth()/(float)nb_elements)),getScene().getHeight()/2.5f);
+        double size_item = size_slot-(2*margin_percentage*size_slot);
+        availableActions.setPrefHeight(size_slot+margin_percentage*size_item);
         availableActions.setEditable(false);
-        availableActions.setCellFactory(listView -> new Cell(size_per_block-(2*margin),margin));
+        availableActions.setCellFactory(listView -> new Cell(size_item, (margin_percentage*size_slot)));
         //Selection Change listener
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
@@ -104,7 +105,7 @@ public abstract class ListActivityController extends ActivityController{
             this.controller = loader.getController();
         }
 
-        public Cell(int size, int margin) {
+        public Cell(double size, double margin) {
             this();
             controller.setSizeOfElement(size);
             controller.setMarginOfElement(margin);
@@ -129,7 +130,7 @@ public abstract class ListActivityController extends ActivityController{
             return controller.getSizeOfElement();
         }
 
-        public int getMarginOfElement() {
+        public double getMarginOfElement() {
             return controller.getMarginOfElement();
         }
     }
