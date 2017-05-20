@@ -5,6 +5,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import t2s.SIVOXDevint;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +24,8 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     protected ObservableList<A> possibleChoices;
     protected ObservableList<A> answers;
     protected int status = 0;
+    protected SIVOXDevint sivoxDevint;
+
 
     public Activity(String title, MultiChoiceList<A> possibleChoices) {//ChronoActivity
         super();
@@ -75,4 +78,9 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     public int getStatus() {
         return status;
     }
+
+    public void setSIVOXInstance(SIVOXDevint sivoxDevint) {
+        this.sivoxDevint = sivoxDevint;
+    }
+
 }

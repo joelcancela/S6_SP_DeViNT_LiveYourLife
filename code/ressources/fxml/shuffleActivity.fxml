@@ -16,13 +16,13 @@
             <center>
                 <HBox spacing="150" maxWidth="0">
                     <ImageView fx:id="contextImage"
-                               fitHeight="250" fitWidth="500" pickOnBounds="true" preserveRatio="true"/>
+                               fitHeight="250"  pickOnBounds="true" preserveRatio="true"/>
                     <ImageView fx:id="currentStateImage"
-                               fitHeight="250" fitWidth="250" pickOnBounds="true" preserveRatio="true"/>
+                               fitHeight="250" pickOnBounds="true" preserveRatio="true"/>
                 </HBox>
             </center>
             <bottom>
-                <ListView fx:id="availableActions" orientation="HORIZONTAL" prefHeight="200" maxHeight="200" />
+                <ListView fx:id="availableActions" orientation="HORIZONTAL" />
             </bottom>
         </BorderPane>
     </center>

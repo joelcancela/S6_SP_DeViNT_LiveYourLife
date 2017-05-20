@@ -11,17 +11,11 @@ import t2s.SIVOXDevint;
  */
 public class ChronoActivity extends Activity<Action> {
 
-    private SIVOXDevint sivoxDevint;
-
     public ChronoActivity(String titre, MultiChoiceList<Action> allWays) {
         super(titre, allWays);
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new Action());
         }
-    }
-
-    public void setSIVOXInstance(SIVOXDevint sivoxDevint) {
-        this.sivoxDevint = sivoxDevint;
     }
 
     public void answerAction(Action action) {
