@@ -56,7 +56,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     }
 
     public void answerCorrect(A act){
-        System.out.println("correct");
+//        System.out.println("correct");
         //MAJ des possibilitées
         possibleChoices.remove(act);
         //MAJ des answers

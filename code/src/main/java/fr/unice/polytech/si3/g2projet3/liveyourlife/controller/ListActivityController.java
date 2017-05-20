@@ -3,8 +3,6 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -119,8 +117,8 @@ public abstract class ListActivityController extends ActivityController{
             else {
                 if (choice != null) {
                     controller.init(choice);
-                    System.out.println(controller.getMarginOfElement());
-                    System.out.println(controller.getSizeOfElement());
+//                    System.out.println(controller.getMarginOfElement());
+//                    System.out.println(controller.getSizeOfElement());
                     this.setGraphic(listElement);
                 }
             }
