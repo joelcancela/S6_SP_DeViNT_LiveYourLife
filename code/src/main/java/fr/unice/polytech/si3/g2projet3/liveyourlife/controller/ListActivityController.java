@@ -55,6 +55,7 @@ public abstract class ListActivityController extends ActivityController{
         });
         availableActions.setItems(((Activity) model).getPossibleChoices());
         availableActions.getSelectionModel().selectFirst();
+        availableActions.setOnMouseClicked(event -> choose());
     }
 
     @Override
