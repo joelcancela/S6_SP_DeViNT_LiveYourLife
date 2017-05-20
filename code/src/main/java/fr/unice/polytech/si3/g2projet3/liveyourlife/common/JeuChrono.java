@@ -11,38 +11,38 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivit
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
- * Controller of the Chrono Activity
- *
- * @author Joël CANCELA VAZ
+ * Created by user on 03/05/2017.
  */
-public class BrushTeethGame extends JeuDevint {
-
+public class JeuChrono extends JeuDevint {
 
     private ChronoActivity chronoActivity;
+    private String id;
 
-    public BrushTeethGame() {
+    public JeuChrono(String id) {
+        this.id = id;
+        final Gson gson = new GsonBuilder().create();
+        String path = String.format("/activity/%s.json");
+        try {
+            gson.fromJson(new FileReader(path), ChronoActivity.class);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String titre() {
-        return "Se brosser les dents";
+        return chronoActivity.getTitle();
     }
 
     @Override
     protected ModeleDevint initModel() {
-        /*List<Action> answers = new ArrayList<>();
-        answers.add(new Action("mettre le dentifrice sur la brosse à dent", "/images/activity/se_brosser_les_dents/dentifrice.jpg"));
-        answers.add(new Action("se brosser les dents", "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"));
-        answers.add(new Action("remplir un verre d'eau", "/images/activity/se_brosser_les_dents/remplir_verre.jpg"));
-        answers.add(new Action("se rincer les dents", "/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
-        chronoActivity = new ChronoActivity(titre(), new MultiChoiceList<>(Arrays.asList(answers)));*/
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
-        return chronoActivity;
+        return null;
     }
 
     @Override
@@ -56,6 +56,7 @@ public class BrushTeethGame extends JeuDevint {
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
         sceneDevint.getStylesheets().add("/styles/style.css");
+
         control = fxmlLoader.getController();
 
         control.setModel(initModel());

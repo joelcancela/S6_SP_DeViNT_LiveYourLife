@@ -1,8 +1,10 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,30 +27,30 @@ public class ChronoActivityController extends ActivityController {
     @FXML
     public Label activityName;
     @FXML
-    public ListView<ChronoAction> availableActions;
+    public ListView<Action> availableActions;
     @FXML
-    public ListView<ChronoAction> pickedActions;
+    public ListView<Action> pickedActions;
     @FXML
     public Label activityDescription;
 
     //used to know how many items are visible on list
     private VirtualFlow flow;
 
-    protected ObservableList<ChronoAction> answers;
+    protected ObservableList<Action> answers;
 
     @Override
     protected void init() {
         activityName.setText(((ChronoActivity) model).getTitle());
         ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
-        answers =  ((ChronoActivity) model).getAnswers();
-        initPossibleActions();
+        ObservableList<Action> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
+        ObservableList<Action> answers =  ((ChronoActivity) model).getAnswers();
+        initPossibleActions(possibleActions);
         initAnswers(answers);
         availableActions.getSelectionModel().select(0);
 
     }
 
-
-    private void initAnswers(ObservableList<ChronoAction> answers) {
+    private void initAnswers(ObservableList<Action> answers) {
         ChronoCell cell = new ChronoCell();
         pickedActions.setPrefHeight(cell.getSizeOfElement()+(cell.getMarginOfElement()*2.5));
         pickedActions.setEditable(false);
@@ -57,7 +59,7 @@ public class ChronoActivityController extends ActivityController {
 
     }
 
-    private class ChronoCell extends ListCell<ChronoAction> {
+    private class ChronoCell extends ListCell<Action> {
         private Parent listElement = null;
         private ActivityChoiceController controller;
 
@@ -78,7 +80,7 @@ public class ChronoActivityController extends ActivityController {
             controller.setMarginOfElement(margin);
         }
 
-        protected void updateItem(ChronoAction choice, boolean empty) {
+        protected void updateItem(Action choice, boolean empty) {
             super.updateItem(choice,empty);
             if(empty){
                 this.setGraphic(null);
@@ -105,16 +107,19 @@ public class ChronoActivityController extends ActivityController {
     /**
      * Initialize the list view containing the possible actions
      */
-    private void initPossibleActions() {
+    private void initPossibleActions(ObservableList<Action> possibleActions) {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ChronoCell(100,10));
         //Selection Change listener
-        availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue!=null){
-                activityDescription.setText(newValue.getDescription());
-                flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
-                scene.getSIVox().playText(newValue.getDescription());
+        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Action>() {
+            @Override
+            public void changed(ObservableValue<? extends Action> observable, Action oldValue, Action newValue) {
+                if(newValue!=null){
+                    activityDescription.setText(newValue.getDescription());
+                    flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
+                    scene.getSIVox().playText(newValue.getDescription());
+                }
             }
         });
         availableActions.setItems(((ChronoActivity) model).getPossibleChoices());
@@ -136,7 +141,7 @@ public class ChronoActivityController extends ActivityController {
 
 
     private void choose() {
-        ChronoAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
+        Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
         ((ChronoActivity) model).answerAction(selectedItem);
 
         if(availableActions.getItems().isEmpty()){

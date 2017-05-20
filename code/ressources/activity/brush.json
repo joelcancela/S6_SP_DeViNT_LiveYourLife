@@ -1,0 +1,12 @@
+{
+  "type"    : "CHRONO",
+  "title"   : "Se brosser les dents",
+  "actions" : [
+                [
+                  {"description": "mettre le dentifrice sur la brosse à dent", "image": "/images/activity/se_brosser_les_dents/dentifrice.jpg"},
+                  {"description": "se brosser les dents", "image": "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"},
+                  {"description": "remplir un verre d'eau", "image": "/images/activity/se_brosser_les_dents/remplir_verre.jpg"},
+                  {"description": "se rincer les dents", "image": "/images/activity/se_brosser_les_dents/rincer_dents.jpg"}
+                ]
+              ]
+}

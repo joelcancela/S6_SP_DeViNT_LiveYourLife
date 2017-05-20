@@ -1,7 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class ShuffleActivityController extends ActivityController {
     @FXML
     public ImageView currentStateImage;
     @FXML
-    public ListView<ShuffleAction> availableActions;
+    public ListView<Action> availableActions;
 
     //used to know how many items are visible on list
     private VirtualFlow flow;
@@ -69,7 +69,7 @@ public class ShuffleActivityController extends ActivityController {
         scene.mapKeyPressedToConsumer(KeyCode.SPACE, (x) -> choose());
     }
     private void choose() {
-        ShuffleAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
+        Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
         if(((ShuffleActivity) model).answerAction(selectedItem))
             win();
         else
@@ -84,8 +84,8 @@ public class ShuffleActivityController extends ActivityController {
         availableActions.getSelectionModel().selectPrevious();
     }
 
-    private class ShuffleCell extends ListCell<ShuffleAction> {
-        protected void updateItem(ShuffleAction choice, boolean empty) {
+    private class ShuffleCell extends ListCell<Action> {
+        protected void updateItem(Action choice, boolean empty) {
             super.updateItem(choice,empty);
             if(empty){
                 this.setGraphic(null);

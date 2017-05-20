@@ -5,12 +5,14 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -32,32 +34,34 @@ public class DressUnderSun extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        List<ShuffleAction> bottom = new LinkedList<>();
-        ShuffleAction correct1 = new ShuffleAction("Short", "/images/activity/shabiller_soleil/1_short.jpg");
+        List<Action> bottom = new LinkedList<>();
+        Action correct1 = new Action("Short", "/images/activity/shabiller_soleil/1_short.jpg");
         bottom.add(correct1);
-        bottom.add(new ShuffleAction("Pantalon", "/images/activity/shabiller_soleil/1_pantalon.jpg"));
+        bottom.add(new Action("Pantalon", "/images/activity/shabiller_soleil/1_pantalon.jpg"));
 
-        List<ShuffleAction> top = new LinkedList<>();
-        ShuffleAction correct2 = new ShuffleAction("Tee-shirt", "/images/activity/shabiller_soleil/2_tee.jpg");
+        List<Action> top = new LinkedList<>();
+        Action correct2 = new Action("Tee-shirt", "/images/activity/shabiller_soleil/2_tee.jpg");
         top.add(correct2);
-        top.add(new ShuffleAction("Veste", "/images/activity/shabiller_soleil/2_veste.jpg"));
-        top.add(new ShuffleAction("Polaire", "/images/activity/shabiller_soleil/2_polaire.jpg"));
-        top.add(new ShuffleAction("K-way", "/images/activity/shabiller_soleil/2_kway.jpg"));
+        top.add(new Action("Veste", "/images/activity/shabiller_soleil/2_veste.jpg"));
+        top.add(new Action("Polaire", "/images/activity/shabiller_soleil/2_polaire.jpg"));
+        top.add(new Action("K-way", "/images/activity/shabiller_soleil/2_kway.jpg"));
 
-        List<ShuffleAction> head = new LinkedList<>();
-        ShuffleAction correct3 = new ShuffleAction("Chapeau", "/images/activity/shabiller_soleil/3_chapeau.jpg");
+        List<Action> head = new LinkedList<>();
+        Action correct3 = new Action("Chapeau", "/images/activity/shabiller_soleil/3_chapeau.jpg");
         head.add(correct3);
-        head.add(new ShuffleAction("Bonnet", "/images/activity/shabiller_soleil/3_bonnet.jpg"));
+        head.add(new Action("Bonnet", "/images/activity/shabiller_soleil/3_bonnet.jpg"));
 
-        List<List<ShuffleAction>> answers = new LinkedList<>();
+        List<List<Action>> answers = new LinkedList<>();
         answers.add(bottom);
         answers.add(top);
         answers.add(head);
 
-        List<ShuffleAction> correctChoices = new LinkedList<>();
-        correctChoices.add(correct1);
-        correctChoices.add(correct2);
-        correctChoices.add(correct3);
+        List<Action> tmp = new LinkedList<>();
+        tmp.add(correct1);
+        tmp.add(correct2);
+        tmp.add(correct3);
+
+        MultiChoiceList<Action> correctChoices = new MultiChoiceList<>(Arrays.asList(tmp));
 
         List<String> currentStateImages = new LinkedList<>();
         currentStateImages.add("/images/activity/default.jpg");

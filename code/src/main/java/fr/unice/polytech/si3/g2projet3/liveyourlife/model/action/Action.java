@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
  *
  * @author Joël CANCELA VAZ
  */
-public abstract class Action {
+public class Action {
 
     private final String description;
     private final Image image;
