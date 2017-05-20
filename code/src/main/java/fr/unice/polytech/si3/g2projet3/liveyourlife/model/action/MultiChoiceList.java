@@ -37,4 +37,10 @@ public class MultiChoiceList<A> {
         return choices.get(0);
     }
 
+    @Override
+    public String toString() {
+        return "MultiChoiceList{" +
+                "choices=" + choices +
+                '}';
+    }
 }

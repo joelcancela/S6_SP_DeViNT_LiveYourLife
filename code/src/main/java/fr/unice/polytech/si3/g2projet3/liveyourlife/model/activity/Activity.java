@@ -10,6 +10,7 @@ import t2s.SIVOXDevint;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Class x
@@ -26,11 +27,21 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     protected SIVOXDevint sivoxDevint;
 
 
-    public Activity(String title, MultiChoiceList<A> possibleChoices) {
+    public Activity(String title, MultiChoiceList<A> possibleChoices) {//ChronoActivity
         super();
         this.title = title;
         this.correctAnswer = possibleChoices;
         List<A> shuffle = new ArrayList<>(possibleChoices.getIdealChoices());
+        Collections.shuffle(shuffle);
+        this.possibleChoices = FXCollections.observableArrayList(shuffle);
+        answers = FXCollections.observableArrayList();
+    }
+
+    public Activity(String title, MultiChoiceList<A> possibleChoices, Queue<List<Action>> initialQueue) {//ShuffleActivity
+        super();
+        this.title = title;
+        this.correctAnswer = possibleChoices;
+        List<A> shuffle = (List<A>) initialQueue.poll();
         Collections.shuffle(shuffle);
         this.possibleChoices = FXCollections.observableArrayList(shuffle);
         answers = FXCollections.observableArrayList();
@@ -45,7 +56,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     }
 
     public void answerCorrect(A act){
-        System.out.println("correct");
+//        System.out.println("correct");
         //MAJ des possibilitées
         possibleChoices.remove(act);
         //MAJ des answers

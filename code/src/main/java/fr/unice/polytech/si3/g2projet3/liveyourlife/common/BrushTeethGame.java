@@ -58,7 +58,7 @@ public class BrushTeethGame extends JeuDevint {
         sceneDevint.getStylesheets().add("/styles/style.css");
         control = fxmlLoader.getController();
 
-        control.setModel(initModel());
+        control.setModel(model);
 
         control.setScene(sceneDevint);
 

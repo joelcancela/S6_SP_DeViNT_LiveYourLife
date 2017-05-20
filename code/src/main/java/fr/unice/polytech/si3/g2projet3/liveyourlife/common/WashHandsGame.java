@@ -81,7 +81,7 @@ public class WashHandsGame extends JeuDevint {
 
         control = fxmlLoader.getController();
 
-        control.setModel(initModel());
+        control.setModel(model);
 
         control.setScene(sceneDevint);
 
