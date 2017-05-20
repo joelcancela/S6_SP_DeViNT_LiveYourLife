@@ -43,8 +43,8 @@ public class ChronoActivityController extends ActivityController {
         activityName.setText(((ChronoActivity) model).getTitle());
         ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
         ObservableList<Action> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
-        ObservableList<Action> answers =  ((ChronoActivity) model).getAnswers();
-        initPossibleActions(possibleActions);
+        this.answers =  ((ChronoActivity) model).getAnswers();
+        initPossibleActions();
         initAnswers(answers);
         availableActions.getSelectionModel().select(0);
 
@@ -107,10 +107,14 @@ public class ChronoActivityController extends ActivityController {
     /**
      * Initialize the list view containing the possible actions
      */
-    private void initPossibleActions(ObservableList<Action> possibleActions) {
-        availableActions.setPrefHeight(325);
+    private void initPossibleActions() {
+
+        int nb_elements = Math.min(5,answers.size());
+        int margin = 50;
+        int size_per_block =(int) ((this.getScene().getWidth()/nb_elements));
+        availableActions.setPrefHeight(size_per_block+(2*margin));
         availableActions.setEditable(false);
-        availableActions.setCellFactory(listView -> new ChronoCell(100,10));
+        availableActions.setCellFactory(listView -> new ChronoCell(size_per_block-(2*margin),margin));
         //Selection Change listener
         availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Action>() {
             @Override

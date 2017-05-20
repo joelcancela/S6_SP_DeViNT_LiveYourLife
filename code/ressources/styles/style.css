@@ -1,5 +1,7 @@
 .list-cell{
     -fx-background-color: white;
+    -fx-padding: 0;
+    -fx-margin: 0, 0;
 }
 
 .list-cell:selected{
@@ -11,3 +13,4 @@
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
 }
+
