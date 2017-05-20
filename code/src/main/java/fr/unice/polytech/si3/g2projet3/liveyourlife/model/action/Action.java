@@ -30,4 +30,12 @@ public class Action {
     public Image getImage() {
         return image;
     }
+
+    @Override
+    public String toString() {
+        return "Action{" +
+                "description='" + description + '\'' +
+                ", image=" + image +
+                '}';
+    }
 }

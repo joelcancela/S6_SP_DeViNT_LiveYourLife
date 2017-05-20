@@ -51,10 +51,10 @@ public class DressUnderSun extends JeuDevint {
         head.add(correct3);
         head.add(new Action("Bonnet", "/images/activity/shabiller_soleil/3_bonnet.jpg"));
 
-        List<List<Action>> answers = new LinkedList<>();
-        answers.add(bottom);
-        answers.add(top);
-        answers.add(head);
+        Queue<List<Action>> answersList = new LinkedList<>();
+        answersList.add(bottom);
+        answersList.add(top);
+        answersList.add(head);
 
         List<Action> tmp = new LinkedList<>();
         tmp.add(correct1);
@@ -68,7 +68,7 @@ public class DressUnderSun extends JeuDevint {
         currentStateImages.add("/images/activity/shabiller_soleil/1_short.jpg");
         currentStateImages.add("/images/activity/shabiller_soleil/2_tee.jpg");
 
-        shuffleActivity = new ShuffleActivity(titre(), (Queue) answers, correctChoices,
+        shuffleActivity = new ShuffleActivity(titre(), answersList, correctChoices,
                 currentStateImages, "/images/activity/shabiller_soleil/contexte.png");
         return shuffleActivity;
     }
@@ -87,7 +87,7 @@ public class DressUnderSun extends JeuDevint {
         sceneDevint.getSIVox().stop();
         control = fxmlLoader.getController();
 
-        control.setModel(initModel());
+        control.setModel(model);
 
         control.setScene(sceneDevint);
 
