@@ -5,7 +5,7 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.fxml.FXMLLoader;
@@ -36,14 +36,14 @@ public class WashHandsGame extends JeuDevint {
     @Override
     protected ModeleDevint initModel() {
 
-        ChronoAction ouvrir_robinet = new ChronoAction("ouvrir le robinet","/images/activity/washHands/openTap.jpg");
-        ChronoAction mouiller_mains = new ChronoAction("se mouiller les mains","/images/activity/washHands/wetHands.jpg");
-        ChronoAction prendre_savon = new ChronoAction("prendre du savon","/images/activity/washHands/takeSoap.jpg");
-        ChronoAction frotter_mains = new ChronoAction("se frotter les mains","/images/activity/washHands/frotterMains.jpg");
-        ChronoAction rincer_mains = new ChronoAction("se rincer les mains","/images/activity/washHands/rincerMains.jpg");
-        ChronoAction fermer_robinet = new ChronoAction("fermer le robinet","/images/activity/washHands/closeTap.jpg");
-        ChronoAction secher_mains = new ChronoAction("se sécher les mains","/images/activity/washHands/secherMains.jpg");
-        List<ChronoAction> optimalWay = new ArrayList<>();
+        Action ouvrir_robinet = new Action("ouvrir le robinet","/images/activity/washHands/openTap.jpg");
+        Action mouiller_mains = new Action("se mouiller les mains","/images/activity/washHands/wetHands.jpg");
+        Action prendre_savon = new Action("prendre du savon","/images/activity/washHands/takeSoap.jpg");
+        Action frotter_mains = new Action("se frotter les mains","/images/activity/washHands/frotterMains.jpg");
+        Action rincer_mains = new Action("se rincer les mains","/images/activity/washHands/rincerMains.jpg");
+        Action fermer_robinet = new Action("fermer le robinet","/images/activity/washHands/closeTap.jpg");
+        Action secher_mains = new Action("se sécher les mains","/images/activity/washHands/secherMains.jpg");
+        List<Action> optimalWay = new ArrayList<>();
         optimalWay.add(ouvrir_robinet);
         optimalWay.add(mouiller_mains);
         optimalWay.add(prendre_savon);
@@ -51,7 +51,7 @@ public class WashHandsGame extends JeuDevint {
         optimalWay.add(rincer_mains);
         optimalWay.add(fermer_robinet);
         optimalWay.add(secher_mains);
-        List<ChronoAction> secondWay = new ArrayList<>();
+        List<Action> secondWay = new ArrayList<>();
         secondWay.add(ouvrir_robinet);
         secondWay.add(mouiller_mains);
         secondWay.add(prendre_savon);
@@ -59,7 +59,7 @@ public class WashHandsGame extends JeuDevint {
         secondWay.add(rincer_mains);
         secondWay.add(secher_mains);
         secondWay.add(fermer_robinet);
-        List<List<ChronoAction>> allWays = new ArrayList<>();
+        List<List<Action>> allWays = new ArrayList<>();
         allWays.add(optimalWay);
         allWays.add(secondWay);
         MultiChoiceList multiChoiceList = new MultiChoiceList(allWays);

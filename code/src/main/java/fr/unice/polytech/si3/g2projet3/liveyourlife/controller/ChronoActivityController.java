@@ -1,14 +1,13 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,9 +30,9 @@ public class ChronoActivityController extends ActivityController {
     @FXML
     public Label activityName;
     @FXML
-    public ListView<ChronoAction> availableActions;
+    public ListView<Action> availableActions;
     @FXML
-    public ListView<ChronoAction> pickedActions;
+    public ListView<Action> pickedActions;
     @FXML
     public Label activityDescription;
 
@@ -45,15 +44,15 @@ public class ChronoActivityController extends ActivityController {
     protected void init() {
         activityName.setText(((ChronoActivity) model).getTitle());
         ((ChronoActivity) model).setSIVOXInstance(scene.getSIVox());
-        ObservableList<ChronoAction> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
-        ObservableList<ChronoAction> answers =  ((ChronoActivity) model).getAnswers();
+        ObservableList<Action> possibleActions =  ((ChronoActivity) model).getPossibleChoices();
+        ObservableList<Action> answers =  ((ChronoActivity) model).getAnswers();
         initPossibleActions(possibleActions);
         initAnswers(answers);
         availableActions.getSelectionModel().select(0);
 
     }
 
-    private void initAnswers(ObservableList<ChronoAction> answers) {
+    private void initAnswers(ObservableList<Action> answers) {
         pickedActions.setPrefHeight(325);
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new ChronoCell());
@@ -61,8 +60,8 @@ public class ChronoActivityController extends ActivityController {
 
     }
 
-    private class ChronoCell extends ListCell<ChronoAction> {
-        protected void updateItem(ChronoAction choice, boolean empty) {
+    private class ChronoCell extends ListCell<Action> {
+        protected void updateItem(Action choice, boolean empty) {
             super.updateItem(choice,empty);
             if(empty){
                 this.setGraphic(null);
@@ -87,14 +86,14 @@ public class ChronoActivityController extends ActivityController {
      * Initialize the list view containing the possible actions
      * @param possibleActions the different choices the player have.
      */
-    private void initPossibleActions(ObservableList<ChronoAction> possibleActions) {
+    private void initPossibleActions(ObservableList<Action> possibleActions) {
         availableActions.setPrefHeight(325);
         availableActions.setEditable(false);
         availableActions.setCellFactory(listView -> new ChronoCell());
         //Selection Change listener
-        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ChronoAction>() {
+        availableActions.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Action>() {
             @Override
-            public void changed(ObservableValue<? extends ChronoAction> observable, ChronoAction oldValue, ChronoAction newValue) {
+            public void changed(ObservableValue<? extends Action> observable, Action oldValue, Action newValue) {
                 if(newValue!=null){
                     activityDescription.setText(newValue.getDescription());
                     flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
@@ -121,7 +120,7 @@ public class ChronoActivityController extends ActivityController {
 
 
     private void choose() {
-        ChronoAction selectedItem = availableActions.getSelectionModel().getSelectedItem();
+        Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
         ((ChronoActivity) model).answerAction(selectedItem);
 
         if(availableActions.getItems().isEmpty()){

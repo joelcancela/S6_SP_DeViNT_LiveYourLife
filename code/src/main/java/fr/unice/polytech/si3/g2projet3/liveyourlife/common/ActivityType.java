@@ -1,6 +1,5 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.common;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;

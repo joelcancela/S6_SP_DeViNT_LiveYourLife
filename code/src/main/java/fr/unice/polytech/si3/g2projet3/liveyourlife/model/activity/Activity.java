@@ -2,7 +2,6 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
