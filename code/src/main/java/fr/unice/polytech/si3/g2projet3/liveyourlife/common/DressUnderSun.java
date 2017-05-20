@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by user on 10/04/2017.
@@ -34,34 +31,45 @@ public class DressUnderSun extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
+    	//Multi choice list
+	    Action shortAction = new Action("Short", "/images/activity/shabiller_soleil/1_short.jpg");
+	    Action pantalonAction = new Action("Pantalon", "/images/activity/shabiller_soleil/1_pantalon.jpg");
+	    Action tshirt = new Action("Tee-shirt", "/images/activity/shabiller_soleil/2_tee.jpg");
+	    Action veste = new Action("Veste", "/images/activity/shabiller_soleil/2_veste.jpg");
+	    Action polaire =new Action("Polaire", "/images/activity/shabiller_soleil/2_polaire.jpg");
+	    Action kway = new Action("K-way", "/images/activity/shabiller_soleil/2_kway.jpg");
+	    Action chapeau = new Action("Chapeau", "/images/activity/shabiller_soleil/3_chapeau.jpg");
+	    Action bonnet = new Action("Bonnet", "/images/activity/shabiller_soleil/3_bonnet.jpg");
+
+	    List<Action> correctAnswers = new LinkedList<>();
+	    correctAnswers.add(shortAction);
+	    correctAnswers.add(tshirt);
+	    correctAnswers.add(chapeau);
+
+	    List<List<Action>> choices = new ArrayList<>();
+	    choices.add(correctAnswers);
+
+	    MultiChoiceList<Action> correctChoices = new MultiChoiceList<>(choices);
+
+		//QueueList<Action>
         List<Action> bottom = new LinkedList<>();
-        Action correct1 = new Action("Short", "/images/activity/shabiller_soleil/1_short.jpg");
-        bottom.add(correct1);
-        bottom.add(new Action("Pantalon", "/images/activity/shabiller_soleil/1_pantalon.jpg"));
+        bottom.add(shortAction);
+        bottom.add(pantalonAction);
 
         List<Action> top = new LinkedList<>();
-        Action correct2 = new Action("Tee-shirt", "/images/activity/shabiller_soleil/2_tee.jpg");
-        top.add(correct2);
-        top.add(new Action("Veste", "/images/activity/shabiller_soleil/2_veste.jpg"));
-        top.add(new Action("Polaire", "/images/activity/shabiller_soleil/2_polaire.jpg"));
-        top.add(new Action("K-way", "/images/activity/shabiller_soleil/2_kway.jpg"));
+        top.add(tshirt);
+        top.add(veste);
+        top.add(polaire);
+        top.add(kway);
 
         List<Action> head = new LinkedList<>();
-        Action correct3 = new Action("Chapeau", "/images/activity/shabiller_soleil/3_chapeau.jpg");
-        head.add(correct3);
-        head.add(new Action("Bonnet", "/images/activity/shabiller_soleil/3_bonnet.jpg"));
+	    head.add(bonnet);
+	    head.add(chapeau);
 
         Queue<List<Action>> answersList = new LinkedList<>();
         answersList.add(bottom);
         answersList.add(top);
         answersList.add(head);
-
-        List<Action> tmp = new LinkedList<>();
-        tmp.add(correct1);
-        tmp.add(correct2);
-        tmp.add(correct3);
-
-        MultiChoiceList<Action> correctChoices = new MultiChoiceList<>(Arrays.asList(tmp));
 
         List<String> currentStateImages = new LinkedList<>();
         currentStateImages.add("/images/activity/default.jpg");

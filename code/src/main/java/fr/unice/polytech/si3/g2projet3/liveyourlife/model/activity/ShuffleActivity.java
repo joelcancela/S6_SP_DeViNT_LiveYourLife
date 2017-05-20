@@ -24,7 +24,7 @@ public class ShuffleActivity extends Activity<Action> {
     public ShuffleActivity(String title, Queue<List<Action>> choices,
                            MultiChoiceList<Action> correctChoices,
                            List<String> currentStateImagePath, String contextImagePath) {
-        super(title, correctChoices);
+        super(title, correctChoices,choices);
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();
         for (String s : currentStateImagePath)
