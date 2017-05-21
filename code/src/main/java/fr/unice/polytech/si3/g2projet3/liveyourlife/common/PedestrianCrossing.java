@@ -77,7 +77,7 @@ public class PedestrianCrossing extends JeuDevint {
 
 		List<String> currentStateImages = new LinkedList<>();
 		currentStateImages.add("/images/activity/crossTheStreet/redlight.jpg");
-		currentStateImages.add("/images/activity/crossTheStreet/greenlight.jpg");
+		currentStateImages.add("/images/activity/crossTheStreet/redlight.jpg");
 		currentStateImages.add("/images/activity/crossTheStreet/greenlight.jpg");
 
 		shuffleActivity = new ShuffleActivity(titre(), answersList, correctChoices,
