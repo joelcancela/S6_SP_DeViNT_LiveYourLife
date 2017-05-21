@@ -27,7 +27,7 @@ public abstract class ListActivityController extends ActivityController{
     public ListView<Action> availableActions;
 
     //used to know how many items are visible on list
-    private VirtualFlow flow;
+    protected VirtualFlow availableActionFlow;
 
     @Override
     protected void init() {
@@ -50,7 +50,7 @@ public abstract class ListActivityController extends ActivityController{
         availableActions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
                 activityDescription.setText(newValue.getDescription());
-                flow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
+                availableActionFlow = (VirtualFlow) availableActions.lookup( ".virtual-flow");
                 scene.getSIVox().playText(newValue.getDescription());
             }
         });
@@ -75,8 +75,8 @@ public abstract class ListActivityController extends ActivityController{
 
     private void right() {
         availableActions.getSelectionModel().selectNext();
-        IndexedCell last = flow.getLastVisibleCellWithinViewPort();
-        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
+        IndexedCell last = availableActionFlow.getLastVisibleCellWithinViewPort();
+        IndexedCell first = availableActionFlow.getFirstVisibleCellWithinViewPort();
         if(last.getIndex()<availableActions.getSelectionModel().getSelectedIndex()){
             availableActions.scrollTo(first.getIndex()+1);
         }
@@ -84,7 +84,7 @@ public abstract class ListActivityController extends ActivityController{
 
     private void left() {
         availableActions.getSelectionModel().selectPrevious();
-        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
+        IndexedCell first = availableActionFlow.getFirstVisibleCellWithinViewPort();
         if(first.getIndex()>availableActions.getSelectionModel().getSelectedIndex()-1){
             availableActions.scrollTo(first.getIndex()-1);
         }

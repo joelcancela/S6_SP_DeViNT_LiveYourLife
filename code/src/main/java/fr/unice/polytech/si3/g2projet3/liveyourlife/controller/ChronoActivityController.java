@@ -1,21 +1,13 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
+import com.sun.javafx.scene.control.skin.ListViewSkin;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.IndexedCell;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.KeyCode;
-
-import java.io.IOException;
 
 /**
  * Controller of the Chrono Activity
@@ -48,8 +40,9 @@ public class ChronoActivityController extends ListActivityController {
     @Override
     protected void choose() {
         Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
-        ((ChronoActivity) model).answerAction(selectedItem);
-
+        if ( ((ChronoActivity) model).answerAction(selectedItem)){
+            pickedActions.scrollTo(pickedActions.getItems().size()-availableActions.getItems().size()-5);
+        }
         if(availableActions.getItems().isEmpty()){
             win();
         }
