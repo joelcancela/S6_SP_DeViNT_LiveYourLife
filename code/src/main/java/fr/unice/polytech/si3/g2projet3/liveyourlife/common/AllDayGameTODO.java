@@ -1,11 +1,11 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.common;
 
 /**
- * {@code EatHealthy} is [desc]
+ * {@code AllDayGameTODO} is [desc]
  * <p>
  * [descSuite]
  *
  * @author Joël CANCELA VAZ
  */
-public class EatHealthy {
+public class AllDayGameTODO {
 }

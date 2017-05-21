@@ -1,11 +1,7 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife;
 
 import dvt.devint.menu.MenuDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.BrushTeethGame;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.DressUnderSun;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.PedestrianCrossing;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.TakeAShower;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.WashHandsGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.*;
 import javafx.application.Application;
 
 /**
@@ -41,6 +37,7 @@ public class MainMenu extends MenuDevint {
         control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
         control.addMenuItem("S'habiller", x-> new DressUnderSun());
         control.addMenuItem("Traverser la route", x-> new PedestrianCrossing());
+        control.addMenuItem("Prendre le bus", x-> new TakeTheBus());
 //        control.addMenuItem("S'habiller", x-> new ShuffleActivityController());
     }
 }

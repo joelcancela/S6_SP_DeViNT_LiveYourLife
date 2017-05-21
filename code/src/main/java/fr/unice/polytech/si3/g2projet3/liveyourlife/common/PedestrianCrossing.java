@@ -60,13 +60,10 @@ public class PedestrianCrossing extends JeuDevint {
 		first.add(walk);
 
 		List<Action> second = new LinkedList<>();
-		second.add(pushButton);
 		second.add(wait);
 		second.add(walk);
 
 		List<Action> third = new LinkedList<>();
-		third.add(pushButton);
-		third.add(wait);
 		third.add(walk);
 
 
