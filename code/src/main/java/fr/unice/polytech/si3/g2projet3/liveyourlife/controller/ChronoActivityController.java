@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.IndexedCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Skin;
 
 /**
  * Controller of the Chrono Activity
@@ -34,14 +35,18 @@ public class ChronoActivityController extends ListActivityController {
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new Cell());
         pickedActions.setItems(answers);
-
     }
 
     @Override
     protected void choose() {
         Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
-        if ( ((ChronoActivity) model).answerAction(selectedItem)){
-            pickedActions.scrollTo(pickedActions.getItems().size()-availableActions.getItems().size()-5);
+        ((ChronoActivity) model).answerAction(selectedItem);
+        ListViewSkin<Cell> skin = (ListViewSkin<Cell>) pickedActions.getSkin();
+        VirtualFlow flow= (VirtualFlow) skin.getChildren().get(0);
+        IndexedCell last = flow.getLastVisibleCellWithinViewPort();
+        IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
+        if(last.getIndex()<pickedActions.getItems().size()-availableActions.getItems().size()-2){
+            pickedActions.scrollTo(first.getIndex()+1);
         }
         if(availableActions.getItems().isEmpty()){
             win();
