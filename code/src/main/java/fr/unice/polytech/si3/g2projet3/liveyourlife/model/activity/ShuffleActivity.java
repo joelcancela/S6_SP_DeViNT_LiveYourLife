@@ -3,7 +3,6 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.scene.image.Image;
-import t2s.SIVOXDevint;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,6 +23,7 @@ public class ShuffleActivity extends Activity<Action> {
                            MultiChoiceList<Action> correctChoices,
                            List<String> currentStateImagePath, String contextImagePath) {
         super(title, correctChoices,choices);
+        if(contextImagePath!=null)
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();
         for (String s : currentStateImagePath)
