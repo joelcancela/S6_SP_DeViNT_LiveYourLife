@@ -4,6 +4,7 @@ import dvt.devint.menu.MenuDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.BrushTeethGame;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.DressUnderSun;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.PedestrianCrossing;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.TakeAShower;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.WashHandsGame;
 import javafx.application.Application;
 
@@ -36,6 +37,7 @@ public class MainMenu extends MenuDevint {
     public void initMenu() {
 //        control.addMenuItem("Jouer une journée complète", x-> new ShuffleActivityController());
         control.addMenuItem("Se brosser les dents", x-> new BrushTeethGame());
+        control.addMenuItem("Se doucher", x-> new TakeAShower());
         control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
         control.addMenuItem("S'habiller", x-> new DressUnderSun());
         control.addMenuItem("Traverser la route", x-> new PedestrianCrossing());
