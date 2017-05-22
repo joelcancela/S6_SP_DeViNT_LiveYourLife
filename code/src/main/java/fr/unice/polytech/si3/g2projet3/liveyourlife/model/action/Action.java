@@ -38,4 +38,22 @@ public class Action {
                 ", image=" + image +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Action action = (Action) o;
+
+        if (!description.equals(action.description)) return false;
+        return image.equals(action.image);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = description.hashCode();
+        result = 31 * result + image.hashCode();
+        return result;
+    }
 }

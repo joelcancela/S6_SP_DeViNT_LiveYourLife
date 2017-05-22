@@ -35,7 +35,7 @@ public class MainMenu extends MenuDevint {
         control.addMenuItem("Se brosser les dents", x-> new JeuChrono("brush"));
         control.addMenuItem("Se doucher", x-> new TakeAShower());
         control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
-        control.addMenuItem("S'habiller", x-> new DressUnderSun());
+        control.addMenuItem("S'habiller", x-> new JeuShuffle("dressSun"));
         control.addMenuItem("Traverser la route", x-> new PedestrianCrossing());
         control.addMenuItem("Prendre le bus", x-> new TakeTheBus());
 //        control.addMenuItem("S'habiller", x-> new ShuffleActivityController());

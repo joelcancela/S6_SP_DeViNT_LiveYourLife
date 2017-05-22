@@ -7,7 +7,7 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -17,25 +17,25 @@ import java.io.InputStreamReader;
 /**
  * Created by user on 03/05/2017.
  */
-public class JeuChrono extends JeuDevint {
+public class JeuShuffle extends JeuDevint {
 
-    private ChronoActivity chronoActivity;
+    private ShuffleActivity shuffleActivity;
 
-    public JeuChrono(String id) {
+    public JeuShuffle(String id) {
         super(id);
     }
 
     @Override
     public String titre() {
-        return chronoActivity.getTitle();
+        return shuffleActivity.getTitle();
     }
 
     @Override
     protected ModeleDevint initModel() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
+        Gson gson = new GsonBuilder().registerTypeAdapter(ShuffleActivity.class, new ActivityDeserializer<ShuffleActivity>()).create();
         String path = String.format("/activity/%s.json", id);
-        chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), ChronoActivity.class);
-        return chronoActivity;
+        shuffleActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), ShuffleActivity.class);
+        return shuffleActivity;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class JeuChrono extends JeuDevint {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
         try {
-            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoActivity.fxml"));
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/shuffleActivity.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,3 +60,5 @@ public class JeuChrono extends JeuDevint {
         return control;
     }
 }
+
+

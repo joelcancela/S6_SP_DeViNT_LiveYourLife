@@ -76,7 +76,7 @@ public class DressUnderSun extends JeuDevint {
         currentStateImages.add("/images/activity/shabiller_soleil/1_short.jpg");
         currentStateImages.add("/images/activity/shabiller_soleil/2_tee.jpg");
 
-        shuffleActivity = new ShuffleActivity(titre(), answersList, correctChoices,
+        shuffleActivity = new ShuffleActivity(titre(), correctChoices, answersList,
                 currentStateImages, "/images/activity/shabiller_soleil/contexte.png");
         return shuffleActivity;
     }
