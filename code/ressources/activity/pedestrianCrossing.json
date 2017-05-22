@@ -27,5 +27,5 @@
     "/images/activity/crossTheStreet/redlight.jpg",
     "/images/activity/crossTheStreet/greenlight.jpg"
   ],
-  "context": "/images/activity/default.jpg"
+  "context": "/images/activity/empty_context.jpg"
 }
