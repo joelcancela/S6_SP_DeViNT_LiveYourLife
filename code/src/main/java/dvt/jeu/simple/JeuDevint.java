@@ -20,10 +20,8 @@ public abstract class JeuDevint extends Stage{
      * le modele du jeu
      */
     protected ModeleDevint model;
-    protected String id;
 
     public JeuDevint() {
-        this(null);
     }
 
     /** le titre du jeu
@@ -46,14 +44,6 @@ public abstract class JeuDevint extends Stage{
      * on peut aussi tout créer à la main si on ne veut pas passer par FXML
      */
     protected abstract ControleDevint initControlAndScene();
-    
-    /**
-     * constructeur du jeu
-     * @param id
-     */
-	public JeuDevint(String id){
-        this.id = id;
-	}
 
 	protected void init(){
         this.model = initModel();

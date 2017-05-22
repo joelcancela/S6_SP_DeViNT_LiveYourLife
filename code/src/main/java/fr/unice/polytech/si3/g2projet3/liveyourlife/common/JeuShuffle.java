@@ -7,6 +7,7 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,8 +22,10 @@ public class JeuShuffle extends JeuDevint {
 
     private ShuffleActivity shuffleActivity;
 
-    public JeuShuffle(String id) {
-        super(id);
+    public JeuShuffle(String activityPath) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(ShuffleActivity.class, new ActivityDeserializer<ShuffleActivity>()).create();
+        shuffleActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath)), ShuffleActivity.class);
+        init();
     }
 
     @Override
@@ -32,9 +35,6 @@ public class JeuShuffle extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ShuffleActivity.class, new ActivityDeserializer<ShuffleActivity>()).create();
-        String path = String.format("/activity/%s.json", id);
-        shuffleActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), ShuffleActivity.class);
         return shuffleActivity;
     }
 
