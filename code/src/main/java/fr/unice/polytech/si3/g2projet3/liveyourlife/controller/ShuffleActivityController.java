@@ -31,6 +31,8 @@ public class ShuffleActivityController extends ListActivityController {
         super.init();
         contextImage.setImage(((ShuffleActivity) model).getContextImagePath());
         currentStateImage.setImage(((ShuffleActivity) model).getCurrentStateImagePath());
+        contextImage.setFitHeight(getScene().getHeight()/3.5f);
+        currentStateImage.setFitHeight(getScene().getHeight()/3.5f);
     }
 
     @Override

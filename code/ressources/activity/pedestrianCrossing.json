@@ -1,0 +1,31 @@
+{
+  "type"    : "SHUFFLE",
+  "title"   : "Traverser la route",
+  "actions": [
+    [
+      {"description": "Appuyer sur le bouton", "image": "/images/activity/crossTheStreet/1.jpg"},
+      {"description": "Attendre sur le trottoir", "image": "/images/activity/crossTheStreet/2.jpg"},
+      {"description": "Traverser la route", "image": "/images/activity/crossTheStreet/3.jpg"}
+    ]
+  ],
+  "choices" : [
+    [
+      {"description": "Appuyer sur le bouton", "image": "/images/activity/crossTheStreet/1.jpg"},
+      {"description": "Attendre sur le trottoir", "image": "/images/activity/crossTheStreet/2.jpg"},
+      {"description": "Traverser la route", "image": "/images/activity/crossTheStreet/3.jpg"}
+    ],
+    [
+      {"description": "Attendre sur le trottoir", "image": "/images/activity/crossTheStreet/2.jpg"},
+      {"description": "Traverser la route", "image": "/images/activity/crossTheStreet/3.jpg"}
+    ],
+    [
+      {"description": "Traverser la route", "image": "/images/activity/crossTheStreet/3.jpg"}
+    ]
+  ],
+  "currentState": [
+    "/images/activity/crossTheStreet/redlight.jpg",
+    "/images/activity/crossTheStreet/redlight.jpg",
+    "/images/activity/crossTheStreet/greenlight.jpg"
+  ],
+  "context": "/images/activity/default.jpg"
+}

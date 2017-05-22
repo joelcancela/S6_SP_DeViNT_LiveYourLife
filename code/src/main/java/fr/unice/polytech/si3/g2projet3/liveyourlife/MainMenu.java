@@ -42,7 +42,6 @@ public class MainMenu extends MenuDevint {
      */
     @Override
     public void initMenu() {
-//        control.addMenuItem("Jouer une journée complète", x-> new ShuffleActivityController());
         File dir = new File("../ressources/activity/");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
@@ -50,13 +49,6 @@ public class MainMenu extends MenuDevint {
                 addGame(child);
             }
         }
-//        control.addMenuItem("Se brosser les dents", x-> new BrushTeethGame());
-//        control.addMenuItem("Se doucher", x-> new TakeAShower());
-//        control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
-//        control.addMenuItem("S'habiller", x-> new DressUnderSun());
-//        control.addMenuItem("Traverser la route", x-> new PedestrianCrossing());
-//        control.addMenuItem("Prendre le bus", x-> new TakeTheBus());
-//        control.addMenuItem("S'habiller", x-> new ShuffleActivityController());
     }
 
     private void addGame(File child) {
