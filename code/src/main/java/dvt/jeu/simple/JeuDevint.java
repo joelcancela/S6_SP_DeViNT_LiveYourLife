@@ -20,7 +20,12 @@ public abstract class JeuDevint extends Stage{
      * le modele du jeu
      */
     protected ModeleDevint model;
-    
+    protected String id;
+
+    public JeuDevint() {
+        this(null);
+    }
+
     /** le titre du jeu
      * 
      * @return le titre
@@ -44,9 +49,10 @@ public abstract class JeuDevint extends Stage{
     
     /**
      * constructeur du jeu
+     * @param id
      */
-	public JeuDevint(){
-
+	public JeuDevint(String id){
+        this.id = id;
 	}
 
 	protected void init(){

@@ -29,7 +29,7 @@ public class PedestrianCrossing extends JeuDevint {
 	private ShuffleActivity shuffleActivity;
 
 	public PedestrianCrossing() {
-	}
+    }
 
 	@Override
 	public String titre() {
@@ -77,7 +77,7 @@ public class PedestrianCrossing extends JeuDevint {
 		currentStateImages.add("/images/activity/crossTheStreet/redlight.jpg");
 		currentStateImages.add("/images/activity/crossTheStreet/greenlight.jpg");
 
-		shuffleActivity = new ShuffleActivity(titre(), answersList, correctChoices,
+		shuffleActivity = new ShuffleActivity(titre(), correctChoices, answersList,
 				currentStateImages, null);
 		return shuffleActivity;
 	}

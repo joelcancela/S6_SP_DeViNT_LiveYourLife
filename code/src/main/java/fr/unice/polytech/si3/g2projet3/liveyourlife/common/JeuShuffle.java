@@ -7,7 +7,7 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -15,28 +15,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Controller of the Chrono Activity
- *
- * @author Joël CANCELA VAZ
+ * Created by user on 03/05/2017.
  */
-public class BrushTeethGame extends JeuDevint {
+public class JeuShuffle extends JeuDevint {
 
+    private ShuffleActivity shuffleActivity;
 
-    private ChronoActivity chronoActivity;
-
-    public BrushTeethGame() {
+    public JeuShuffle(String id) {
+        super(id);
     }
 
     @Override
     public String titre() {
-        return "Se brosser les dents";
+        return shuffleActivity.getTitle();
     }
 
     @Override
     protected ModeleDevint initModel() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
-        return chronoActivity;
+        Gson gson = new GsonBuilder().registerTypeAdapter(ShuffleActivity.class, new ActivityDeserializer<ShuffleActivity>()).create();
+        String path = String.format("/activity/%s.json", id);
+        shuffleActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), ShuffleActivity.class);
+        return shuffleActivity;
     }
 
     @Override
@@ -44,15 +43,16 @@ public class BrushTeethGame extends JeuDevint {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
         try {
-            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoActivity.fxml"));
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/shuffleActivity.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
         sceneDevint.getStylesheets().add("/styles/style.css");
+
         control = fxmlLoader.getController();
 
-        control.setModel(model);
+        control.setModel(initModel());
 
         control.setScene(sceneDevint);
 
@@ -60,3 +60,5 @@ public class BrushTeethGame extends JeuDevint {
         return control;
     }
 }
+
+

@@ -19,8 +19,8 @@ public class ShuffleActivity extends Activity<Action> {
     private Queue<Image> currentStateImagePath;
     private Queue<List<Action>> allChoices;
 
-    public ShuffleActivity(String title, Queue<List<Action>> choices,
-                           MultiChoiceList<Action> correctChoices,
+    public ShuffleActivity(String title, MultiChoiceList<Action> correctChoices,
+                           Queue<List<Action>> choices,
                            List<String> currentStateImagePath, String contextImagePath) {
         super(title, correctChoices,choices);
         if(contextImagePath!=null)
