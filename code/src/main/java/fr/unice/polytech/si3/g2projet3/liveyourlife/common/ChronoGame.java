@@ -24,6 +24,7 @@ public class ChronoGame extends JeuDevint {
 
     public ChronoGame(ChronoActivity activity) {
         this.chronoActivity = activity;
+        init();
     }
 
     @Override
@@ -33,8 +34,6 @@ public class ChronoGame extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        //Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        //chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
         return chronoActivity;
     }
 

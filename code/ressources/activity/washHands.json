@@ -1,0 +1,66 @@
+{
+  "type": "CHRONO",
+  "title": "Se laver les mains",
+  "actions": [
+    [
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
+      },
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      }
+    ],
+    [
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
+      },
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      }
+    ]
+  ]
+}

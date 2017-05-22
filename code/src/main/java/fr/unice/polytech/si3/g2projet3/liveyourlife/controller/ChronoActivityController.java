@@ -31,7 +31,7 @@ public class ChronoActivityController extends ListActivityController {
 
     private void initAnswers(ObservableList<Action> answers) {
         Cell cell = new Cell();
-        pickedActions.setPrefHeight(cell.getSizeOfElement()+(cell.getMarginOfElement()*2.5));
+        pickedActions.setPrefHeight(getScene().getHeight()/2.5f);
         pickedActions.setEditable(false);
         pickedActions.setCellFactory(listView -> new Cell());
         pickedActions.setItems(answers);
