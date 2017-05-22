@@ -55,11 +55,10 @@ public class MainMenu extends MenuDevint {
     }
 
     private void addGame(File child) {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
         String[] fileNames = child.getName().split("\"");
         String fileName = fileNames[fileNames.length-1];
-        ChronoActivity chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), ChronoActivity.class);
-
-        control.addMenuItem(chronoActivity.getTitle(),x->new ChronoGame(chronoActivity));
+        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
+        ChronoActivity chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), ChronoActivity.class);
+        control.addMenuItem(chronoActivity.getTitle(),x->new ChronoGame("/activity/"+fileName));
     }
 }

@@ -22,8 +22,9 @@ public class ChronoGame extends JeuDevint {
 
     private ChronoActivity chronoActivity;
 
-    public ChronoGame(ChronoActivity activity) {
-        this.chronoActivity = activity;
+    public ChronoGame(String activityPath) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
+        this.chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath)), ChronoActivity.class);
         init();
     }
 
@@ -34,7 +35,7 @@ public class ChronoGame extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        return new ChronoActivity(chronoActivity);
+        return chronoActivity;
     }
 
     @Override

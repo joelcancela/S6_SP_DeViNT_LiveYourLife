@@ -11,11 +11,7 @@ import t2s.SIVOXDevint;
  */
 public class ChronoActivity extends Activity<Action> {
 
-    public ChronoActivity(ChronoActivity chronoActivity){
-        this(chronoActivity.getTitle(),chronoActivity.getCorrectAnswer());
-    }
-
-    public ChronoActivity(String titre, MultiChoiceList<Action> allWays) {
+   public ChronoActivity(String titre, MultiChoiceList<Action> allWays) {
         super(titre, allWays);
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new Action());
