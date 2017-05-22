@@ -21,7 +21,9 @@ public class MultiChoiceList<A> {
     public boolean isCorrect(A choiceMade) {
         List<List<A>> removalList = new ArrayList<>();//On crée une liste temporaire des chemins impossibles
         for (List<A> innerList : choices) {//Pour chaque liste restante
-            if (!innerList.get(currentIndex).equals(choiceMade)) { //On regarde si le choix n'est pas possible à l'index n
+            Action actionToCheck = (Action)choiceMade;
+            if (!innerList.get(currentIndex).equals(actionToCheck)) { //On regarde si le choix n'est pas possible à l'index n
+
                 removalList.add(innerList);//Et on ajoute la liste à la liste de celles à supprimer
             }
         }
