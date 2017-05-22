@@ -34,7 +34,7 @@ public class ChronoGame extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        return chronoActivity;
+        return new ChronoActivity(chronoActivity);
     }
 
     @Override

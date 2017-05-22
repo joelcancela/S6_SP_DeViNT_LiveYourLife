@@ -83,4 +83,8 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
         this.sivoxDevint = sivoxDevint;
     }
 
+    public MultiChoiceList<A> getCorrectAnswer() {
+        return correctAnswer;
+    }
+
 }
