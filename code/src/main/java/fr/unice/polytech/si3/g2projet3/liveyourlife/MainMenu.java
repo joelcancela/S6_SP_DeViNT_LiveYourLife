@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dvt.devint.menu.MenuDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.*;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ChronoGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.Game;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ShuffleGame;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
@@ -62,6 +65,6 @@ public class MainMenu extends MenuDevint {
         Gson gson = new GsonBuilder().registerTypeAdapter(Activity.class, new ActivityDeserializer<Activity>()).create();
         Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
         if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
-        if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new JeuShuffle("/activity/"+fileName));
+        if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
     }
 }

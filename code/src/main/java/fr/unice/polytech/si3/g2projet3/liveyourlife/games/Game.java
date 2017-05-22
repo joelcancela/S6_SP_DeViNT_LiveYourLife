@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.common;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.games;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,6 +7,8 @@ import dvt.devint.SceneDevint;
 import dvt.jeu.simple.ControleDevint;
 import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,25 +19,26 @@ import java.io.InputStreamReader;
 /**
  * Created by Antoine on 5/22/2017.
  */
-public class ChronoGame extends JeuDevint {
+public class Game<A extends Activity> extends JeuDevint {
 
+    private A activity;
+    private String fxmlPath;
 
-    private ChronoActivity chronoActivity;
-
-    public ChronoGame(String activityPath) {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        this.chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath)), ChronoActivity.class);
+    public Game(String fxmlPath, String activityPath, Class<A> type) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(type, new ActivityDeserializer<A>()).create();
+        this.activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath)), type);
+        this.fxmlPath = fxmlPath;
         init();
     }
 
     @Override
     public String titre() {
-        return chronoActivity.getTitle();
+        return activity.getTitle();
     }
 
     @Override
     protected ModeleDevint initModel() {
-        return chronoActivity;
+        return activity;
     }
 
     @Override
@@ -43,7 +46,7 @@ public class ChronoGame extends JeuDevint {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
         try {
-            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoActivity.fxml"));
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
