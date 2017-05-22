@@ -29,7 +29,7 @@ public class PedestrianCrossing extends JeuDevint {
 	private ShuffleActivity shuffleActivity;
 
 	public PedestrianCrossing() {
-	}
+    }
 
 	@Override
 	public String titre() {

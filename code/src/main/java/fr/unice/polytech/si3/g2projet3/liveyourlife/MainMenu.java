@@ -32,7 +32,7 @@ public class MainMenu extends MenuDevint {
     @Override
     public void initMenu() {
 //        control.addMenuItem("Jouer une journée complète", x-> new ShuffleActivityController());
-        control.addMenuItem("Se brosser les dents", x-> new BrushTeethGame());
+        control.addMenuItem("Se brosser les dents", x-> new JeuChrono("brush"));
         control.addMenuItem("Se doucher", x-> new TakeAShower());
         control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
         control.addMenuItem("S'habiller", x-> new DressUnderSun());

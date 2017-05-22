@@ -28,7 +28,7 @@ public class TakeTheBus extends JeuDevint {
 	private ChronoActivity chronoActivity;
 
 	public TakeTheBus() {
-	}
+    }
 
 	@Override
 	public String titre() {

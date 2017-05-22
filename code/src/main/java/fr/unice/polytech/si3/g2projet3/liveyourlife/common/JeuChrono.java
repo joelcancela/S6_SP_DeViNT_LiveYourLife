@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by user on 03/05/2017.
@@ -21,18 +22,9 @@ import java.io.IOException;
 public class JeuChrono extends JeuDevint {
 
     private ChronoActivity chronoActivity;
-    private String id;
 
     public JeuChrono(String id) {
-        this.id = id;
-        final Gson gson = new GsonBuilder().create();
-        String path = String.format("/activity/%s.json");
-        try {
-            gson.fromJson(new FileReader(path), ChronoActivity.class);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        super(id);
     }
 
     @Override
@@ -42,7 +34,10 @@ public class JeuChrono extends JeuDevint {
 
     @Override
     protected ModeleDevint initModel() {
-        return null;
+        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
+        String path = String.format("/activity/%s.json", id);
+        chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(path)), ChronoActivity.class);
+        return chronoActivity;
     }
 
     @Override

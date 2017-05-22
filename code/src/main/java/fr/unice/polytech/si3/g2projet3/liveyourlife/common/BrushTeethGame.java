@@ -41,7 +41,7 @@ public class BrushTeethGame extends JeuDevint {
         answers.add(new Action("se rincer les dents", "/images/activity/se_brosser_les_dents/rincer_dents.jpg"));
         chronoActivity = new ChronoActivity(titre(), new MultiChoiceList<>(Arrays.asList(answers)));*/
         Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
+        chronoActivity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
         return chronoActivity;
     }
 
