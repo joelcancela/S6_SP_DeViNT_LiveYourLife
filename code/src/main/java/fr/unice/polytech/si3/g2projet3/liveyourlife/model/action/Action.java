@@ -46,8 +46,7 @@ public class Action {
 
         Action action = (Action) o;
 
-        if (!description.equals(action.description)) return false;
-        return image.equals(action.image);
+        return description.equals(action.description);
     }
 
     @Override
