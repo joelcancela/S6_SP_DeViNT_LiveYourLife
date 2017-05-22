@@ -32,7 +32,7 @@ public class ChronoActivityController extends ListActivityController {
     private void initAnswers(ObservableList<Action> answers) {
         int nb_elements = Math.min(5,answers.size());
         float margin_percentage = 1f/30f;
-        double size_slot = Math.min(((this.getScene().getWidth()/(float)nb_elements)),getScene().getHeight()/2.5f);
+        double size_slot = Math.min(((this.getScene().getWidth()/(float)nb_elements)),getScene().getHeight()/3.0f);
         double size_item = size_slot-(2*margin_percentage*size_slot);
         pickedActions.setPrefHeight(size_slot+margin_percentage*size_item);
         pickedActions.setEditable(false);
