@@ -15,27 +15,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Controller of the Chrono Activity
- *
- * @author Joël CANCELA VAZ
+ * Created by Antoine on 5/22/2017.
  */
-public class BrushTeethGame extends JeuDevint {
+public class ChronoGame extends JeuDevint {
 
 
     private ChronoActivity chronoActivity;
 
-    public BrushTeethGame() {
+    public ChronoGame(ChronoActivity activity) {
+        this.chronoActivity = activity;
     }
 
     @Override
     public String titre() {
-        return "Se brosser les dents";
+        return chronoActivity.getTitle();
     }
 
     @Override
     protected ModeleDevint initModel() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
-        chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
+        //Gson gson = new GsonBuilder().registerTypeAdapter(ChronoActivity.class, new ActivityDeserializer<ChronoActivity>()).create();
+        //chronoActivity = (ChronoActivity) gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/brush.json")), ChronoActivity.class);
         return chronoActivity;
     }
 

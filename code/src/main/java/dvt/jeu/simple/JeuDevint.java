@@ -46,14 +46,18 @@ public abstract class JeuDevint extends Stage{
      * constructeur du jeu
      */
 	public JeuDevint(){
-		this.model = initModel();
-		this.control = initControlAndScene();
-		this.control.setModel(model);
-		this.control.mapTouchToActions();
-		this.control.init();
-		this.setScene(control.getScene());
-		this.setTitle(titre());
-   		this.show();
+
 	}
+
+	protected void init(){
+        this.model = initModel();
+        this.control = initControlAndScene();
+        this.control.setModel(model);
+        this.control.mapTouchToActions();
+        this.control.init();
+        this.setScene(control.getScene());
+        this.setTitle(titre());
+        this.show();
+    }
     
 }

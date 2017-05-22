@@ -22,7 +22,6 @@ public class ChronoActivity extends Activity<Action> {
         boolean wasCorrect = answer(action);
         if (wasCorrect) {
             sivoxDevint.playText("Bonne réponse !");
-//            sivoxDevint.playText(action.getDescription());
         } else {
             sivoxDevint.playText("Mauvaise réponse !");
         }
