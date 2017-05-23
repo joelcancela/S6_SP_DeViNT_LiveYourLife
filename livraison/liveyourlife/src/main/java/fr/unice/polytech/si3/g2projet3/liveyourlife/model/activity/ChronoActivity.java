@@ -1,42 +1,31 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
-import javafx.collections.FXCollections;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import t2s.SIVOXDevint;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * Class x
  *
  * @author Joël CANCELA VAZ
  */
-public class ChronoActivity extends Activity<ChronoAction> {
+public class ChronoActivity extends Activity<Action> {
 
-    private SIVOXDevint sivoxDevint;
-
-    public ChronoActivity(String title, List<ChronoAction> choices) {
-        super(title, choices);
-        answers = FXCollections.observableArrayList(new ArrayList<>());
+   public ChronoActivity(String titre, MultiChoiceList<Action> allWays) {
+        super(titre, allWays);
         for (int i = 0; i < possibleChoices.size(); i++) {
-            answers.add(new ChronoAction());
+            answers.add(new Action());
         }
     }
 
-    public void setSIVOXInstance(SIVOXDevint sivoxDevint){
-        this.sivoxDevint = sivoxDevint;
-    }
-
-    public void answerAction(ChronoAction action) {
+    public boolean answerAction(Action action) {
         boolean wasCorrect = answer(action);
-        if(wasCorrect){
+        if (wasCorrect) {
             sivoxDevint.playText("Bonne réponse !");
-//            sivoxDevint.playText(action.getDescription());
-        }
-        else{
+        } else {
             sivoxDevint.playText("Mauvaise réponse !");
         }
+        return wasCorrect;
     }
+
 }

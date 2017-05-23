@@ -1,8 +1,8 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ShuffleAction;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.scene.image.Image;
-import t2s.SIVOXDevint;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,23 +13,22 @@ import java.util.Queue;
  *
  * @author Joël CANCELA VAZ
  */
-public class ShuffleActivity extends Activity<ShuffleAction> {
+public class ShuffleActivity extends Activity<Action> {
 
     private Image contextImagePath;
     private Queue<Image> currentStateImagePath;
-    private Queue<List<ShuffleAction>> allChoices;
-    private SIVOXDevint sivoxDevint;
+    private Queue<List<Action>> allChoices;
 
-    public ShuffleActivity(String title, Queue<List<ShuffleAction>> choices,
-                           List<ShuffleAction> correctChoices,
+    public ShuffleActivity(String title, MultiChoiceList<Action> correctChoices,
+                           Queue<List<Action>> choices,
                            List<String> currentStateImagePath, String contextImagePath) {
-        super(title, choices.poll());
+        super(title, correctChoices,choices);
+        if(contextImagePath!=null)
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();
         for (String s : currentStateImagePath)
             this.currentStateImagePath.add(new Image(getClass().getResourceAsStream(s)));
 
-        this.correctAnswer = new LinkedList<>(correctChoices);
         this.allChoices = new LinkedList<>(choices);
     }
 
@@ -42,10 +41,10 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
     }
 
     @Override
-    public boolean answer(ShuffleAction act) {
+    public boolean answer(Action act) {
         if (!possibleChoices.contains(act))
             throw new IllegalArgumentException("This action isn't a possibility");
-        if (!correctAnswer.contains(act))
+        if (!correctAnswer.isCorrect(act))
             return false;
         else {
             possibleChoices.clear();
@@ -57,7 +56,7 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
         }
     }
 
-    public boolean answerAction(ShuffleAction action) {
+    public boolean answerAction(Action action) {
         boolean wasCorrect = answer(action);
         if(wasCorrect){
             sivoxDevint.playText("Bonne réponse !");
@@ -66,9 +65,5 @@ public class ShuffleActivity extends Activity<ShuffleAction> {
             sivoxDevint.playText("Mauvaise réponse !");
         }
         return possibleChoices.isEmpty();
-    }
-
-    public void setSIVOXInstance(SIVOXDevint SIVOXInstance) {
-        this.sivoxDevint = SIVOXInstance;
     }
 }

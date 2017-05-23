@@ -1,0 +1,31 @@
+{
+  "type"    : "SHUFFLE",
+  "title"   : "S'habiller",
+  "actions": [
+    [
+      {"description": "Short", "image": "/images/activity/shabiller_soleil/1_short.jpg"},
+      {"description": "Tee-shirt", "image": "/images/activity/shabiller_soleil/2_tee.jpg"},
+      {"description": "Chapeau", "image": "/images/activity/shabiller_soleil/3_chapeau.jpg"}
+    ]
+  ],
+  "choices" : [
+    [
+      {"description": "Short", "image": "/images/activity/shabiller_soleil/1_short.jpg"},
+      {"description": "Pantalon", "image": "/images/activity/shabiller_soleil/1_pantalon.jpg"}
+    ], [
+      {"description": "Tee-shirt", "image": "/images/activity/shabiller_soleil/2_tee.jpg"},
+      {"description": "Veste", "image": "/images/activity/shabiller_soleil/2_veste.jpg"},
+      {"description": "Polaire", "image": "/images/activity/shabiller_soleil/2_polaire.jpg"},
+      {"description": "K-way", "image": "/images/activity/shabiller_soleil/2_kway.jpg"}
+    ], [
+      {"description": "Chapeau", "image": "/images/activity/shabiller_soleil/3_chapeau.jpg"},
+      {"description": "Bonnet", "image": "/images/activity/shabiller_soleil/3_bonnet.jpg"}
+    ]
+  ],
+  "currentState": [
+    "/images/activity/default.jpg",
+    "/images/activity/shabiller_soleil/1_short.jpg",
+    "/images/activity/shabiller_soleil/2_tee.jpg"
+  ],
+  "context": "/images/activity/shabiller_soleil/contexte.png"
+}

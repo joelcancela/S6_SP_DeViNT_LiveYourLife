@@ -1,10 +1,19 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dvt.devint.menu.MenuDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.BrushTeethGame;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.DressUnderSun;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.WashHandsGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.*;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ChronoGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.Game;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ShuffleGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
 import javafx.application.Application;
+
+import java.io.File;
+import java.io.InputStreamReader;
 
 /**
  * Class x
@@ -33,10 +42,21 @@ public class MainMenu extends MenuDevint {
      */
     @Override
     public void initMenu() {
-//        control.addMenuItem("Jouer une journée complète", x-> new ShuffleActivityController());
-        control.addMenuItem("Se brosser les dents", x-> new BrushTeethGame());
-        control.addMenuItem("Se laver les mains", x-> new WashHandsGame());
-        control.addMenuItem("S'habiller", x-> new DressUnderSun());
-//        control.addMenuItem("S'habiller", x-> new ShuffleActivityController());
+        File dir = new File("../ressources/activity/");
+        File[] directoryListing = dir.listFiles();
+        if (directoryListing != null) {
+            for (File child : directoryListing) {
+                addGame(child);
+            }
+        }
+    }
+
+    private void addGame(File child) {
+        String[] fileNames = child.getName().split("\"");
+        String fileName = fileNames[fileNames.length-1];
+        Gson gson = new GsonBuilder().registerTypeAdapter(Activity.class, new ActivityDeserializer<Activity>()).create();
+        Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
+        if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
+        if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
     }
 }

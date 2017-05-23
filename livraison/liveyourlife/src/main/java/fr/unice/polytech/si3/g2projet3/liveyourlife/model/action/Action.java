@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
  *
  * @author Joël CANCELA VAZ
  */
-public abstract class Action {
+public class Action {
 
     private final String description;
     private final Image image;
@@ -29,5 +29,30 @@ public abstract class Action {
 
     public Image getImage() {
         return image;
+    }
+
+    @Override
+    public String toString() {
+        return "Action{" +
+                "description='" + description + '\'' +
+                ", image=" + image +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Action action = (Action) o;
+
+        return description.equals(action.description);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = description.hashCode();
+        result = 31 * result + image.hashCode();
+        return result;
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleActivityController">
+    <top>
+        <Label fx:id="activityName" BorderPane.alignment="CENTER">
+        </Label>
+    </top>
+    <center>
+        <BorderPane maxHeight="350" BorderPane.alignment="CENTER">
+            <center>
+                <HBox alignment="TOP_CENTER" spacing="150">
+                    <ImageView fx:id="contextImage" preserveRatio="true" />
+                    <ImageView fx:id="currentStateImage" preserveRatio="true" />
+                </HBox>
+            </center>
+            <bottom>
+                <ListView fx:id="availableActions" orientation="HORIZONTAL" />
+            </bottom>
+        </BorderPane>
+    </center>
+    <bottom>
+        <Label fx:id="activityDescription" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

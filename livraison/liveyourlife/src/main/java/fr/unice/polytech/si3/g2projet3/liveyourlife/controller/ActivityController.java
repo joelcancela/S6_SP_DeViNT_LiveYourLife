@@ -1,10 +1,8 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import dvt.jeu.simple.ControleDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.ChronoAction;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.util.Duration;
