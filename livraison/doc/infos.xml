@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infos>
+  <year><![CDATA[2017]]></year>
+  <gamecategories>
+    <gamecategory><![CDATA[Connaissances]]></gamecategory>
+  </gamecategories>
+  <shortdescription><![CDATA[Devenir autonome avec des mini-jeux sur des scénarios de la vie de tous les jours]]></shortdescription>
+  <public><![CDATA[MV]]></public>
+  <gamestate><![CDATA[Valider pour le CD]]></gamestate>
+  <age><![CDATA[30 Ans]]></age>
+  <title><![CDATA[Live Your Life]]></title>
+  <authors>
+    <author><![CDATA[DEZARNAUD Antoine]]></author>
+    <author><![CDATA[JUNAC Jeremy]]></author>
+    <author><![CDATA[KAUFMAN Eliott]]></author>
+    <author><![CDATA[CANCELA VAZ Joël]]></author>
+  </authors>
+  <notes>
+    <note />
+  </notes>
+  <gameplay><![CDATA[Nous proposons des scénarios de la vie de tous les jours à accomplir avec succès, tels que se laver, préparer un repas ou encore effectuer un trajet piéton. Des actions sont proposées au joueur, ainsi que des indications pour accomplir sa tâche. L'objectif est d'apprendre ces routines ainsi que de sensibiliser aux risques qui peuvent être présents.]]></gameplay>
+  <gamerules><![CDATA[A l'aide de la souris, de la touche entrée ou de la touche espace, choisissez dans l'ordre les actions à accomplir pour réussir !]]></gamerules>
+</infos>
+
