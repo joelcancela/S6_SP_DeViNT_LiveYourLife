@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
@@ -38,9 +39,11 @@ public class ShuffleActivityController extends ListActivityController {
     @Override
     protected void choose() {
         Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
-        if(((ShuffleActivity) model).answerAction(selectedItem))
+        boolean haveFinished = ((ShuffleActivity) model).answerAction(selectedItem);
+        Image image = ((ShuffleActivity) model).getCurrentStateImagePath();
+        currentStateImage.setImage(image);
+        if(haveFinished) {
             win();
-        else
-            currentStateImage.setImage(((ShuffleActivity) model).getCurrentStateImagePath());
+        }
     }
 }
