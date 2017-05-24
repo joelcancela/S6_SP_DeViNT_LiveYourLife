@@ -37,7 +37,8 @@ public class ShuffleActivity extends Activity<Action> {
     }
 
     public Image getCurrentStateImagePath() {
-        return currentStateImagePath.peek();
+        Image state = currentStateImagePath.peek();
+        return state;
     }
 
     @Override
@@ -50,8 +51,8 @@ public class ShuffleActivity extends Activity<Action> {
             possibleChoices.clear();
             if (allChoices.peek() != null) {
                 possibleChoices.addAll(allChoices.poll());
-                currentStateImagePath.poll();
             }
+            currentStateImagePath.poll();
             return true;
         }
     }

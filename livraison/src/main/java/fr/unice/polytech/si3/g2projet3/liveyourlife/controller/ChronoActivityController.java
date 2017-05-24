@@ -48,7 +48,7 @@ public class ChronoActivityController extends ListActivityController {
         VirtualFlow flow= (VirtualFlow) skin.getChildren().get(0);
         IndexedCell last = flow.getLastVisibleCellWithinViewPort();
         IndexedCell first = flow.getFirstVisibleCellWithinViewPort();
-        if(last.getIndex()<pickedActions.getItems().size()-availableActions.getItems().size()-2){
+        if(last.getIndex()<pickedActions.getItems().size()-availableActions.getItems().size()-1){
             pickedActions.scrollTo(first.getIndex()+1);
         }
         if(availableActions.getItems().isEmpty()){

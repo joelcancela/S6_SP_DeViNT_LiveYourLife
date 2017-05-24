@@ -23,9 +23,10 @@
     ]
   ],
   "currentState": [
-    "/images/activity/default.jpg",
-    "/images/activity/shabiller_soleil/1_short.jpg",
-    "/images/activity/shabiller_soleil/2_tee.jpg"
+    "/images/activity/shabiller_soleil/1.png",
+    "/images/activity/shabiller_soleil/2.png",
+    "/images/activity/shabiller_soleil/3.png",
+    "/images/activity/shabiller_soleil/4.png"
   ],
   "context": "/images/activity/shabiller_soleil/contexte.png"
 }
