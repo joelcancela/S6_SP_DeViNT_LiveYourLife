@@ -3,7 +3,7 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dvt.devint.menu.MenuDevint;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.common.*;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.game.ChronoGame;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.game.ShuffleGame;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
