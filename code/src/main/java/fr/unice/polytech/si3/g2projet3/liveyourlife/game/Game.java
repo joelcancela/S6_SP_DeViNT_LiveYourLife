@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.games;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.game;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,7 +9,6 @@ import dvt.jeu.simple.JeuDevint;
 import dvt.jeu.simple.ModeleDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
