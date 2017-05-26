@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  * Created by Antoine on 5/22/2017.
@@ -25,7 +26,7 @@ public class Game<A extends Activity> extends JeuDevint {
 
     public Game(String fxmlPath, String activityPath, Class<A> type) {
         Gson gson = new GsonBuilder().registerTypeAdapter(type, new ActivityDeserializer<A>()).create();
-        this.activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath)), type);
+        this.activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath), Charset.forName("UTF-8")), type);
         this.fxmlPath = fxmlPath;
         init();
     }
