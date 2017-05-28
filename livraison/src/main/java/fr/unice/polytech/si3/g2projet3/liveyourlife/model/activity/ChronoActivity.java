@@ -2,7 +2,6 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
-import t2s.SIVOXDevint;
 
 /**
  * Class x

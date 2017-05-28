@@ -15,4 +15,6 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with 'Live Your Life'. If not, see <http://www.gnu.org/licenses/>.
 
-Pictures by WikiHow / CC BY-NC-SA 3.0
+Sources images:
+-WikiHow / CC BY-NC-SA 3.0
+-Pixabay / CC0 Public Domain

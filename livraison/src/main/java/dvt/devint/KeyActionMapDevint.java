@@ -54,9 +54,9 @@ public class KeyActionMapDevint {
 		// ESCAPE ferme la fenêtre
 		mapKeyPressedToConsumer(KeyCode.ESCAPE,(x) -> {((Stage)fenetre.getWindow()).close(); fenetre.getSIVox().stop();});
 		// F1 lit l'accueil du jeu
-		mapKeyPressedToConsumer(KeyCode.F1,(x) -> fenetre.getSIVox().playWav(ConstantesDevint.F1_SON));
+		mapKeyPressedToConsumer(KeyCode.F1,(x) -> fenetre.getSIVox().playText("Le but du jeu est de remettre les actions dans le bon ordre."));
 		// F2 lit l'aide plus détaillée
-		mapKeyPressedToConsumer(KeyCode.F2,(x) -> fenetre.getSIVox().playWav(ConstantesDevint.F2_SON));
+		mapKeyPressedToConsumer(KeyCode.F2,(x) -> fenetre.getSIVox().playText("Le but du jeu est de remettre les actions dans le bon ordre. Pour cela vous pouvez utiliser la souris, ou les touches fléchées avec espace ou entrée."));
 		// F3 change le style CSS (couleur)
 		mapKeyPressedToConsumer(KeyCode.F3,(x) -> fenetre.changeColor());
 		// F4 change le style CSS (fonte)
