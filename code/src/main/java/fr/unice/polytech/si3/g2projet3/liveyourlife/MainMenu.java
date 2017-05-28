@@ -7,6 +7,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.common.*;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ChronoGame;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.games.Game;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.games.ShuffleGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.games.Submenu;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
@@ -46,7 +47,10 @@ public class MainMenu extends MenuDevint {
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
-                addGame(child);
+                if (child.isDirectory())
+                    addSubmenu(child);
+                else
+                    addGame(child);
             }
         }
     }
@@ -58,5 +62,11 @@ public class MainMenu extends MenuDevint {
         Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
         if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
         if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
+    }
+
+    private void addSubmenu(File child) {
+        String[] fileNames = child.getName().split("\"");
+        String fileName = fileNames[fileNames.length-1];
+        control.addMenuItem(fileName, x->new Submenu(child, fileName));
     }
 }

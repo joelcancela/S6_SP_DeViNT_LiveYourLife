@@ -1,6 +1,6 @@
 {
   "type"    : "SHUFFLE",
-  "title"   : "S'habiller",
+  "title"   : "S'habiller pour le soleil (Homme)",
   "actions": [
     [
       {"description": "Short", "image": "/images/activity/shabiller_soleil/1_short.jpg"},
