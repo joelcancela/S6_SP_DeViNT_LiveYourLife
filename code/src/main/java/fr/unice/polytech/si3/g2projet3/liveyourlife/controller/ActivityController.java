@@ -10,9 +10,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public abstract class ActivityController extends ControleDevint {
 

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Created by user on 03/05/2017.
+ * @author Coconut team.
  */
 public class ActivityDeserializer<A extends Activity> implements JsonDeserializer<A> {
     @Override

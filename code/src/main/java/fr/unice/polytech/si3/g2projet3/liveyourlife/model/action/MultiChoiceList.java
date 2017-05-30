@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class MultiChoiceList
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class MultiChoiceList<A> {
     private List<List<A>> choices;//Liste des listes des choix possibles à l'instant t

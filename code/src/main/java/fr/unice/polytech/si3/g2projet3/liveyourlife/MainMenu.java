@@ -16,9 +16,7 @@ import java.io.File;
 import java.io.InputStreamReader;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class MainMenu extends MenuDevint {
 

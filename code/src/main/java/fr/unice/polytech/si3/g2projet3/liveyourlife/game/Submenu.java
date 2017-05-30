@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.InputStreamReader;
 
+/**
+ * @author Coconut team.
+ */
 public class Submenu extends Stage {
 
     private SubmenuController control;

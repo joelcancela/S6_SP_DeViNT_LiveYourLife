@@ -13,9 +13,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public abstract class Activity<A extends Action> extends ModeleDevint {
 

@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ShuffleActivity extends Activity<Action> {
 

@@ -3,9 +3,7 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife;
 import dvt.devint.menu.MenuDevint;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ActivityMenu extends MenuDevint {
     /**

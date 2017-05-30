@@ -7,7 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 /**
- * Created by Antoine on 5/22/2017.
+ * @author Coconut team.
  */
 public class ChronoGame extends Game<ChronoActivity> {
 

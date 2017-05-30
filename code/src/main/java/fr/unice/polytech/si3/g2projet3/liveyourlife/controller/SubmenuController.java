@@ -15,6 +15,9 @@ import javafx.scene.layout.GridPane;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
+/**
+ * @author Coconut team.
+ */
 public class SubmenuController extends ControleDevint {
 
     private Label menuTitle;

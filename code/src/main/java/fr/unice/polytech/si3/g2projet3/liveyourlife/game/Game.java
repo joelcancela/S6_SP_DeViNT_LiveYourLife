@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 /**
- * Created by Antoine on 5/22/2017.
+ * @author Coconut team.
  */
 public class Game<A extends Activity> extends JeuDevint {
 

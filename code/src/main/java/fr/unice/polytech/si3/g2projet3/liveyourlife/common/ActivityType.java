@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by user on 17/05/2017.
+ * @author Coconut team.
  */
 public enum ActivityType {
 

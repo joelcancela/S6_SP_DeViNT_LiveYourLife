@@ -4,9 +4,7 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife.model.action;
 import javafx.scene.image.Image;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class Action {
 
