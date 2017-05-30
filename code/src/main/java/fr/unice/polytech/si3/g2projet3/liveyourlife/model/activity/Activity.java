@@ -20,6 +20,7 @@ import java.util.Queue;
 public abstract class Activity<A extends Action> extends ModeleDevint {
 
     protected final String title;
+    private String description;
     protected MultiChoiceList<A> correctAnswer;
     protected ObservableList<A> possibleChoices;
     protected ObservableList<A> answers;
@@ -27,9 +28,10 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     protected SIVOXDevint sivoxDevint;
 
 
-    public Activity(String title, MultiChoiceList<A> possibleChoices) {//ChronoActivity
+    public Activity(String title, String description, MultiChoiceList<A> possibleChoices) {//ChronoActivity
         super();
         this.title = title;
+        this.description = description;
         this.correctAnswer = possibleChoices;
         List<A> shuffle = new ArrayList<>(possibleChoices.getIdealChoices());
         Collections.shuffle(shuffle);
@@ -37,14 +39,19 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
         answers = FXCollections.observableArrayList();
     }
 
-    public Activity(String title, MultiChoiceList<A> possibleChoices, Queue<List<Action>> initialQueue) {//ShuffleActivity
+    public Activity(String title, String description, MultiChoiceList<A> possibleChoices, Queue<List<Action>> initialQueue) {//ShuffleActivity
         super();
         this.title = title;
+        this.description = description;
         this.correctAnswer = possibleChoices;
         List<A> shuffle = (List<A>) initialQueue.poll();
         Collections.shuffle(shuffle);
         this.possibleChoices = FXCollections.observableArrayList(shuffle);
         answers = FXCollections.observableArrayList();
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public boolean answer(A act) {
