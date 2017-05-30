@@ -1,6 +1,7 @@
 {
   "type"    : "CHRONO",
   "title"   : "Se doucher",
+  "description" : "Il faut remettre les actions dans l'ordre pour se laver correctement",
   "actions" : [
                 [
                   {"description": "se déshabiller", "image": "/images/activity/takeAShower/1.jpg"},

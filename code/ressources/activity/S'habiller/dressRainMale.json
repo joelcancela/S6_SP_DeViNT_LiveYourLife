@@ -1,6 +1,7 @@
 {
   "type"    : "SHUFFLE",
   "title"   : "S'habiller pour la pluie (Homme)",
+  "description" : "Il faut choisir les bons vêtements pour un homme qui s'habille un jour de pluie",
   "actions": [
     [
       {"description": "Pantalon", "image": "/images/activity/shabiller/soleil/homme/1_pantalon.jpg"},

@@ -1,6 +1,7 @@
 {
   "type"    : "SHUFFLE",
   "title"   : "S'habiller pour le soleil (Homme)",
+  "description" : "Il faut choisir les bons vêtements pour un homme qui s'habille un jour de soleil",
   "actions": [
     [
       {"description": "Short", "image": "/images/activity/shabiller/soleil/homme/1_short.jpg"},
