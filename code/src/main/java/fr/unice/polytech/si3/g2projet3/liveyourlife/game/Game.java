@@ -67,6 +67,7 @@ public class Game<A extends Activity> extends JeuDevint {
     protected void registerHelp(SceneDevint scene, String help) {
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.F1) {
+                scene.getSIVox().stop();
                 scene.getSIVox().playText(help);
             }
             event.consume();
