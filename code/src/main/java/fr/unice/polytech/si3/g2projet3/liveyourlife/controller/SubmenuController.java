@@ -4,11 +4,9 @@ import dvt.devint.ConstantesDevint;
 import dvt.devint.SceneDevint;
 import dvt.devint.menu.CstMenu;
 import dvt.jeu.simple.ControleDevint;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
