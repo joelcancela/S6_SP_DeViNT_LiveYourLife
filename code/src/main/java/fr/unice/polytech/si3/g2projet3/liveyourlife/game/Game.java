@@ -28,7 +28,6 @@ public class Game<A extends Activity> extends JeuDevint {
     public Game(String fxmlPath, String activityPath, Class<A> type) {
         Gson gson = new GsonBuilder().registerTypeAdapter(type, new ActivityDeserializer<A>()).create();
         this.activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream(activityPath), Charset.forName("UTF-8")), type);
-        registerHelp(activity.getDescription());
         this.fxmlPath = fxmlPath;
         init();
     }
@@ -54,6 +53,7 @@ public class Game<A extends Activity> extends JeuDevint {
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
         sceneDevint.getStylesheets().add("/styles/style.css");
+        registerHelp(sceneDevint, activity.getDescription());
         control = fxmlLoader.getController();
 
         control.setModel(model);
@@ -64,10 +64,10 @@ public class Game<A extends Activity> extends JeuDevint {
         return control;
     }
 
-    protected void registerHelp(String help) {
-        this.getScene().setOnKeyPressed(event -> {
+    protected void registerHelp(SceneDevint scene, String help) {
+        scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.F1) {
-                ((SceneDevint)getScene()).getSIVox().playText(help);
+                scene.getSIVox().playText(help);
             }
             event.consume();
         });
