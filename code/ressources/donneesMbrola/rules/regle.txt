@@ -401,8 +401,7 @@ t [[ z ]] -> s 						## tzigane
 [[ z ]] -> z						## zéro
 
 [[ _'_ ]] ->						# apostrophe
-
-
+[[ ife ]] -> a j f			# life
 END
 
 
