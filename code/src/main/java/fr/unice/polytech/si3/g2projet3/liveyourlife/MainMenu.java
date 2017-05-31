@@ -15,6 +15,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivi
 import javafx.application.Application;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -46,10 +47,14 @@ public class MainMenu extends MenuDevint {
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
-                if (child.isDirectory() || !child.getName().contains(".json"))
-                    addSubmenu(child);
-                else if (child.isFile())
-                    addGame(child);
+                try {
+                    if (child.getCanonicalFile().isDirectory())
+                        addSubmenu(child);
+                    else if (child.getCanonicalFile().isFile())
+                        addGame(child);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
