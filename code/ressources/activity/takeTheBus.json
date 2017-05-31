@@ -1,7 +1,7 @@
 {
   "type": "CHRONO",
   "title": "Prendre le bus",
-  "description" : "Il faut remettre les actions dans l'ordre pour prendre le bus correctement",
+  "description" : "Vous devez prendre le bus, mais il n'est pas encore arrivé. Il faut remettre les actions dans l'ordre pour prendre le bus correctement",
   "actions": [
     [
       {
@@ -17,12 +17,12 @@
         "image": "/images/activity/takeTheBus/3.jpg"
       },
       {
-        "description": "Appuyer sur le bouton stop avant l'arrêt",
-        "image": "/images/activity/takeTheBus/4.jpg"
+        "description": "Faire le trajet en bus",
+        "image": "/images/activity/takeTheBus/5.jpg"
       },
       {
-        "description": "Attendre que le bus s'arrête",
-        "image": "/images/activity/takeTheBus/5.jpg"
+        "description": "Appuyer sur le bouton stop avant de descendre",
+        "image": "/images/activity/takeTheBus/4.jpg"
       },
       {
         "description": "Sortir du bus",

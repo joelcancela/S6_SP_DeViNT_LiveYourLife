@@ -9,8 +9,8 @@ import javafx.stage.Stage;
  * @author helen
  *
  */
-public abstract class MenuDevint extends Application{        
-    
+public abstract class MenuDevint extends Application{
+
 	/**
 	 * le contrôle qui fait tout le travail
 	 */
@@ -47,4 +47,7 @@ public abstract class MenuDevint extends Application{
 		primaryStage.show();
 	}
 
+	public MenuDevintControl getControl() {
+		return control;
+	}
 }

@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class MenuDevintControl  {
-	
-    /** la scene devint où s'affiche le jeu. 
+
+    /** la scene devint où s'affiche le jeu.
      */
     protected SceneDevint scene;
    
@@ -173,5 +173,9 @@ public class MenuDevintControl  {
     private void unSelectButton(Button b){
     	b.getStyleClass().clear();
     	b.getStyleClass().add("unselectedbutton");
+    }
+
+    public SceneDevint getScene() {
+        return scene;
     }
 }
