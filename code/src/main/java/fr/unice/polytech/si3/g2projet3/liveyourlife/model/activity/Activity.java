@@ -55,6 +55,10 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
         return description;
     }
 
+    public String getBest() {
+        return best;
+    }
+
     public boolean answer(A act) {
         if (correctAnswer.isCorrect(act)) {
             answerCorrect(act);
