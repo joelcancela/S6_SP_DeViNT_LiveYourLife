@@ -2,6 +2,8 @@ package fr.unice.polytech.si3.g2projet3.liveyourlife;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import dvt.devint.menu.MenuDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.game.ChronoGame;
@@ -46,19 +48,23 @@ public class MainMenu extends MenuDevint {
             for (File child : directoryListing) {
                 if (child.isDirectory())
                     addSubmenu(child);
-                else
+                else if (child.isFile())
                     addGame(child);
             }
         }
     }
 
     private void addGame(File child) {
-        String[] fileNames = child.getName().split("\"");
-        String fileName = fileNames[fileNames.length-1];
-        Gson gson = new GsonBuilder().registerTypeAdapter(Activity.class, new ActivityDeserializer<Activity>()).create();
-        Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
-        if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
-        if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
+        try {
+            String[] fileNames = child.getName().split("\"");
+            String fileName = fileNames[fileNames.length-1];
+            Gson gson = new GsonBuilder().registerTypeAdapter(Activity.class, new ActivityDeserializer<Activity>()).create();
+            Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
+            if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
+            if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
+        } catch (JsonSyntaxException | JsonIOException e) {
+            // We launch with the bat, there is some bug with the directory
+        }
     }
 
     private void addSubmenu(File child) {

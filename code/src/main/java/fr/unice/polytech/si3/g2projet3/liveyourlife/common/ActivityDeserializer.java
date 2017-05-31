@@ -26,6 +26,7 @@ public class ActivityDeserializer<A extends Activity> implements JsonDeserialize
         List<List<Action>> tmpList = gson.fromJson(jsonObject.get("actions"), listType);
         MultiChoiceList<Action> list = new MultiChoiceList<>(tmpList);
         String title = jsonObject.get("title").getAsString();
+        System.out.println(title);
         String desc = jsonObject.get("description").getAsString();
         ActivityType typ = ActivityType.getActivotyType(jsonObject.get("type").getAsString());
         Activity res = null;
