@@ -27,7 +27,7 @@ public class ActivityDeserializer<A extends Activity> implements JsonDeserialize
         MultiChoiceList<Action> list = new MultiChoiceList<>(tmpList);
         String title = jsonObject.get("title").getAsString();
         String desc = jsonObject.get("description").getAsString();
-        ActivityType typ = ActivityType.getActivotyType(jsonObject.get("type").getAsString());
+        ActivityType typ = ActivityType.getActivityType(jsonObject.get("type").getAsString());
         Activity res = null;
         switch(typ) {
             case CHRONO:

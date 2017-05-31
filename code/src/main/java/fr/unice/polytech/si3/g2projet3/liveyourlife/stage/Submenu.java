@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.game;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.stage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,6 +7,8 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.controller.SubmenuController
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.stage.game.ChronoGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.stage.game.ShuffleGame;
 import javafx.stage.Stage;
 
 import java.io.File;

@@ -32,7 +32,7 @@ public enum ActivityType {
         return clazz;
     }
 
-    public static ActivityType getActivotyType(String str) {
+    public static ActivityType getActivityType(String str) {
         return ACTIVITY_TYPE_MAP.get(str);
     }
 }

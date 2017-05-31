@@ -21,17 +21,6 @@ public abstract class ActivityController extends ControleDevint {
         timeline.play();
     }
 
-    private void displayWin() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent rootNode = null;
-        try {
-            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/win.fxml"));
-            getScene().setRoot(rootNode);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scene.getSIVox().playText("bravo tu as réussi");
-
-    }
+    protected abstract void displayWin();
 
 }
