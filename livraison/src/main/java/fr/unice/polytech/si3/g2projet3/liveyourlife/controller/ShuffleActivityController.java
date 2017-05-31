@@ -7,9 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ShuffleActivityController extends ListActivityController {
 

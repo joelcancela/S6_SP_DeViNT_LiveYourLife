@@ -10,9 +10,7 @@ import javafx.scene.control.IndexedCell;
 import javafx.scene.control.ListView;
 
 /**
- * Controller of the Chrono Activity
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ChronoActivityController extends ListActivityController {
 

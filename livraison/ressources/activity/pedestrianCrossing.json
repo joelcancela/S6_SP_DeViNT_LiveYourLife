@@ -1,6 +1,7 @@
 {
   "type"    : "SHUFFLE",
   "title"   : "Traverser la route",
+  "description" : "Il faut remettre les actions dans l'ordre pour traverser la route correctement",
   "actions": [
     [
       {"description": "Appuyer sur le bouton", "image": "/images/activity/crossTheStreet/1.jpg"},

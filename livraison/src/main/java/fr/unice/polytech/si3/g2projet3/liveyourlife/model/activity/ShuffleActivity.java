@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ShuffleActivity extends Activity<Action> {
 
@@ -19,10 +17,10 @@ public class ShuffleActivity extends Activity<Action> {
     private Queue<Image> currentStateImagePath;
     private Queue<List<Action>> allChoices;
 
-    public ShuffleActivity(String title, MultiChoiceList<Action> correctChoices,
+    public ShuffleActivity(String title, String description, MultiChoiceList<Action> correctChoices,
                            Queue<List<Action>> choices,
                            List<String> currentStateImagePath, String contextImagePath) {
-        super(title, correctChoices,choices);
+        super(title, description, correctChoices,choices);
         if(contextImagePath!=null)
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();

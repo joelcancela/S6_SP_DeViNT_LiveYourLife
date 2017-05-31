@@ -68,7 +68,8 @@ public class SceneDevint extends Scene {
 				KeyCode k = keyEvent.getCode();
 				System.err.println("key pressed dans scene " + k);
 				keysMap.applyPressedAction(k);
-			    keyEvent.consume();
+				if (k != KeyCode.F1)
+			    	keyEvent.consume();
 			   }
 			 }
 			);

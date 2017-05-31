@@ -4,14 +4,12 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 
 /**
- * Class x
- *
- * @author Joël CANCELA VAZ
+ * @author Coconut team.
  */
 public class ChronoActivity extends Activity<Action> {
 
-   public ChronoActivity(String titre, MultiChoiceList<Action> allWays) {
-        super(titre, allWays);
+   public ChronoActivity(String titre, String description, MultiChoiceList<Action> allWays) {
+        super(titre, description, allWays);
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new Action());
         }

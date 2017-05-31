@@ -5,6 +5,9 @@ import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
+/**
+ * @author Coconut team.
+ */
 public class ActivityChoiceController {
     private double SIZE_OF_ELEMENT = 325;
     private double MARGIN_OF_ELEMENT = 30;

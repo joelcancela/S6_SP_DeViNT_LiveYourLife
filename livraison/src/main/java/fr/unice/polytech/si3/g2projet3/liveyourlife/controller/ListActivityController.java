@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import java.io.IOException;
 
 /**
- * Created by Antoine on 5/20/2017.
+ * @author Coconut team.
  */
 public abstract class ListActivityController extends ActivityController{
     @FXML

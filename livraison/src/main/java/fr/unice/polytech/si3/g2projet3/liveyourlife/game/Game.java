@@ -11,13 +11,14 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 /**
- * Created by Antoine on 5/22/2017.
+ * @author Coconut team.
  */
 public class Game<A extends Activity> extends JeuDevint {
 
@@ -52,6 +53,7 @@ public class Game<A extends Activity> extends JeuDevint {
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
         sceneDevint.getStylesheets().add("/styles/style.css");
+        registerHelp(sceneDevint, activity.getDescription());
         control = fxmlLoader.getController();
 
         control.setModel(model);
@@ -60,5 +62,15 @@ public class Game<A extends Activity> extends JeuDevint {
 
 
         return control;
+    }
+
+    protected void registerHelp(SceneDevint scene, String help) {
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.F1) {
+                scene.getSIVox().stop();
+                scene.getSIVox().playText(help);
+            }
+            event.consume();
+        });
     }
 }

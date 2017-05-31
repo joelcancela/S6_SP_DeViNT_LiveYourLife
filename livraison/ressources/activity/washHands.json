@@ -1,6 +1,7 @@
 {
   "type": "CHRONO",
   "title": "Se laver les mains",
+  "description" : "Il faut remettre les actions dans l'ordre pour se laver les mains correctement",
   "actions": [
     [
       {
