@@ -1,12 +1,12 @@
 {
   "type"    : "SHUFFLE",
-  "title"   : "S'habiller pour le soleil (Femme)",
-  "description" : "Choisi les bons vêtements pour une femme qui s'habille un jour de soleil",
+  "title"   : "S'habiller pour la pluie (Femme)",
+  "description" : "Choisit les bons vêtements pour une femme qui s'habille un jour de pluie",
   "actions": [
     [
-      {"description": "Short", "image": "/images/activity/shabiller/soleil/femme/1_short.jpg"},
-      {"description": "Tee-shirt", "image": "/images/activity/shabiller/soleil/femme/2_tee.jpg"},
-      {"description": "Chapeau", "image": "/images/activity/shabiller/soleil/femme/3_chapeau.jpg"}
+      {"description": "Pantalon", "image": "/images/activity/shabiller/soleil/femme/1_pantalon.jpg"},
+      {"description": "K-way", "image": "/images/activity/shabiller/soleil/femme/2_kway.jpg"},
+      {"description": "Parapluie", "image": "/images/activity/shabiller/pluie/homme/3_parapluie.jpg"}
     ]
   ],
   "choices" : [
@@ -20,14 +20,15 @@
       {"description": "K-way", "image": "/images/activity/shabiller/soleil/femme/2_kway.jpg"}
     ], [
       {"description": "Chapeau", "image": "/images/activity/shabiller/soleil/femme/3_chapeau.jpg"},
-      {"description": "Bonnet", "image": "/images/activity/shabiller/soleil/femme/3_bonnet.jpg"}
+      {"description": "Bonnet", "image": "/images/activity/shabiller/soleil/femme/3_bonnet.jpg"},
+      {"description": "Parapluie", "image": "/images/activity/shabiller/pluie/homme/3_parapluie.jpg"}
     ]
   ],
   "currentState": [
     "/images/activity/shabiller/soleil/femme/1.png",
-    "/images/activity/shabiller/soleil/femme/2.png",
-    "/images/activity/shabiller/soleil/femme/3.png",
-    "/images/activity/shabiller/soleil/femme/4.png"
+    "/images/activity/shabiller/pluie/femme/2.png",
+    "/images/activity/shabiller/pluie/femme/3.png",
+    "/images/activity/shabiller/pluie/femme/4.png"
   ],
-  "context": "/images/activity/shabiller/soleil/contexte.png"
+  "context": "/images/activity/shabiller/pluie/context.jpg"
 }
