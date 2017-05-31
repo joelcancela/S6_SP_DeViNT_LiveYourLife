@@ -2,6 +2,7 @@
   "type"    : "CHRONO",
   "title"   : "Se brosser les dents",
   "description" : "Il faut remettre les actions dans l'ordre pour se brosser les dents correctement",
+  "best" : "Voici une des réponses possibles",
   "actions" : [
                 [
                   {"description": "mettre le dentifrice sur la brosse à dent", "image": "/images/activity/se_brosser_les_dents/dentifrice.jpg"},

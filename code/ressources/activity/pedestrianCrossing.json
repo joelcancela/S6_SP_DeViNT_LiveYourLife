@@ -2,6 +2,7 @@
   "type"    : "SHUFFLE",
   "title"   : "Traverser la route en respectant le feu rouge",
   "description" : "Le feu est rouge. Il faut remettre les actions dans l'ordre pour traverser la route correctement",
+  "best" : "Voici la seule réponse possible",
   "actions": [
     [
       {"description": "Appuyer sur le bouton", "image": "/images/activity/crossTheStreet/1.jpg"},

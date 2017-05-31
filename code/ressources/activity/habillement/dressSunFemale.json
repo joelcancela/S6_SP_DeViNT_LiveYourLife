@@ -2,6 +2,7 @@
   "type"    : "SHUFFLE",
   "title"   : "S'habiller pour le soleil (Femme)",
   "description" : "Choisi les bons vêtements pour une femme qui s'habille un jour de soleil",
+  "best" : "Ces vêtements sont adaptés quand il fait beau, mais il faut aussi tenir compte de la saison !",
   "actions": [
     [
       {"description": "Short", "image": "/images/activity/shabiller/soleil/femme/1_short.jpg"},
