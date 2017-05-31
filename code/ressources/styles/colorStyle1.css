@@ -5,7 +5,7 @@
  */ 
  
  /* très contrasté bleu, fond foncé, texte clair  */
-
+@import url("listview_behavior.css");
 .root{
    -fx-background: #e6e6ff;
 }
@@ -57,5 +57,18 @@
     -fx-padding: 10,10,10,10;
     -fx-text-fill: #e6e6ff;
 }
+
+.list-cell{
+    -fx-background-color:
+            #00004d,
+            #e6e6ff;
+}
+
+.list-cell:selected{
+    -fx-background-color:
+            #e6e6ff,
+            #00004d;
+}
+
 
 

@@ -52,7 +52,7 @@ public class Game<A extends Activity> extends JeuDevint {
             e.printStackTrace();
         }
         SceneDevint sceneDevint = new SceneDevint(rootNode, ConstantesDevint.MAX_SCREEN_WIDTH, ConstantesDevint.MAX_SCREEN_HEIGHT);
-        sceneDevint.getStylesheets().add("/styles/style.css");
+        //sceneDevint.getStylesheets().add("/styles/style.css");
         registerHelp(sceneDevint, activity.getDescription());
         control = fxmlLoader.getController();
 

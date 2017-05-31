@@ -1,0 +1,24 @@
+.list-view{
+    -fx-arrows-visible: false;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 1, 1, 1;
+}
+
+.list-view:focused{
+    -fx-arrows-visible: false;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+
+}
+
+.list-cell{
+    -fx-padding: 0;
+    -fx-margin: 0, 0;
+}
+
+.list-cell:selected{
+    -fx-border-width: 500%;
+    -fx-border-style: solid;
+    -fx-border-color: red;
+}
