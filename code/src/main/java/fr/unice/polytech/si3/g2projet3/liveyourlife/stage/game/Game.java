@@ -1,4 +1,4 @@
-package fr.unice.polytech.si3.g2projet3.liveyourlife.game;
+package fr.unice.polytech.si3.g2projet3.liveyourlife.stage.game;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

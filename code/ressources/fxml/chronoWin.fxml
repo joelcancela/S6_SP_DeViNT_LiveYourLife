@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
-
 <?import javafx.scene.control.ListView?>
-<BorderPane maxHeight="1.7976931348623157E308"
-            maxWidth="1.7976931348623157E308"
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
             minHeight="-Infinity" minWidth="-Infinity"
             xmlns="http://javafx.com/javafx/8.0.112"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -15,12 +13,13 @@
         <Label fx:id="activityName" BorderPane.alignment="CENTER" />
     </top>
     <center>
-        <Label alignment="CENTER" prefHeight="1000.0" prefWidth="1000.0" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
-            <font>
-                <Font size="78.0" />
-            </font></Label>
+        <VBox alignment="CENTER" prefHeight="-Infinity">
+            <Label fx:id="winText" alignment="CENTER" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+                <font>
+                    <Font size="78.0" />
+                </font>
+            </Label>
+            <ListView fx:id="actions" orientation="HORIZONTAL" BorderPane.alignment="CENTER"/>
+        </VBox>
     </center>
-    <bottom>
-        <ListView fx:id="actions" orientation="HORIZONTAL" />
-    </bottom>
 </BorderPane>

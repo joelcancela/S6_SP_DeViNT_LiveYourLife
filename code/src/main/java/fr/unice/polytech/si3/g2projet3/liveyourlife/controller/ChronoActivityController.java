@@ -6,8 +6,12 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.IndexedCell;
 import javafx.scene.control.ListView;
+
+import java.io.IOException;
 
 /**
  * @author Coconut team.
@@ -51,5 +55,22 @@ public class ChronoActivityController extends ListActivityController {
         if(availableActions.getItems().isEmpty()){
             win();
         }
+    }
+
+    @Override
+    protected void displayWin() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent rootNode = null;
+        try {
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoWin.fxml"));
+            getScene().setRoot(rootNode);
+            ChronoWinController controller = (ChronoWinController) fxmlLoader.getController();
+            controller.setScene(getScene());
+            controller.setText(((ChronoActivity) model).getTitle());
+            controller.setActions(((ChronoActivity) model).getCorrectAnswer().getIdealChoices());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scene.getSIVox().playText("bravo tu as réussi");
     }
 }
