@@ -7,7 +7,7 @@
                   {"description": "se déshabiller", "image": "/images/activity/takeAShower/1.jpg"},
                   {"description": "se mouiller", "image": "/images/activity/takeAShower/2.jpg"},
                   {"description": "se savonner", "image": "/images/activity/takeAShower/3.jpg"},
-                  {"description": "se rincer", "image": "/images/activity/takeAShower/4.jpg"},
+                  {"description": "se rincer pour enlever le savon", "image": "/images/activity/takeAShower/4.jpg"},
                   {"description": "se sécher", "image": "/images/activity/takeAShower/5.jpg"},
                   {"description": "se réhabiller", "image": "/images/activity/takeAShower/6.jpg"}
                 ]
