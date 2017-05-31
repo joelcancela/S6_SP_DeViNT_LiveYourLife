@@ -46,7 +46,7 @@ public class MainMenu extends MenuDevint {
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
-                if (child.isDirectory())
+                if (child.isDirectory() || !child.getName().contains(".json"))
                     addSubmenu(child);
                 else if (child.isFile())
                     addGame(child);
@@ -63,7 +63,8 @@ public class MainMenu extends MenuDevint {
             if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
             if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
         } catch (JsonSyntaxException | JsonIOException | NullPointerException e) {
-            // We launch with the bat, there is some bug with the directory
+            // If we launch with the bat, there is some bug with the directory
+            addSubmenu(child);
         }
     }
 
