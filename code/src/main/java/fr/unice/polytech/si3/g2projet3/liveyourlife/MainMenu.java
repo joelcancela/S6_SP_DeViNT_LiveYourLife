@@ -62,7 +62,7 @@ public class MainMenu extends MenuDevint {
             Activity activity = gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/activity/"+fileName)), Activity.class);
             if(activity instanceof ChronoActivity)control.addMenuItem(activity.getTitle(),x->new ChronoGame("/activity/"+fileName));
             if(activity instanceof ShuffleActivity)control.addMenuItem(activity.getTitle(), x->new ShuffleGame("/activity/"+fileName));
-        } catch (JsonSyntaxException | JsonIOException e) {
+        } catch (JsonSyntaxException | JsonIOException | NullPointerException e) {
             // We launch with the bat, there is some bug with the directory
         }
     }
