@@ -63,6 +63,10 @@ public class ShuffleActivity extends Activity<Action> {
         else{
             sivoxDevint.playText("Mauvaise réponse !");
         }
+        return wasCorrect;
+    }
+
+    public boolean isFinished() {
         return possibleChoices.isEmpty();
     }
 }

@@ -37,13 +37,17 @@ public class ShuffleActivityController extends ListActivityController {
     @Override
     protected void choose() {
         Action selectedItem = availableActions.getSelectionModel().getSelectedItem();
-        boolean haveFinished = ((ShuffleActivity) model).answerAction(selectedItem);
+        boolean wasCorrect = ((ShuffleActivity) model).answerAction(selectedItem);
+        boolean haveFinished = ((ShuffleActivity) model).isFinished();
+        if(wasCorrect){
+            availableActions.getSelectionModel().select(0);
+        }
         Image image = ((ShuffleActivity) model).getCurrentStateImagePath();
         currentStateImage.setImage(image);
         if(haveFinished) {
             win();
         }
-        availableActions.getSelectionModel().select(0);
+
     }
 
     @Override
