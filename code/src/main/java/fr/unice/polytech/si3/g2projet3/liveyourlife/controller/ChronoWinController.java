@@ -22,6 +22,9 @@ public class ChronoWinController {
     @FXML
     public Label winText;
 
+    @FXML
+    public Label bestText;
+
     private SceneDevint scene;
 
     public void setText(String activityName) {
@@ -53,5 +56,9 @@ public class ChronoWinController {
 
     public void setScene(SceneDevint scene) {
         this.scene = scene;
+    }
+
+    public void setBestText(String bestText) {
+        this.bestText.setText(bestText);
     }
 }

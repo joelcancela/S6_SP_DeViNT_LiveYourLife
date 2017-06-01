@@ -15,9 +15,8 @@
     <center>
         <VBox alignment="CENTER" prefHeight="-Infinity">
             <Label fx:id="winText" alignment="CENTER" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="78.0" />
-                </font>
+            </Label>
+            <Label fx:id="bestText" alignment="CENTER" text="" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
             </Label>
             <ListView fx:id="actions" orientation="HORIZONTAL" BorderPane.alignment="CENTER"/>
         </VBox>

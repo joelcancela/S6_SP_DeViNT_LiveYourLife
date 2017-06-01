@@ -17,7 +17,7 @@
     -fx-margin: 0, 0;
 }
 
-.list-cell:selected{
+.list-cell:selected {
     -fx-border-width: 500%;
     -fx-border-style: solid;
     -fx-border-color: red;

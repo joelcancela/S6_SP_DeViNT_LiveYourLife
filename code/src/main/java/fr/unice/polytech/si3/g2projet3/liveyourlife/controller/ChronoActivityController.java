@@ -4,12 +4,15 @@ import com.sun.javafx.scene.control.skin.ListViewSkin;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.IndexedCell;
 import javafx.scene.control.ListView;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -61,6 +64,7 @@ public class ChronoActivityController extends ListActivityController {
     protected void displayWin() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
+        Timeline timeline = null;
         try {
             rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/chronoWin.fxml"));
             getScene().setRoot(rootNode);
@@ -68,9 +72,17 @@ public class ChronoActivityController extends ListActivityController {
             controller.setScene(getScene());
             controller.setText(((ChronoActivity) model).getTitle());
             controller.setActions(((ChronoActivity) model).getCorrectAnswer().getIdealChoices());
+            String best = ((ChronoActivity) model).getBest();
+            controller.setBestText(best);
+            timeline = new Timeline(new KeyFrame(
+                    Duration.millis(1500),
+                    ae -> scene.getSIVox().playText(best)));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         scene.getSIVox().playText("bravo tu as réussi");
+        timeline.play();
+
     }
 }
