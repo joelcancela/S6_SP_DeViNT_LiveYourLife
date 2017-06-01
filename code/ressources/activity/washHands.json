@@ -2,7 +2,7 @@
   "type": "CHRONO",
   "title": "Se laver les mains",
   "description" : "Il faut remettre les actions dans l'ordre pour se laver les mains correctement",
-  "best" : "Fermer le robinet avant de se sécher les mains permet d'économiser l'eau !",
+  "best" : "Fermer le robinet avant de se sécher\n les mains permet d'économiser l'eau !",
   "actions": [
     [
       {
