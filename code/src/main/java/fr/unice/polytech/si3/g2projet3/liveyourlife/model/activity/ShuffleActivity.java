@@ -4,6 +4,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.scene.image.Image;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -48,7 +49,9 @@ public class ShuffleActivity extends Activity<Action> {
         else {
             possibleChoices.clear();
             if (allChoices.peek() != null) {
-                possibleChoices.addAll(allChoices.poll());
+                List<Action> choices = allChoices.poll();
+                Collections.shuffle(choices);
+                possibleChoices.addAll(choices);
             }
             currentStateImagePath.poll();
             return true;
