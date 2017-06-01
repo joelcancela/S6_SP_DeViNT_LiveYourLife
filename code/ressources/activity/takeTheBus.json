@@ -2,7 +2,7 @@
   "type": "CHRONO",
   "title": "Faire un trajet en bus",
   "description" : "Vous devez prendre le bus, mais il n'est pas encore arrivé. Il faut remettre les actions dans l'ordre pour prendre le bus correctement",
-  "best" : "Voici la réponse si on prend le ticket dans le bus. Mais on peut aussi acheter le ticket avant !",
+  "best" : "Voici la réponse si on prend le ticket dans le bus.\n Mais on peut aussi acheter le ticket avant !",
   "actions": [
     [
       {

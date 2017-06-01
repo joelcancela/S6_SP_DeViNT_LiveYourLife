@@ -1,12 +1,16 @@
 package fr.unice.polytech.si3.g2projet3.liveyourlife.controller;
 
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -44,15 +48,23 @@ public class ShuffleActivityController extends ListActivityController {
     protected void displayWin() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
+        Timeline timeline = null;
         try {
             rootNode = fxmlLoader.load(getClass().getResourceAsStream("/fxml/shuffleWin.fxml"));
             getScene().setRoot(rootNode);
             ShuffleWinController controller = fxmlLoader.getController();
             controller.setScene(getScene());
             controller.setText(((ShuffleActivity) model).getTitle());
+            controller.setFinalImage(((ShuffleActivity) model).getCurrentStateImagePath());
+            String best = ((ShuffleActivity) model).getBest();
+            controller.setBestText(best);
+            timeline = new Timeline(new KeyFrame(
+                    Duration.millis(1500),
+                    ae -> scene.getSIVox().playText(best)));
         } catch (IOException e) {
             e.printStackTrace();
         }
         scene.getSIVox().playText("bravo tu as réussi");
+        timeline.play();
     }
 }

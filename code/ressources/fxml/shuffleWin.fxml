@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-            minHeight="-Infinity" minWidth="-Infinity"
-            xmlns="http://javafx.com/javafx/8.0.112"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleWinController">
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ShuffleWinController">
    <top>
       <Label fx:id="activityName" BorderPane.alignment="CENTER" />
    </top>
    <center>
-      <Label fx:id="winText" alignment="CENTER" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="78.0" />
-         </font></Label>
+       <VBox alignment="CENTER" prefHeight="-Infinity">
+           <Label fx:id="winText" alignment="CENTER" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="finalImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+           <Label fx:id="bestText" alignment="CENTER" text="" textAlignment="JUSTIFY" BorderPane.alignment="CENTER" />
+       </VBox>
    </center>
 </BorderPane>

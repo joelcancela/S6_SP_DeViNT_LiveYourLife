@@ -2,7 +2,7 @@
   "type"    : "CHRONO",
   "title"   : "Se doucher",
   "description" : "Il faut remettre les actions dans l'ordre pour se laver correctement",
-  "best" : "Voici la seule réponse possible",
+  "best" : "N'oublies pas de fermer l'eau en sortant de la douche !",
   "actions" : [
                 [
                   {"description": "se déshabiller", "image": "/images/activity/takeAShower/1.jpg"},
