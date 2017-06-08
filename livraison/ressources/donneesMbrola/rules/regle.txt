@@ -402,6 +402,7 @@ t [[ z ]] -> s 						## tzigane
 
 [[ _'_ ]] ->						# apostrophe
 [[ ife ]] -> a j f			# life
+[[ us ]] -> y s #bus
 END
 
 
