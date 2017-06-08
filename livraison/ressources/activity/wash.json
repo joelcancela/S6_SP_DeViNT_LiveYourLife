@@ -2,19 +2,15 @@
   "type"    : "CHRONO",
   "title"   : "Se doucher",
   "description" : "Il faut remettre les actions dans l'ordre pour se laver correctement",
+  "best" : "N'oublies pas de fermer l'eau en sortant de la douche !",
   "actions" : [
                 [
                   {"description": "se déshabiller", "image": "/images/activity/takeAShower/1.jpg"},
-                  {"description": "allumer l'eau", "image": "/images/activity/takeAShower/2.jpg"},
-                  {"description": "se mouiller", "image": "/images/activity/takeAShower/3.jpg"},
-                  {"description": "se savonner les cheveux", "image": "/images/activity/takeAShower/4.jpg"},
-                  {"description": "se rincer les cheveux", "image": "/images/activity/takeAShower/5.jpg"},
-                  {"description": "se savonner le corps", "image": "/images/activity/takeAShower/6.jpg"},
-                  {"description": "se rincer le corps", "image": "/images/activity/takeAShower/7.jpg"},
-                  {"description": "couper l'eau", "image": "/images/activity/takeAShower/8.jpg"},
-                  {"description": "sortir de la douche", "image": "/images/activity/takeAShower/9.jpg"},
-                  {"description": "se sécher", "image": "/images/activity/takeAShower/10.jpg"},
-                  {"description": "se réhabiller", "image": "/images/activity/takeAShower/11.jpg"}
+                  {"description": "se mouiller", "image": "/images/activity/takeAShower/2.jpg"},
+                  {"description": "se savonner", "image": "/images/activity/takeAShower/3.jpg"},
+                  {"description": "se rincer pour enlever le savon", "image": "/images/activity/takeAShower/4.jpg"},
+                  {"description": "se sécher", "image": "/images/activity/takeAShower/5.jpg"},
+                  {"description": "se réhabiller", "image": "/images/activity/takeAShower/6.jpg"}
                 ]
               ]
 }

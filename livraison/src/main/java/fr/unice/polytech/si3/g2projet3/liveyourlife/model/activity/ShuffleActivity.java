@@ -4,6 +4,7 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.Action;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList;
 import javafx.scene.image.Image;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -17,10 +18,10 @@ public class ShuffleActivity extends Activity<Action> {
     private Queue<Image> currentStateImagePath;
     private Queue<List<Action>> allChoices;
 
-    public ShuffleActivity(String title, String description, MultiChoiceList<Action> correctChoices,
+    public ShuffleActivity(String title, String description, String best, MultiChoiceList<Action> correctChoices,
                            Queue<List<Action>> choices,
                            List<String> currentStateImagePath, String contextImagePath) {
-        super(title, description, correctChoices,choices);
+        super(title, description, best, correctChoices,choices);
         if(contextImagePath!=null)
         this.contextImagePath = new Image(getClass().getResourceAsStream(contextImagePath));
         this.currentStateImagePath = new LinkedList<>();
@@ -48,7 +49,9 @@ public class ShuffleActivity extends Activity<Action> {
         else {
             possibleChoices.clear();
             if (allChoices.peek() != null) {
-                possibleChoices.addAll(allChoices.poll());
+                List<Action> choices = allChoices.poll();
+                Collections.shuffle(choices);
+                possibleChoices.addAll(choices);
             }
             currentStateImagePath.poll();
             return true;
@@ -63,6 +66,10 @@ public class ShuffleActivity extends Activity<Action> {
         else{
             sivoxDevint.playText("Mauvaise réponse !");
         }
+        return wasCorrect;
+    }
+
+    public boolean isFinished() {
         return possibleChoices.isEmpty();
     }
 }

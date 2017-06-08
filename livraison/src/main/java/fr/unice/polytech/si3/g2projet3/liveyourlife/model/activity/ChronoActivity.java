@@ -8,8 +8,8 @@ import fr.unice.polytech.si3.g2projet3.liveyourlife.model.action.MultiChoiceList
  */
 public class ChronoActivity extends Activity<Action> {
 
-   public ChronoActivity(String titre, String description, MultiChoiceList<Action> allWays) {
-        super(titre, description, allWays);
+   public ChronoActivity(String titre, String description, String best, MultiChoiceList<Action> allWays) {
+        super(titre, description, best, allWays);
         for (int i = 0; i < possibleChoices.size(); i++) {
             answers.add(new Action());
         }

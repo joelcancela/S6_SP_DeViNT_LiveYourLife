@@ -5,7 +5,7 @@
  */ 
  
  /* contrasté jaune  */
-
+@import url("listview_behavior.css");
 .root{
    -fx-background: #f2e6d9;
 }
@@ -58,4 +58,14 @@
     -fx-text-fill: #f2e6d9;
 }
 
+.list-cell{
+    -fx-background-color:
+            #4d3319,
+            #f2e6d9;
+}
 
+.list-cell:selected{
+    -fx-background-color:
+            #f2e6d9,
+            #4d3319;
+}

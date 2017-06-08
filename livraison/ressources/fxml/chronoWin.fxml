@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/8.0.112"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.unice.polytech.si3.g2projet3.liveyourlife.controller.ChronoWinController">
+    <top>
+        <Label fx:id="activityName" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="-Infinity">
+            <Label fx:id="winText" alignment="CENTER" text="TU AS GAGNE !" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+            </Label>
+            <Label fx:id="bestText" alignment="CENTER" text="" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
+            </Label>
+            <ListView fx:id="actions" orientation="HORIZONTAL" BorderPane.alignment="CENTER"/>
+        </VBox>
+    </center>
+</BorderPane>

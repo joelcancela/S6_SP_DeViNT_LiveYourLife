@@ -5,7 +5,7 @@
  */ 
  
  /* contrasté rose, fond clair, texte foncé  */
-
+@import url("listview_behavior.css");
 .root{
    -fx-background: #ffe6ff;
 }
@@ -56,6 +56,18 @@
     -fx-background-radius: 0,20; /* boutons arrondis */
     -fx-padding: 10,10,10,10; /* espaces réservés autour du texte */
     -fx-text-fill:#ffe6ff;
+}
+
+.list-cell{
+    -fx-background-color:
+            #4d004d,
+            #ffe6ff;
+}
+
+.list-cell:selected{
+    -fx-background-color:
+            #ffe6ff,
+            #4d004d;
 }
 
 

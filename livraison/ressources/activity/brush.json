@@ -2,11 +2,24 @@
   "type"    : "CHRONO",
   "title"   : "Se brosser les dents",
   "description" : "Il faut remettre les actions dans l'ordre pour se brosser les dents correctement",
+  "best" : "Voici une des réponses possibles",
   "actions" : [
                 [
                   {"description": "mettre le dentifrice sur la brosse à dent", "image": "/images/activity/se_brosser_les_dents/dentifrice.jpg"},
                   {"description": "se brosser les dents", "image": "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"},
                   {"description": "remplir un verre d'eau", "image": "/images/activity/se_brosser_les_dents/remplir_verre.jpg"},
+                  {"description": "se rincer les dents", "image": "/images/activity/se_brosser_les_dents/rincer_dents.jpg"}
+                ],
+                [
+                  {"description": "mettre le dentifrice sur la brosse à dent", "image": "/images/activity/se_brosser_les_dents/dentifrice.jpg"},
+                  {"description": "remplir un verre d'eau", "image": "/images/activity/se_brosser_les_dents/remplir_verre.jpg"},
+                  {"description": "se brosser les dents", "image": "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"},
+                  {"description": "se rincer les dents", "image": "/images/activity/se_brosser_les_dents/rincer_dents.jpg"}
+                ],
+                [
+                  {"description": "remplir un verre d'eau", "image": "/images/activity/se_brosser_les_dents/remplir_verre.jpg"},
+                  {"description": "mettre le dentifrice sur la brosse à dent", "image": "/images/activity/se_brosser_les_dents/dentifrice.jpg"},
+                  {"description": "se brosser les dents", "image": "/images/activity/se_brosser_les_dents/brosse_a_dent.jpg"},
                   {"description": "se rincer les dents", "image": "/images/activity/se_brosser_les_dents/rincer_dents.jpg"}
                 ]
               ]

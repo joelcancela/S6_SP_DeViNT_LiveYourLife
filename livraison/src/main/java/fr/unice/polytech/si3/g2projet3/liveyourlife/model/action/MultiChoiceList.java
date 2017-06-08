@@ -8,11 +8,13 @@ import java.util.List;
  */
 public class MultiChoiceList<A> {
     private List<List<A>> choices;//Liste des listes des choix possibles à l'instant t
+    private List<A> best;
     private int currentIndex;//Index courant
 
 
     public MultiChoiceList(List<List<A>> choices) {
         this.choices = choices;
+        this.best = choices.get(0);
         this.currentIndex = 0;
     }
 
@@ -34,7 +36,7 @@ public class MultiChoiceList<A> {
     }
 
     public List<A> getIdealChoices() {
-        return choices.get(0);
+        return best;
     }
 
     @Override

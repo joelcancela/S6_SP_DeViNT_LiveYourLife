@@ -6,12 +6,12 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import dvt.devint.menu.MenuDevint;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.common.ActivityDeserializer;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.game.ChronoGame;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.game.ShuffleGame;
-import fr.unice.polytech.si3.g2projet3.liveyourlife.game.Submenu;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.Activity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ChronoActivity;
 import fr.unice.polytech.si3.g2projet3.liveyourlife.model.activity.ShuffleActivity;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.stage.Submenu;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.stage.game.ChronoGame;
+import fr.unice.polytech.si3.g2projet3.liveyourlife.stage.game.ShuffleGame;
 import javafx.application.Application;
 
 import java.io.File;

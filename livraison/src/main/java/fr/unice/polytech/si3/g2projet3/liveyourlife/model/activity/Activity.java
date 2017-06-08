@@ -19,6 +19,7 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
 
     protected final String title;
     private String description;
+    private String best;
     protected MultiChoiceList<A> correctAnswer;
     protected ObservableList<A> possibleChoices;
     protected ObservableList<A> answers;
@@ -26,10 +27,11 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
     protected SIVOXDevint sivoxDevint;
 
 
-    public Activity(String title, String description, MultiChoiceList<A> possibleChoices) {//ChronoActivity
+    public Activity(String title, String description, String best, MultiChoiceList<A> possibleChoices) {//ChronoActivity
         super();
         this.title = title;
         this.description = description;
+        this.best = best;
         this.correctAnswer = possibleChoices;
         List<A> shuffle = new ArrayList<>(possibleChoices.getIdealChoices());
         Collections.shuffle(shuffle);
@@ -37,10 +39,11 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
         answers = FXCollections.observableArrayList();
     }
 
-    public Activity(String title, String description, MultiChoiceList<A> possibleChoices, Queue<List<Action>> initialQueue) {//ShuffleActivity
+    public Activity(String title, String description, String best, MultiChoiceList<A> possibleChoices, Queue<List<Action>> initialQueue) {//ShuffleActivity
         super();
         this.title = title;
         this.description = description;
+        this.best = best;
         this.correctAnswer = possibleChoices;
         List<A> shuffle = (List<A>) initialQueue.poll();
         Collections.shuffle(shuffle);
@@ -50,6 +53,10 @@ public abstract class Activity<A extends Action> extends ModeleDevint {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getBest() {
+        return best;
     }
 
     public boolean answer(A act) {

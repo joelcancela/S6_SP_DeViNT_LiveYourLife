@@ -1,0 +1,34 @@
+{
+  "type"    : "SHUFFLE",
+  "title"   : "S'habiller pour le soleil (Homme)",
+  "description" : "Il faut choisir les bons vêtements pour un homme qui s'habille un jour de soleil",
+  "best" : "Ces vêtements sont adaptés quand il fait beau,\n mais il faut aussi tenir compte de la saison !",
+  "actions": [
+    [
+      {"description": "Short", "image": "/images/activity/shabiller/soleil/homme/1_short.jpg"},
+      {"description": "Tee-shirt", "image": "/images/activity/shabiller/soleil/homme/2_tee.jpg"},
+      {"description": "Chapeau", "image": "/images/activity/shabiller/soleil/homme/3_chapeau.jpg"}
+    ]
+  ],
+  "choices" : [
+    [
+      {"description": "Short", "image": "/images/activity/shabiller/soleil/homme/1_short.jpg"},
+      {"description": "Pantalon", "image": "/images/activity/shabiller/soleil/homme/1_pantalon.jpg"}
+    ], [
+      {"description": "Tee-shirt", "image": "/images/activity/shabiller/soleil/homme/2_tee.jpg"},
+      {"description": "Veste", "image": "/images/activity/shabiller/soleil/homme/2_veste.jpg"},
+      {"description": "Polaire", "image": "/images/activity/shabiller/soleil/homme/2_polaire.jpg"},
+      {"description": "K-way", "image": "/images/activity/shabiller/soleil/homme/2_kway.jpg"}
+    ], [
+      {"description": "Chapeau", "image": "/images/activity/shabiller/soleil/homme/3_chapeau.jpg"},
+      {"description": "Bonnet", "image": "/images/activity/shabiller/soleil/homme/3_bonnet.jpg"}
+    ]
+  ],
+  "currentState": [
+    "/images/activity/shabiller/soleil/homme/1.png",
+    "/images/activity/shabiller/soleil/homme/2.png",
+    "/images/activity/shabiller/soleil/homme/3.png",
+    "/images/activity/shabiller/soleil/homme/4.png"
+  ],
+  "context": "/images/activity/shabiller/soleil/contexte.png"
+}

@@ -2,6 +2,7 @@
   "type": "CHRONO",
   "title": "Se laver les mains",
   "description" : "Il faut remettre les actions dans l'ordre pour se laver les mains correctement",
+  "best" : "Fermer le robinet avant de se sécher\n les mains permet d'économiser l'eau !",
   "actions": [
     [
       {
@@ -45,6 +46,126 @@
       {
         "description": "prendre du savon",
         "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      }
+    ],
+    [
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      }
+    ],
+    [
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      }
+    ],
+    [
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
+      },
+      {
+        "description": "se frotter les mains",
+        "image": "/images/activity/washHands/frotterMains.jpg"
+      },
+      {
+        "description": "se rincer les mains",
+        "image": "/images/activity/washHands/rincerMains.jpg"
+      },
+      {
+        "description": "fermer le robinet",
+        "image": "/images/activity/washHands/closeTap.jpg"
+      },
+      {
+        "description": "se sécher les mains",
+        "image": "/images/activity/washHands/secherMains.jpg"
+      }
+    ],
+    [
+      {
+        "description": "ouvrir le robinet",
+        "image": "/images/activity/washHands/openTap.jpg"
+      },
+      {
+        "description": "prendre du savon",
+        "image": "/images/activity/washHands/takeSoap.jpg"
+      },
+      {
+        "description": "se mouiller les mains",
+        "image": "/images/activity/washHands/wetHands.jpg"
       },
       {
         "description": "se frotter les mains",

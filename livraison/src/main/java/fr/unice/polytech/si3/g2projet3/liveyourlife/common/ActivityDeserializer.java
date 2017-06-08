@@ -27,12 +27,13 @@ public class ActivityDeserializer<A extends Activity> implements JsonDeserialize
         MultiChoiceList<Action> list = new MultiChoiceList<>(tmpList);
         String title = jsonObject.get("title").getAsString();
         String desc = jsonObject.get("description").getAsString();
-        ActivityType typ = ActivityType.getActivotyType(jsonObject.get("type").getAsString());
+        String best = jsonObject.get("best").getAsString();
+        ActivityType typ = ActivityType.getActivityType(jsonObject.get("type").getAsString());
         Activity res = null;
         switch(typ) {
             case CHRONO:
                 // Nothing more to do
-                res = new ChronoActivity(title, desc, list);
+                res = new ChronoActivity(title, desc, best, list);
                 break;
             case SHUFFLE:
                 Type queueType = new TypeToken<LinkedList<List<Action>>>(){}.getType();
@@ -40,7 +41,7 @@ public class ActivityDeserializer<A extends Activity> implements JsonDeserialize
                 Type singleListType = new TypeToken<List<String>>(){}.getType();
                 List<String> currentState = gson.fromJson(jsonObject.get("currentState"), singleListType);
                 String contextImg = jsonObject.get("context").getAsString();
-                res = new ShuffleActivity(title, desc, list, choices, currentState, contextImg);
+                res = new ShuffleActivity(title, desc, best, list, choices, currentState, contextImg);
                 break;
         }
         return (A) typ.getClazz().cast(res);
