@@ -1,26 +1,32 @@
 # DeViNT: Live Your Life
 
-## Description :
+## Description
 
 Proposer des scénarios de la vie de tous les jours à accomplir avec succès, tels que se laver, préparer un repas ou encore effectuer un trajet piéton. Des actions sont proposées au joueur, ainsi que des indications pour accomplir sa tâche. L'objectif est d'apprendre ces routines ainsi que de sensibiliser aux risques qui peuvent être présents.
 
 Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario en particulier.
 
-## Membres de l'équipe Coconut :
+## Captures d'écran
+
+<img src="documentation/img/1.png" width="500">
+<img src="documentation/img/2.png" width="420">
+<img src="documentation/img/3.png" width="420">
+
+## Membres de l'équipe Coconut
 
 * Antoine Dezarnaud
 * Jeremy Junac
 * Elliot Kauffmann
 * Joël Cancela Vaz
 
-## Public visé :
+## Public visé
 
 * Persona :
-	* Jacques
-	* Adulte (30 ans)
-	* ESAT
-	* MV
-	* Veut devenir un peu plus indépendant
+  * Jacques
+  * Adulte (30 ans)
+  * ESAT
+  * MV
+  * Veut devenir un peu plus indépendant
 
 ## Contact
 
