@@ -9,8 +9,7 @@ Le joueur peut choisir de réaliser une journée-type intégrale ou un scénario
 ## Captures d'écran
 
 <img src="documentation/img/1.png" width="500">
-<img src="documentation/img/2.png" width="420">
-<img src="documentation/img/3.png" width="420">
+<img src="documentation/img/2.png" width="420"><img src="documentation/img/3.png" width="420">
 
 ## Membres de l'équipe Coconut
 
